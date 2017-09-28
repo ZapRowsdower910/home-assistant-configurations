@@ -1,0 +1,14 @@
+alias: "House Themer"
+hide_entity: False
+trigger:
+  - platform: state
+    entity_id: input_select.house_theme
+action:
+  - service: homeassistant.turn_on
+    entity_id: script.living_room_theme
+  - service: homeassistant.turn_on
+    entity_id: script.sun_room_theme
+  - service: homeassistant.turn_on
+    entity_id: script.kitchen_theme
+  - service: homeassistant.turn_on
+    entity_id: script.office_theme

@@ -1,0 +1,11 @@
+alias: "Eth 24hr Gain"
+trigger:
+  platform: numeric_state
+  entity_id: sensor.ethereum
+  value_template: '{{ state.attributes.percent_change_24h }}'
+  above: 10
+action:
+ - service: notify.pushbullet
+   data_template:
+     title: "Large ETH Gains!"
+     message: "Large 24hr ETH Price Change: {{ states.sensor.ethereum.attributes.percent_change_24h }}% to ${{ states.sensor.ethereum.state }}"

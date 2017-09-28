@@ -1,0 +1,31 @@
+alias: "Trigger Night Motion - Sun Room"
+trigger:
+  platform: state
+  entity_id: binary_sensor.sun_room_motion
+  to: 'on'
+condition:
+  - condition: state
+    entity_id: light.sun_room_c_1
+    state: 'off'
+  - condition: state
+    entity_id: light.sun_room_c_2
+    state: 'off'
+  - condition: state
+    entity_id: light.sun_room_b_2
+    state: 'off'
+  - condition: state
+    entity_id: light.sun_room_b_2
+    state: 'off'
+  - condition: state
+    entity_id: light.lx_sun_room_2
+    state: 'off'
+  - condition: state
+    entity_id: sun.sun
+    state: "below_horizon"
+action:
+  - service: script.turn_on
+    entity_id: script.night_light_sun_room
+  # - service: notify.pushbullet
+  #   data:
+  #     title: Debugging Message
+  #     message: Sun Room Night Light Triggered

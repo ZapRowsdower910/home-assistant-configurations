@@ -1,0 +1,19 @@
+alias: "Trigger Night Motion - Living Room"
+trigger:
+  platform: state
+  entity_id: binary_sensor.living_room_motion
+  to: 'on'
+condition:
+  - condition: state
+    entity_id: group.living_room_lights
+    state: 'off'
+  - condition: state
+    entity_id: sun.sun
+    state: "below_horizon"
+action:
+  - service: script.turn_on
+    entity_id: script.night_light_living_room
+  # - service: notify.pushbullet
+  #   data:
+  #     title: Debugging Message
+  #     message: Living Room Night Light Triggered

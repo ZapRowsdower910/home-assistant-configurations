@@ -1,0 +1,38 @@
+name: "Plex Late Night"
+entities:
+  light.tv_b_1:
+    state: on
+    brightness: 250
+    rgb_color: [255,119,0]
+    transition: 10
+  light.coffee_table:
+    state: on
+    brightness: 250
+    rgb_color: [144,195,212]
+    transition: 10
+  light.living_room_track_c_1:
+    state: on
+    brightness: 90
+    rgb_color: [255, 0, 0]
+    transition: 10
+  light.living_room_track_c_2:
+    state: on
+    brightness: 100
+    rgb_color: [100, 0, 0] 
+    transition: 10
+  light.living_room_track_c_3:
+    state: on
+    brightness: 180
+    rgb_color: [150, 75, 75]
+    transition: 5
+  light.living_room_track_l_1:
+    state: off
+    transition: 10
+  light.living_room_track_l_2:
+    state: on
+    color_temp: 450
+    brightness: 90
+    transition: 10
+  light.living_room_c_1:
+    state: off
+    transition: 10

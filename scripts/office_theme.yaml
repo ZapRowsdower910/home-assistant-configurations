@@ -1,0 +1,9 @@
+alias: "Office Theme"
+sequence:
+  - condition: state
+    entity_id: light.office_c_1
+    state: 'on'
+  - service: scene.turn_on
+    data_template:
+      entity_id:
+        scene.office_{{states('input_select.house_theme') | lower}}

@@ -1,0 +1,12 @@
+alias: "Night Light Living Room"
+sequence:
+  - service: light.turn_on
+    data:
+      entity_id: light.tv_b_1, light.coffee_table, light.go_1
+      rgb_color: [100,0,0]
+      brightness: 100
+  - delay:
+      minutes: 10
+  - service: light.turn_off
+    data:
+      entity_id: light.tv_b_1, light.coffee_table, light.go_1

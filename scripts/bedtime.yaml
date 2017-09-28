@@ -1,0 +1,48 @@
+alias: "Bedtime"
+sequence:
+  - service: light.turn_on
+    entity_id: light.bedroom_l_1
+    data:      
+      brightness: 200
+  - service: light.turn_on
+    entity_id: group.upstairs_bathroom
+  - service: script.turn_on
+    entity_id: script.turn_off_living_room
+  - service: light.turn_off
+    entity_id: group.kitchen
+    data:
+      transition: 120
+  - delay:
+      minutes: 2
+  - service: light.turn_off
+    entity_id: group.sun_room
+    data:
+      transition: 120
+  - service: light.turn_off
+    entity_id: group.office
+    data:
+      transition: 120
+  - service: light.turn_off
+    entity_id: group.workshop
+    data:
+      transition: 120
+  - delay:
+      minutes: 2
+  - service: light.turn_off
+    entity_id: group.stairs
+  - delay:
+      minutes: 5
+  - service: light.turn_off
+    entity_id: light.bedroom_c_1
+    data:
+      transition: 120
+  - service: light.turn_off
+    entity_id: group.upstairs_bathroom
+    data:
+      transition: 120
+  - service: input_boolean.turn_on
+    entity_id: input_boolean.sleep_mode
+  # - service: climate.set_hold_mode
+  #   entity_id: climate.main_floor
+  #   data:
+  #     hold_mode: 'sleep'

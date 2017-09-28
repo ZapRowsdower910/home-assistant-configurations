@@ -1,0 +1,10 @@
+platform: darksky
+api_key: !secret dark_sky_api_key
+monitored_conditions:
+  - icon
+  - summary
+  - temperature
+  - cloud_cover
+  - wind_speed
+  - precip_type
+  - precip_intensity

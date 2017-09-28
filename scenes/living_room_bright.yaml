@@ -1,0 +1,33 @@
+name: "Living Room Bright"
+entities:
+  light.tv_b_1:
+    state: on
+    brightness: 255
+    transition: 10
+  light.coffee_table:
+    state: on
+    brightness: 255
+    transition: 10
+  light.living_room_track_c_1: 
+    state: on
+    brightness: 250
+    transition: 10
+  light.living_room_track_c_2:
+    state: on
+    brightness: 255
+    transition: 10
+  light.living_room_track_c_3:
+    state: on
+    brightness: 255
+    transition: 10
+  light.living_room_track_l_1:
+    state: on
+    brightness: 255
+    transition: 10
+  light.living_room_track_l_2:
+    state: on
+    brightness: 255
+    transition: 10
+#  light.living_room_c_1: 
+#    brightness: 250
+#    transition: 10

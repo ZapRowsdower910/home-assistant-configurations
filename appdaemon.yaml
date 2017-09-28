@@ -1,0 +1,25 @@
+AppDaemon:
+  logfile: STDOUT
+  errorfile: STDERR
+  logfile: /home/homeassistant/.homeassistant/app-deamon.log
+  logsize: 100000
+  log_generations: 3
+  threads: 10
+  cert_path: /etc/letsencrypt/live/deepthink.asuscomm.com/fullchain.pem
+  cert_verify: False
+  time_zone: America/New_York
+  #api_port: 5000
+  #api_key: !secret api_key
+  #api_ssl_certificate: <path/to/root/CA/cert>
+  #api_ssl_key: <path/to/root/CA/key>
+HASS:
+  ha_url: https://deepthink.asuscomm.com:443
+  ha_key: !secret http_api_key
+HADashboard:
+  dash_url: http://192.168.1.15:5050
+  # dash_ssl_certificate: /etc/letsencrypt/live/deepthink.asuscomm.com/fullchain.pem
+  # dash_ssl_key: /etc/letsencrypt/live/deepthink.asuscomm.com/privkey.pem  
+# Apps
+#hello_world:
+#  module: hello
+#  class: HelloWorld

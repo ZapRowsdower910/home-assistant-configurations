@@ -1,0 +1,6 @@
+binary_sensor.sensor:
+  ignored: false
+  polling_intensity: 1
+light.level:
+  ignored: false
+  polling_intensity: 1

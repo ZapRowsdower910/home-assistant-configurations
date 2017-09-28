@@ -1,0 +1,24 @@
+alias: "Auto Away"
+trigger:
+  platform: state
+  entity_id: group.nick
+  to: 'not_home'
+condition:
+  condition: state
+  entity_id: input_boolean.guests_present
+  state: 'off'  
+action:
+ - service: light.turn_off
+   entity_id: group.all_lights
+ - service: climate.set_away_mode
+   entity_id: climate.main_floor
+   data:
+     away_mode: 'on'
+ - service: switch.turn_off
+   entity_id: switch.switch
+ #- service: media_player.turn_off
+ #  entity_id: media_player.tv
+ - service: notify.pushbullet
+   data:
+     title: Smell Ya Later
+     message: I'll make sure everythings off for ya!

@@ -1,0 +1,18 @@
+alias: "Detect Guests"
+trigger:
+  - platform: state
+    entity_id: binary_sensor.living_room_motion
+    to: 'on'
+  - platform: state
+    entity_id: binary_sensor.sun_room_motion
+    to: 'on'
+  - platform: state
+    entity_id: binary_sensor.upstairs_motion
+    to: 'on' 
+action:
+  - service: input_boolean.turn_on
+    entity_id: input_boolean.guests_present
+  - delay:
+      minutes: 14
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.guests_present

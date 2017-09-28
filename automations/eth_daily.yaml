@@ -1,0 +1,9 @@
+alias: "Eth Daily"
+trigger:
+  platform: time
+  at: '09:30:00'
+action:
+ - service: notify.pushbullet
+   data_template:
+    title: "Crypto Daily Update!"
+    message: "ETH: ${{ states.sensor.ethereum.state }}. BTC: ${{states.sensor.bitcoin.state}}."

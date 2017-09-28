@@ -1,0 +1,32 @@
+name: "Sun Room Cool"
+entities:
+  light.lx_sun_room_1:
+    state: on
+    brightness: 255
+    rgb_color: [190, 200, 205]
+    transition: 15
+  light.lx_sun_room_2:
+    state: on
+    brightness: 255
+    rgb_color: [100,200,225]
+    transition: 15
+  light.sun_room_c_1:
+    state: on
+    brightness: 255
+    color_temp: 190
+    transition: 15
+  light.sun_room_c_2:
+    state: on
+    brightness: 255
+    color_temp: 200
+    transition: 15
+  light.sun_room_b_1:
+    state: on
+    brightness: 255
+    rgb_color: [25, 25, 255]
+    transition: 15
+  light.sun_room_b_2:
+    state: on
+    brightness: 255
+    rgb_color: [25, 125, 255]
+    transition: 15

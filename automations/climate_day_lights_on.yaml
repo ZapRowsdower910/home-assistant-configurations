@@ -1,0 +1,29 @@
+alias: "Day TIme Rain Lights"
+trigger:
+  platform: numeric_state
+  entity_id: sensor.dark_sky_cloud_coverage
+  above: 40
+condition:  
+  - condition: state
+    entity_id: input_boolean.auto_lights_climate
+    state: 'On'
+  - condition: state
+    entity_id: input_boolean.state_climate_scene_active
+    state: 'Off'
+  - condition: sun
+    before: sunset
+  - condition: state
+    entity_id: group.nick
+    state: home
+  - condition: time
+    after: '11:00:00'    
+#    - condition: state
+#      entity_id: sensor.dark_sky_icon
+#      state: rain
+action:
+  - service: scene.turn_on
+    entity_id: scene.sun_room_cool
+    data:
+      transition: 60
+  - service: input_boolean.turn_on
+    entity_id: input_boolean.state_climate_scene_active

@@ -1,0 +1,42 @@
+name: "Living Room Warm"
+entities:
+  light.coffee_table:
+    state: on
+    brightness: 255
+    rgb_color: [200, 75, 10]
+    transition: 15
+  light.tv_b_1:
+    state: on
+    brightness: 255
+    rgb_color: [200, 75, 10]
+    transition: 15
+  light.living_room_track_c_1:
+    state: on
+    brightness: 255
+    color_temp: 400
+    transition: 10
+  light.living_room_track_c_2:
+    state: on
+    brightness: 255
+    color_temp: 400
+    transition: 10
+  light.living_room_track_c_3:
+    state: on
+    brightness: 255
+    color_temp: 500
+    transition: 10
+  light.living_room_track_l_1:
+    state: on
+    brightness: 255
+    color_temp: 400
+    transition: 15
+  light.living_room_track_l_2:
+    state: on
+    brightness: 255
+    color_temp: 400
+    transition: 10
+  light.living_room_c_1:
+    state: on
+    brightness: 255
+    color_temp: 400
+    transition: 10

@@ -1,0 +1,12 @@
+alias: "Night Light Sun Room"
+sequence:
+  - service: light.turn_on
+    data:
+      entity_id: light.sun_room_c_1, light.sun_room_b_2
+      rgb_color: [100,0,0]
+      brightness: 100
+  - delay:
+      minutes: 10
+  - service: light.turn_off
+    data:
+      entity_id: light.sun_room_c_1, light.sun_room_b_2

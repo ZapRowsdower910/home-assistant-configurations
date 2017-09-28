@@ -1,0 +1,9 @@
+alias: "Sun Room Theme"
+sequence:
+  - condition: state
+    entity_id: light.lx_sun_room_2
+    state: 'on'
+  - service: scene.turn_on
+    data_template:
+      entity_id:
+        scene.sun_room_{{states('input_select.house_theme') | lower}}

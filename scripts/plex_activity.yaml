@@ -1,0 +1,14 @@
+alias: "Plex Activity Monitor"
+sequence:
+  - condition: state
+    entity_id: light.go_1
+    state: 'on'
+  - service: light.turn_on
+    entity_id: light.go_1
+    data_template:
+      profile: > 
+        {% if is_state("sensor.deepthink", "2") %}
+          'bright_red'
+        {% else %}
+          'bright_yellow'
+        {% endif %}

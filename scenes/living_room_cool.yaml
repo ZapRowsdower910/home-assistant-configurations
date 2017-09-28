@@ -1,0 +1,42 @@
+name: "Living Room Cool"
+entities:
+  light.coffee_table:
+    state: on
+    brightness: 255
+    rgb_color: [0, 150, 250]
+    transition: 15
+  light.tv_b_1:
+    state: on
+    brightness: 255
+    rgb_color: [0, 75, 250]
+    transition: 15
+  light.living_room_track_c_1:
+    state: on
+    brightness: 255
+    color_temp: 200
+    transition: 10
+  light.living_room_track_c_2:
+    state: on
+    brightness: 255
+    color_temp: 200
+    transition: 5
+  light.living_room_track_c_3:
+    state: on
+    brightness: 255
+    rgb_color: [150, 150, 250]
+    transition: 5
+  light.living_room_track_l_1:
+    state: on
+    brightness: 255
+    color_temp: 160
+    transition: 15
+  light.living_room_track_l_2:
+    state: on
+    brightness: 255
+    color_temp: 160
+    transition: 10
+  light.living_room_c_1:
+    state: on
+    brightness: 255
+    color_temp: 225
+    transition: 10

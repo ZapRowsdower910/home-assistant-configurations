@@ -1,0 +1,32 @@
+house_theme:
+  name: "House Theme"
+  initial: "None"
+  options:
+   - "None"
+   - "Warm"
+   - "Cool"
+   - "Grass"
+   - "Honey"
+
+kitchen_led_effect:
+  name: "Kitchen LED Effect"
+  options:
+    - "BPM"
+    - "Candy Cane"
+    - "Confetti"
+    - "Cyclon Rainbow"
+    - "Dots"
+    - "Fire"
+    - "Glitter"
+    - "Juggle"
+    - "Lightning"
+    - "Noise"
+    - "Police All"
+    - "Police One"
+    - "Rainbow"
+    - "Rainbow with Glitter"
+    - "Ripple"
+    - "Sinelon"
+    - "Solid"
+    - "Twinkle"
+  initial: "Solid"

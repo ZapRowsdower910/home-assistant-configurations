@@ -1,0 +1,26 @@
+alias: "Turn off Living Room"
+sequence:
+  - service: light.turn_off
+    entity_id: group.living_room_track_lights
+    data:
+      transition: 60
+  - service: light.turn_off
+    entity_id: light.living_room_c_1
+    data:
+      transition: 90
+  - service: light.turn_off
+    entity_id: light.go_1
+    data:
+      transition: 120
+  - service: light.turn_off
+    entity_id: light.tv_b_1
+    data:
+      transition: 300
+  - service: light.turn_off
+    entity_id: light.coffee_table
+    data:
+      transition: 300      
+  # - service: media_player.turn_off
+  #   entity_id: media_player.vizio_tv
+  # - service: switch.turn_off
+  #   entity_id: switch.switch

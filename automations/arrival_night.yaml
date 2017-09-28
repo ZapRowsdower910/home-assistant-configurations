@@ -1,0 +1,45 @@
+alias: 'Arrival Night'
+trigger:
+  platform: state
+  entity_id: group.nick
+  to: 'home'
+condition:
+  condition: and
+  conditions:
+    - condition: state
+      entity_id: input_boolean.sleep_mode
+      state: 'off'
+    - condition: sun
+      after: sunset
+      after_offset: "-0:59:59"
+action:
+ - service: scene.turn_on
+   entity_id: scene.living_room_cool
+ - service: scene.turn_on
+   entity_id: scene.sun_room_cool
+ - service: light.turn_on
+   entity_id: light.office_b_1
+ - service: light.turn_on
+   entity_id: light.office_c_1
+ - service: light.turn_on
+   entity_id: light.bedroom_c_1
+ - service: climate.set_away_mode
+   entity_id: climate.main_floor
+   data:
+     away_mode: 'off'
+ - service: notify.pushbullet
+   data:
+     title: Welcome Home
+     message: Turning on lights for you now
+#  - service: mqtt.publish
+#    data:
+#      topic: "hass/kitchen-leds-1/set-color"
+#      payload: "0,109,249"
+#  - service: mqtt.publish
+#    data: 
+#      topic: "hass/kitchen-leds-1/set-animation"
+#      payload: "Juggle"
+#  - service: mqtt.publish
+#    data:
+#      topic: "hass/kitchen-leds-1/set-animation-speed"
+#      payload: 5

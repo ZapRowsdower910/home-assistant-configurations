@@ -1,0 +1,168 @@
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Home
+  # Location required to calculate the time the sun rises and sets
+  latitude: 41.6767438
+  longitude: -81.41720740000001
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: 218
+  # metric for Metric, imperial for Imperial
+  unit_system: imperial
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: America/New_York
+  customize:
+    # automation.eth_24hr_drop:
+    #   icon: mdi:currency-eth
+    device_tracker.macbook_air:
+      icon: mdi:laptop-mac
+    device_tracker.macbook_air_bt:
+      icon: mdi:bluetooth
+    device_tracker.nexus_6p:
+      icon: mdi:wifi
+    device_tracker.nexus_6p_bt:
+      icon: mdi:bluetooth
+    switch.living_room_tv:
+      icon: mdi:power
+    input_select.house_theme:
+      icon: mdi:home-variant
+    scene.living_room_bright:
+      icon: mdi:lightbulb-on
+    scene.living_room_dim:
+      icon: mdi:lightbulb-on-outline
+    scene.plex_late_night:
+      icon: mdi:movie
+    # sensor.ethereum:
+    #   icon: mdi:currency-eth
+    sensor.bitcoin:
+      icon: mdi:currency-btc
+    device_tracker.airpods_bt:
+      icon: mdi:apple
+
+config:
+conversation:
+discovery:
+frontend:
+history:
+http:
+  api_password: !secret http_api_key
+  ssl_certificate: /etc/letsencrypt/live/deepthink.asuscomm.com/fullchain.pem
+  ssl_key: /etc/letsencrypt/live/deepthink.asuscomm.com/privkey.pem
+  # base_url: example.duckdns.org:8123
+  trusted_networks: 
+    - 192.168.1.0/24
+  ip_ban_enabled: true
+  login_attempts_threshold: 5
+logbook:
+updater:
+sun:
+tts:
+  platform: google
+zeroconf:
+
+logger:
+  default: warn
+  logs:
+    homeassistant.components.media_player: error
+    homeassistant.components.script: debug
+
+alexa: !include alexa.yaml
+
+ecobee:
+  api_key: !secret ecobee_api_key
+
+envisalink:
+  host: 192.168.1.25
+  panel_type: HONEYWELL
+  user_name: !secret envisa_username
+  password: !secret envisa_password
+  # code: '6321'
+  code: '2580'
+  port: 4025
+  evl_version: 4
+  # keepalive_interval: 60
+  # zonedump_interval: 30
+  # panic_type: Police
+  zones:
+    9:
+      name: 'Front Door'
+      type: 'opening'
+    10:
+      name: 'Back Door'
+      type: 'opening'
+    11:
+      name: 'Garage Door'
+      type: 'opening'
+    12:
+      name: 'Living Room Motion'
+      type: 'motion'
+    13:
+      name: 'Sun Room Motion'
+      type: 'motion'
+    14:
+      name: 'Upstairs Motion'
+      type: 'motion'
+  partitions:
+    1:
+      name: 'Home Alarm'
+
+input_boolean:
+  sleep_mode:
+    name: "Sleep Mode"
+    initial: off
+    icon: mdi:sleep
+  debug_mode:
+    name: "Debug Mode"
+    initial: off
+    icon: mdi:bug
+  tv_auto_lights:
+    name: "Tv Auto Lights"
+    initial: off
+  guests_present:
+    name: "Guests Present"
+    initial: off
+  auto_lights_climate:
+    name: "Auto Lights Climate"
+    initial: on
+  state_climate_scene_active:
+    name: "Climate Scene Actived"
+    initial: off
+
+mqtt:
+  broker: 192.168.1.7
+  port: 1883  
+
+shell_command: 
+  renew_ssl: /home/homeassistant/.homeassistant/certbot/certbot-auto renew --quiet --no-self-upgrade --standalone --preferred-challenges http-01
+
+upnp:
+  port_mapping: false
+
+wink:
+  email: !secret wink_username
+  password: !secret wink_password      
+
+zwave:
+  usb_path: /dev/ttyACM0
+  network_key: !secret zwave_network_key
+
+emulated_hue:
+  host_ip: 192.168.1.15
+  exposed_domains:
+    - group
+    - input_boolean
+    - switch
+    - light
+
+#automation: !include automations.yaml
+automation: !include_dir_list automations
+device_tracker: !include_dir_list device_trackers
+input_select: !include input_selects.yaml
+input_slider: !include input_sliders.yaml
+group: !include groups.yaml
+light: !include_dir_list lights
+notify: !include_dir_list notify
+media_player: !include_dir_list media_players
+scene: !include_dir_list scenes
+script: !include_dir_named scripts
+sensor: !include_dir_list sensors
+# switch: !include_dir_list switches

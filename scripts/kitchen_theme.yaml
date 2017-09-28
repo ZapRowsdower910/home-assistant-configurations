@@ -1,0 +1,9 @@
+alias: "Kitchen Theme"
+sequence:
+  - condition: state
+    entity_id: light.lx_kitchen_1
+    state: 'on'
+  - service: scene.turn_on
+    data_template:
+      entity_id:
+        scene.kitchen_{{states('input_select.house_theme') | lower}}

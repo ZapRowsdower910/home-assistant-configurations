@@ -1,0 +1,40 @@
+alias: "Guest Sleep"
+sequence:
+  - service: light.turn_on
+    data:
+      entity_id: light.bedroom_l_1
+      brightness: 200
+  - service: light.turn_off
+    entity_id: light.bedroom_c_1
+    data:
+      transition: 40
+  - service: light.turn_off
+    entity_id: group.office
+  - service: light.turn_off
+    entity_id: group.kitchen
+    data:
+      transition: 5
+  - service: light.turn_off
+    entity_id: group.sun_room
+    data:
+      transition: 15
+  - service: light.turn_off
+    entity_id: group.workshop
+  - service: light.turn_off
+    entity_id: group.stairs
+  - service: light.turn_off
+    entity_id: group.living_room_track_lights
+    data:
+      transition: 10
+  - service: light.turn_off
+    entity_id: light.living_room_c_1
+    data:
+      transition: 15
+  - service: light.turn_off
+    entity_id: light.tv_b_1
+    data:
+      transition: 25
+  - service: light.turn_off
+    entity_id: light.coffee_table
+    data:
+      transition: 45

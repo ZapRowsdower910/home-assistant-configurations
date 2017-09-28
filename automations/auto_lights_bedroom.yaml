@@ -1,0 +1,26 @@
+alias: 'Auto Lights Bedroom'
+trigger:
+  platform: state
+  entity_id: binary_sensor.bedroom_1_motion
+  from: 'off'
+  to: 'on'
+condition:
+  - condition: state
+    entity_id: input_boolean.sleep_mode
+    state: 'off'
+  - condition: state
+    entity_id: light.bedroom_c_1
+    state: 'off'
+  - condition: state
+    entity_id: light.bedroom_l_1
+    state: 'off'
+action:
+  - service: light.turn_on
+    entity_id: light.bedroom_c_1
+    data:
+      brightness: 250
+      color_temp: 350
+  - service: light.turn_on
+    entity_id: light.bedroom_l_1
+    data:
+      brightness: 250

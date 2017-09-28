@@ -1,0 +1,19 @@
+alias: "Tv Auto Bright"
+trigger:
+  - platform: state
+    entity_id: media_player.tv
+    to: 'playing'
+    for:
+      minutes: 3
+  - platform: state
+    entity_id: media_player.mediapc
+    to: 'playing'
+    for:
+      minutes: 3
+condition:
+  - condition: state
+    entity_id: input_boolean.tv_auto_lights
+    state: 'on'
+action:
+  - service: scene.turn_on
+    entity_id: scene.living_room_dim

@@ -1,0 +1,6 @@
+alias: "Random Color"
+sequence:
+  - service: light.turn_on
+    data_template: 
+      entity_id: light.living_room_c_1
+   #   rgb_color: [{{ range(0, 255) | random }}, {{range(0, 255) | random }}, {{range(0, 255) | random  }}]

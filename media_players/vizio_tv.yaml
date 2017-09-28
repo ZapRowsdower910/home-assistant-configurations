@@ -1,0 +1,4 @@
+platform: vizio
+host: 192.168.1.66
+access_token: !secret vizio_token
+name: "Vizio TV"
