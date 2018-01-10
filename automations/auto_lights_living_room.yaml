@@ -1,0 +1,25 @@
+alias: 'Auto Lights Living Room'
+trigger:
+  - platform: state
+    entity_id: binary_sensor.living_room_motion_1_sensor
+    from: 'off'
+    to: 'on'
+  - platform: state
+    entity_id: binary_sensor.living_room_motion_3_sensor
+    from: 'off'
+    to: 'on'  
+  - platform: state
+    entity_id: binary_sensor.living_room_occupancy
+    from: 'off'
+    to: 'on'
+condition:
+  - condition: state
+    entity_id: input_boolean.sleep_mode
+    state: 'off'
+  - condition: state
+    entity_id: input_boolean.house_auto_lights
+    state: 'on'
+action:
+  - service: script.auto_light_on
+    data:
+      entity: "group.living_room_track_lights"

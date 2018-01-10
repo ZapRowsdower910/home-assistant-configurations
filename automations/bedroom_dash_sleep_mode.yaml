@@ -1,0 +1,8 @@
+alias: "Sleep Mode"
+trigger:
+  platform: state
+  entity_id: sensor.bedroom_dash
+  to: '1'
+action:
+  service: script.turn_on
+  entity_id: script.bedtime

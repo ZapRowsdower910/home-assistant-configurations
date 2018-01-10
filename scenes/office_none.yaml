@@ -1,0 +1,17 @@
+name: "Office None"
+entities:
+  group.office_shallow_accents:
+    state: on
+    brightness: 255
+    color_temp: 300
+    transition: 5
+  group.office_deep_accents:
+    state: on
+    brightness: 255
+    color_temp: 300
+    transition: 5  
+  group.office_base:
+    state: on
+    brightness: 255
+    color_temp: 300
+    transition: 5

@@ -1,0 +1,63 @@
+ActivateSceneIntent:
+  action:
+    service: scene.turn_on
+    data_template:
+      entity_id: scene.{{ Scene | replace(" ", "_") }}
+  speech:
+    type: plain
+    text: >
+      {{ ["So be it",
+      "If i must",
+      "as you wish",
+      "alright already",
+      "done deal"
+      ] | random }}
+      
+ActivateRoomSceneIntent:
+  action:
+    service: scene.turn_on
+    data_template:
+      entity_id: scene.{{ Room | replace(" ", "_") }}_{{ Scene | replace(" ", "_") }}
+  speech:
+    type: plain
+    text: "how's that?"
+
+MediaPlayerTurnOnIntent:
+  action:
+    service: media_player.turn_on
+    data_template:
+      entity_id: media_player.{{MediaPlayer | replace(" ", "_") }}
+  speech:
+    type: plain
+    text: "Lets watch something good"
+
+MediaPlayerPauseIntent:
+  action:
+    service: media_player.media_play_pause
+    data_template:
+      entity_id: media_player.{{MediaPlayer | replace(" ", "_") }}
+  speech:
+    type: plain
+    text: "Got it"
+
+MediaPlayerTurnOffIntent:
+  action:
+    service: media_player.turn_off
+    data_template:
+      entity_id: media_player.{{MediaPlayer | replace(" ","_") }}
+  speech:
+    type: plain
+    text: "Terminal shut down"
+
+BedtimeIntent:
+  action:
+    service: script.turn_on
+    data:
+      entity_id: script.bedtime
+  speech:
+    type: plain
+    text: >
+      {{ [ "Good Night",
+      "Let me get the lights for you",
+      "OK, starting sleep mode"
+      ] | random }}

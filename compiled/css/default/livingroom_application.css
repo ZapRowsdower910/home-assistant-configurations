@@ -201,6 +201,96 @@ input {
 }
 
 .modalDialogCloseButton:hover { background: #444; }
+.widget-javascript-default-living-room-dash .icon {
+	position: absolute;
+	top: 43px;
+	width: 100%;
+}
+
+.widget-javascript-default-living-room-dash .title {
+	position: absolute;
+	top: 5px;
+	width: 100%;
+}
+
+.widget-javascript-default-living-room-dash .title2 {
+	position: absolute;
+	top: 23px;
+	width: 100%;
+}
+
+.widget-javascript-default-living-room-dash .toggle-area {
+	z-index: 10;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+.widget-javascript-default-sun-room-dash .icon {
+	position: absolute;
+	top: 43px;
+	width: 100%;
+}
+
+.widget-javascript-default-sun-room-dash .title {
+	position: absolute;
+	top: 5px;
+	width: 100%;
+}
+
+.widget-javascript-default-sun-room-dash .title2 {
+	position: absolute;
+	top: 23px;
+	width: 100%;
+}
+
+.widget-javascript-default-sun-room-dash .toggle-area {
+	z-index: 10;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+.widget-basedisplay-default-label-living-room-dash .unit {
+	font-size: 225%;
+	font-weight: 400;
+	display: inline-block;
+	vertical-align: top;
+	margin-left: 5px;
+	margin-top: 5px;
+}
+
+.widget-basedisplay-default-label-living-room-dash .value {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.widget-basedisplay-default-label-living-room-dash .valueunit {
+	position: absolute;
+	top: 43px;
+	width: 100%;
+}
+
+.widget-basedisplay-default-label-living-room-dash .title {
+	position: absolute;
+	top: 5px;
+	width: 100%;
+}
+
+.widget-basedisplay-default-label-living-room-dash .title2 {
+	position: absolute;
+	top: 23px;
+	width: 100%;
+}
+
+.widget-basedisplay-default-label-living-room-dash .state_text {
+	position: absolute;
+	bottom: -3px;
+	width: 100%;
+}
+
 .widget-baselight-default-living-room-lights {
 	position: relative;
 }

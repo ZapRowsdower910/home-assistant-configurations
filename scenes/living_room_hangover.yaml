@@ -1,0 +1,42 @@
+name: "Living Room Hangover"
+entities:
+  light.go_1:
+    state: off
+  light.tv_b_1:
+    state: on
+    brightness: 255
+    rgb_color: [200, 75, 10]
+    transition: 15
+  light.coffee_table:
+    state: on
+    brightness: 255
+    rgb_color: [200, 75, 10]
+    transition: 15    
+  light.living_room_track_c_1:
+    state: on
+    brightness: 56
+    rgb_color: [165,113,38]
+    transition: 10
+  light.living_room_track_c_2:
+    state: on
+    brightness: 166
+    rgb_color: [251,196,102]
+    transition: 10
+  light.living_room_track_c_3:
+    state: off
+  light.living_room_track_c_4:
+    state: on
+    brightness: 124
+    rgb_color: [235,163,59]
+    transition: 10
+  light.living_room_track_l_1:
+    state: off
+  light.living_room_track_l_2:
+    state: off
+  light.living_room_track_l_3:
+    state: off    
+  light.living_room_c_1:
+    state: on
+    brightness: 122
+    rgb_color: [219,170,88]
+    transition: 10

@@ -29,7 +29,7 @@ homeassistant:
       icon: mdi:lightbulb-on
     scene.living_room_dim:
       icon: mdi:lightbulb-on-outline
-    scene.plex_late_night:
+    scene.living_room_late_night:
       icon: mdi:movie
     # sensor.ethereum:
     #   icon: mdi:currency-eth
@@ -37,27 +37,39 @@ homeassistant:
       icon: mdi:currency-btc
     device_tracker.airpods_bt:
       icon: mdi:apple
+    binary_sensor.bedroom_motion_1_sensor:
+      device_class: motion      
+    binary_sensor.kitchen_motion_1_sensor:
+      device_class: motion
+    binary_sensor.living_room_motion_2_sensor:
+      device_class: motion
+    binary_sensor.living_room_motion_3_sensor:
+      device_class: motion
+    binary_sensor.office_motion_1_sensor:
+      device_class: motion
 
 config:
 conversation:
 discovery:
 frontend:
-history:
+#history:
 http:
   api_password: !secret http_api_key
   ssl_certificate: /etc/letsencrypt/live/deepthink.asuscomm.com/fullchain.pem
   ssl_key: /etc/letsencrypt/live/deepthink.asuscomm.com/privkey.pem
-  # base_url: example.duckdns.org:8123
+  base_url: deepthink.asuscomm.com
   trusted_networks: 
     - 192.168.1.0/24
   ip_ban_enabled: true
   login_attempts_threshold: 5
-logbook:
+#logbook:
 updater:
 sun:
 tts:
   platform: google
 zeroconf:
+
+intent_script: !include voice_intents.yaml
 
 logger:
   default: warn
@@ -65,23 +77,32 @@ logger:
     homeassistant.components.media_player: error
     homeassistant.components.script: debug
 
-alexa: !include alexa.yaml
+alexa:
 
-ecobee:
-  api_key: !secret ecobee_api_key
+amcrest:
+  host: 192.168.1.180
+  username: !secret amcrest_username
+  password: !secret amcrest_password
+
+# ecobee:
+#   api_key: !secret ecobee_api_key
+
+emulated_hue:
+  host_ip: 192.168.1.15
+  exposed_domains:
+    - group
+    - input_boolean
+    - switch
+#    - light
 
 envisalink:
   host: 192.168.1.25
   panel_type: HONEYWELL
   user_name: !secret envisa_username
   password: !secret envisa_password
-  # code: '6321'
   code: '2580'
   port: 4025
   evl_version: 4
-  # keepalive_interval: 60
-  # zonedump_interval: 30
-  # panic_type: Police
   zones:
     9:
       name: 'Front Door'
@@ -93,13 +114,13 @@ envisalink:
       name: 'Garage Door'
       type: 'opening'
     12:
-      name: 'Living Room Motion'
+      name: 'Living Room Motion 1 Sensor'
       type: 'motion'
     13:
-      name: 'Sun Room Motion'
+      name: 'Sun Room Motion 1 Sensor'
       type: 'motion'
     14:
-      name: 'Upstairs Motion'
+      name: 'Upstairs Motion 1 Sensor'
       type: 'motion'
   partitions:
     1:
@@ -114,6 +135,9 @@ input_boolean:
     name: "Debug Mode"
     initial: off
     icon: mdi:bug
+  house_auto_lights:
+    name: "House Auto Lights"
+    initial: on
   tv_auto_lights:
     name: "Tv Auto Lights"
     initial: off
@@ -131,33 +155,36 @@ mqtt:
   broker: 192.168.1.7
   port: 1883  
 
+octoprint:
+  host: 192.168.1.35
+  api_key: !secret octoprint_api_key
+  # bed: true
+  # number_of_tools: 1
+
+recorder:
+  purge_interval: 1
+  purge_keep_days: 60
+
 shell_command: 
   renew_ssl: /home/homeassistant/.homeassistant/certbot/certbot-auto renew --quiet --no-self-upgrade --standalone --preferred-challenges http-01
 
 upnp:
   port_mapping: false
 
-wink:
-  email: !secret wink_username
-  password: !secret wink_password      
+# wink:
+#   email: !secret wink_username
+#   password: !secret wink_password
 
 zwave:
   usb_path: /dev/ttyACM0
   network_key: !secret zwave_network_key
 
-emulated_hue:
-  host_ip: 192.168.1.15
-  exposed_domains:
-    - group
-    - input_boolean
-    - switch
-    - light
 
 #automation: !include automations.yaml
 automation: !include_dir_list automations
 device_tracker: !include_dir_list device_trackers
 input_select: !include input_selects.yaml
-input_slider: !include input_sliders.yaml
+input_number: !include input_number.yaml
 group: !include groups.yaml
 light: !include_dir_list lights
 notify: !include_dir_list notify

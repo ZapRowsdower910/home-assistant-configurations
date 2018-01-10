@@ -4,7 +4,7 @@ trigger:
     entity_id: media_player.tv
     to: 'playing'
     for:
-      minutes: 3
+      minutes: 1
   - platform: state
     entity_id: media_player.mediapc
     to: 'playing'

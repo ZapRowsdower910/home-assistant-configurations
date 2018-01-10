@@ -1,0 +1,6 @@
+kitchen_strip_animation_speed:
+    name: Kitchen Strip Animation Speed
+    initial: 150
+    min: 1
+    max: 150
+    step: 10

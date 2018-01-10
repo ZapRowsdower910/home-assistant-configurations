@@ -1,7 +1,7 @@
 alias: 'Auto Off Bedroom'
 trigger:
   platform: state
-  entity_id: binary_sensor.bedroom_1_motion
+  entity_id: binary_sensor.bedroom_motion_1_sensor
   from: 'off'
   to: 'on'
   # for:
@@ -13,7 +13,7 @@ condition:
   #     entity_id: binary_sensor.upstairs_motion
   #     state: 'on'
   - condition: state
-    entity_id: binary_sensor.bedroom_1_motion
+    entity_id: binary_sensor.bedroom_motion_1_sensor
     state: 'off'
     for:
       minutes: 20

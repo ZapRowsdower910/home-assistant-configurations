@@ -1,42 +1,73 @@
 name: "Living Room Cool"
 entities:
-  light.coffee_table:
+  group.living_room_shallow_accents:
     state: on
     brightness: 255
-    rgb_color: [0, 150, 250]
+    profile: cool_blue_shallow
     transition: 15
-  light.tv_b_1:
+  group.living_room_deep_accents:
     state: on
     brightness: 255
-    rgb_color: [0, 75, 250]
-    transition: 15
-  light.living_room_track_c_1:
-    state: on
-    brightness: 255
-    color_temp: 200
-    transition: 10
-  light.living_room_track_c_2:
+    profile: cool_blue_deep
+    transition: 15  
+  group.living_room_base:
     state: on
     brightness: 255
     color_temp: 200
     transition: 5
-  light.living_room_track_c_3:
-    state: on
-    brightness: 255
-    rgb_color: [150, 150, 250]
-    transition: 5
-  light.living_room_track_l_1:
-    state: on
-    brightness: 255
-    color_temp: 160
-    transition: 15
-  light.living_room_track_l_2:
-    state: on
-    brightness: 255
-    color_temp: 160
-    transition: 10
-  light.living_room_c_1:
-    state: on
-    brightness: 255
-    color_temp: 225
-    transition: 10
+
+  # light.coffee_table:
+  #   state: on
+  #   brightness: 255
+  #   # rgb_color: [0, 150, 250]
+  #   profile: cool_blue
+  #   transition: 15
+  # light.tv_b_1:
+  #   state: on
+  #   brightness: 255
+  #   # rgb_color: [0, 75, 250]
+  #   profile: cool_blue
+  #   transition: 15
+  # light.living_room_track_c_1:
+  #   state: on
+  #   brightness: 255
+  #   # rgb_color: [150, 150, 250]
+  #   profile: cool_blue
+  #   transition: 10
+  # light.living_room_track_c_2:
+  #   state: on
+  #   brightness: 255
+  #   color_temp: 200
+  #   transition: 5
+  # light.living_room_track_c_3:
+  #   state: on
+  #   brightness: 255
+  #   # rgb_color: [150, 150, 250]
+  #   profile: cool_blue
+  #   transition: 5
+  # light.living_room_track_c_4:
+  #   state: on
+  #   brightness: 255
+  #   # rgb_color: [150, 150, 250]
+  #   profile: cool_blue
+  #   transition: 5    
+  # light.living_room_track_l_1:
+  #   state: on
+  #   brightness: 255
+  #   color_temp: 160
+  #   transition: 15
+  # light.living_room_track_l_2:
+  #   state: on
+  #   brightness: 255
+  #   color_temp: 160
+  #   transition: 10
+  # light.living_room_track_l_3:
+  #   state: on
+  #   brightness: 255
+  #   color_temp: 160
+  #   transition: 10    
+  # light.living_room_c_1:
+  #   state: on
+  #   brightness: 255
+  #   color_temp: 225
+  #   transition: 10

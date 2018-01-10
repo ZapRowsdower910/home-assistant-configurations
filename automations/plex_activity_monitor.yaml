@@ -1,0 +1,12 @@
+alias: "Plex Activity Monitor"
+hide_entity: False
+trigger:
+  - platform: state
+    entity_id: sensor.deepthink
+# condition:
+#   - condition: state
+#     entity_id: light.go_1
+#     state: "on"
+action:
+  - service: homeassistant.turn_on
+    entity_id: script.plex_activity_visualize

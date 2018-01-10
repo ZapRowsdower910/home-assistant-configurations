@@ -1,0 +1,15 @@
+name: "Kitchen Late Night"
+entities:
+  group.kitchen_shallow_accents:
+    state: on
+    brightness: 255
+    profile: cool_blue_shallow
+    transition: 15
+  group.kitchen_deep_accents:
+    state: on
+    brightness: 255
+    rgb_color: [125, 100, 50]
+    transition: 15  
+  group.kitchen_base:
+    state: off
+    transition: 5

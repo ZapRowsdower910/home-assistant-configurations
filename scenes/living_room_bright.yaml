@@ -1,5 +1,9 @@
 name: "Living Room Bright"
 entities:
+  light.go_1:
+    state: on
+    brightness: 255
+    transition: 10
   light.tv_b_1:
     state: on
     brightness: 255
@@ -20,6 +24,10 @@ entities:
     state: on
     brightness: 255
     transition: 10
+  light.living_room_track_c_4:
+    state: on
+    brightness: 255
+    transition: 10    
   light.living_room_track_l_1:
     state: on
     brightness: 255
@@ -28,6 +36,10 @@ entities:
     state: on
     brightness: 255
     transition: 10
+  light.living_room_track_l_3:
+    state: on
+    brightness: 255
+    transition: 10    
 #  light.living_room_c_1: 
 #    brightness: 250
 #    transition: 10

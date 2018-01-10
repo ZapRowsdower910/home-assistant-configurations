@@ -1,0 +1,8 @@
+alias: "Sleep Mode"
+trigger:
+  platform: state
+  entity_id: sensor.bedroom_dash
+  to: '2'
+action:
+  service: light.toggle
+  entity_id: light.bedroom_l_1

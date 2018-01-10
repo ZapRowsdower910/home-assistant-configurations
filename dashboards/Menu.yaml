@@ -1,0 +1,16 @@
+title: Menu
+widget_dimensions: [83, 47]
+widget_margins: [5, 5]
+columns: 4
+
+living_room_dash:
+  widget_type: navigate
+  title: Living Room
+  dashboard: LivingRoom
+sun_room_dash:
+  widget_type: navigate
+  title: Sun Room
+  dashboard: SunRoom  
+
+layout:
+  - living_room_dash(1x2), spacer(1x4), sun_room_dash(1x2)

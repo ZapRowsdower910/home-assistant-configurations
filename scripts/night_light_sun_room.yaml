@@ -2,7 +2,7 @@ alias: "Night Light Sun Room"
 sequence:
   - service: light.turn_on
     data:
-      entity_id: light.sun_room_c_1, light.sun_room_b_2
+      entity_id: light.sun_room_c_1, light.sun_room_b_2, light.kitchen_strip_1
       rgb_color: [100,0,0]
       brightness: 100
   - delay:

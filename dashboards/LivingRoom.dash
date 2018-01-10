@@ -16,6 +16,10 @@ living_room_lights:
   icon_style_active: "color: #f9ff5e;"
   icon_style_inactive: 'color: white;'
 
+label_living_room_dash:
+  widget_type: label
+  title: Living Room Dashboard
+  title_style: 'text-transform: uppercase; font-size: 20px; margin-top: 8px; font-weight: 400;'
 label_house:
   widget_type: label
   title: House Stuff
@@ -43,7 +47,7 @@ scene_bright:
   icon_style_inactive: "color: #81ef99;"
 scene_movies:
   widget_type: scene
-  entity: scene.plex_late_night
+  entity: scene.living_room_late_night
   title: Movies
   icon_on: fa-film
   icon_off: fa-film
@@ -130,7 +134,7 @@ tv_cast:
   icon_style_inactive: "color: #82bced;"
 tv_hdmi_5:
   widget_type: script
-  entity: script.tv_source_cast
+  entity: script.tv_source_hdmi_5
   title: Nintento Switch
   icon_off: mdi-nintendo-switch
   icon_on: mdi-nintendo-switch
@@ -154,8 +158,10 @@ tv_turn_on:
   icon_style_inactive: "color: #82bced;"
 
 layout:
-  - spacer(1x3), living_room_lights(2x3)
+  - include: Menu
   - 
+  - label_living_room_dash(4x1)
+  - spacer(1x3), living_room_lights(2x3)
   - 
   - label_media(4x1)
   - scene_bright(1x2), scene_movies(1x2), scene_dim(1x2), auto_lights(1x2)

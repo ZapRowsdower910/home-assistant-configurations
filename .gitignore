@@ -27,3 +27,10 @@ pyozw.sqlite
 app-deamon.log*
 Network Trash Folder
 tts
+.spotify-token-cache
+compiled
+Temporary Items
+.AppleDB
+.AppleDesktop
+.AppleDouble
+.DS_Store

@@ -1,16 +1,32 @@
-name: "Kitchen Grass"
+name: "Kitchen None"
 entities:
-  light.kitchen_d_1:
+  group.kitchen_shallow_accents:
     state: on
     brightness: 255
-  light.kitchen_d_2:
+    color_temp: 300
+    transition: 5
+  group.kitchen_deep_accents:
     state: on
     brightness: 255
-  light.lx_kitchen_1:
+    rgb_color: [125, 125, 125]
+    transition: 5  
+  group.kitchen_base:
     state: on
     brightness: 255
-    rgb_color: [255,221,151]
-    transition: 15
+    color_temp: 300
+    transition: 5
+
+  # light.kitchen_d_1:
+  #   state: on
+  #   brightness: 255
+  # light.kitchen_d_2:
+  #   state: on
+  #   brightness: 255
+  # light.lx_kitchen_1:
+  #   state: on
+  #   brightness: 255
+  #   rgb_color: [255,221,151]
+  #   transition: 15
   # light.kitchen_strip_1:
   #   state: on
   #   brightness: 255

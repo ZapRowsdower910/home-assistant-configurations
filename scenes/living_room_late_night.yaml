@@ -1,5 +1,7 @@
-name: "Plex Late Night"
+name: "Living Room Late Night"
 entities:
+  light.go_1:
+    state: off
   light.tv_b_1:
     state: on
     brightness: 250
@@ -22,9 +24,17 @@ entities:
     transition: 10
   light.living_room_track_c_3:
     state: on
-    brightness: 180
+    brightness: 140
     rgb_color: [150, 75, 75]
     transition: 5
+  light.living_room_track_c_4:
+    state: on
+    brightness: 118
+    rgb_color: [150, 75, 75]
+    transition: 5
+  light.living_room_track_c_5:
+    state: off
+    transition: 5    
   light.living_room_track_l_1:
     state: off
     transition: 10
@@ -33,6 +43,9 @@ entities:
     color_temp: 450
     brightness: 90
     transition: 10
+  light.living_room_track_l_3:
+    state: off
+    transition: 10    
   light.living_room_c_1:
     state: off
     transition: 10

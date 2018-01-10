@@ -1,0 +1,5 @@
+platform: spotify
+client_id: !secret spotify_client
+client_secret: !secret spotify_secret
+aliases:
+  TX-NR545: "Receiver"

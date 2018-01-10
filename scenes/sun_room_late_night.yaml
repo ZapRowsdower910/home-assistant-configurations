@@ -20,6 +20,14 @@ entities:
     brightness: 255
     rgb_color: [0, 0, 100]
     transition: 15
+  light.sun_room_c_3:
+    state: on
+    brightness: 255
+    rgb_color: [0, 0, 140]
+    transition: 15
+  light.sun_room_d_1:
+    state: off    
+    transition: 8      
   light.sun_room_b_1:
     state: on
     brightness: 255

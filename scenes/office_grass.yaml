@@ -1,0 +1,17 @@
+name: "Office Grass"
+entities:
+  group.office_shallow_accents:
+    state: on
+    brightness: 255
+    profile: grass_green_shallow
+    transition: 15
+  group.office_deep_accents:
+    state: on
+    brightness: 255
+    profile: grass_green_deep
+    transition: 15  
+  group.office_base:
+    state: on
+    brightness: 255
+    color_temp: 200
+    transition: 5

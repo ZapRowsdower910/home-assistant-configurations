@@ -1,0 +1,147 @@
+#
+# Main arguments, all optional
+#
+title: Sun Room Panel
+widget_dimensions: [83, 47]
+widget_margins: [5, 5]
+columns: 4
+
+sun_room_lights:
+  widget_type: group
+  entity: group.sun_room_lights
+  title: Lights
+  monitored_entity: light.sun_room_c_1
+  icon_on: mdi-lightbulb-on
+  icon_off: fa-lightbulb-o
+  icon_style_active: "color: #f9ff5e;"
+  icon_style_inactive: 'color: white;'
+
+label_scenes:
+  widget_type: label
+  title: Scenes
+  title_style: 'text-transform: uppercase; font-size: 20px; margin-top: 8px; font-weight: 400;'
+label_media:
+  widget_type: label
+  title: Media Controls
+  title_style: 'text-transform: uppercase; font-size: 20px; margin-top: 8px; font-weight: 400;'
+label_scenes:
+  widget_type: label
+  title: Scenes
+  title_style: 'text-transform: uppercase; font-size: 20px; margin-top: 8px; font-weight: 400;'
+label_tv:
+  widget_type: label
+  title: Tv Controls
+  title_style: 'text-transform: uppercase; font-size: 20px; margin-top: 8px; font-weight: 400;'
+
+scene_cool:
+  widget_type: scene
+  entity: scene.living_room_cool
+  title: Cool
+  icon_on: mdi-snowflake
+  icon_off: mdi-snowflake
+  icon_style_active: "color: #36a7ed;"
+  icon_style_inactive: "color: #ec81ef;"
+scene_honey:
+  widget_type: scene
+  entity: scene.living_room_honey
+  title: Honey
+  icon_on: fa-tint
+  icon_off: fa-tint
+  icon_style_active: "color: #f9e01d;"
+  icon_style_inactive: "color: #ec81ef;"
+scene_grass:
+  widget_type: scene
+  entity: scene.living_room_grass
+  title: Grass
+  icon_on: fa-leaf
+  icon_off: fa-leaf
+  icon_style_active: "color: #29d619;"
+  icon_style_inactive: "color: #ec81ef;"
+scene_warm:
+  widget_type: scene
+  entity: scene.living_room_warm
+  title: Warm
+  icon_on: mdi-fire
+  icon_off: mdi-fire
+  icon_style_active: "color: #c63c09;"
+  icon_style_inactive: "color: #ec81ef;"
+
+auto_lights:
+  widget_type: input_boolean
+  entity: input_boolean.tv_auto_lights
+  title: Auto Lights
+  icon_on: mdi-camcorder-box
+  icon_off: mdi-camcorder-box-off
+  icon_style_active: "color: #0f9928;"
+  icon_style_inactive: 'color: #c60808;'
+sleep_mode:
+  widget_type: input_boolean
+  entity: input_boolean.sleep_mode
+  title: Sleep Mode
+  icon_on: fa-bed
+  icon_off: mdi-white-balance-sunny
+  icon_style_active: "color: #36a7ed;"
+  icon_style_inactive: 'color: #c60808;'
+guest_sleep:
+  widget_type: script
+  entity: script.guest_sleep
+  title: Guest Bed Time
+  icon_on: fa-bed
+  icon_off: mdi-weather-night
+  icon_style_active: "color: #8a3cc1;"
+  # icon_style_inactive: 'color: #c60808;'
+
+vizio_tv:
+  widget_type: media_player
+  entity: media_player.vizio_tv
+  title: Tv  
+tv_cast:
+  widget_type: script
+  entity: script.tv_source_cast  
+  title: Cast
+  icon_off: mdi-cast
+  icon_on: mdi-cast
+  icon_style_active: "color: #1e36ed;"
+  icon_style_inactive: "color: #82bced;"
+tv_hdmi_5:
+  widget_type: script
+  entity: script.tv_source_hdmi_5
+  title: Nintento Switch
+  icon_off: mdi-nintendo-switch
+  icon_on: mdi-nintendo-switch
+  icon_style_active: "color: #1e36ed;"
+  icon_style_inactive: "color: #82bced;"
+tv_turn_off:
+  widget_type: script
+  entity: script.tv_turn_off
+  title: Tv Turn Off
+  icon_off: mdi-power
+  icon_on: mdi-power
+  icon_style_active: "color: #c61a11;"
+  icon_style_inactive: "color: #82bced;"
+tv_turn_on:
+  widget_type: script
+  entity: script.tv_turn_on
+  title: Tv Turn On
+  icon_off: fa-bolt
+  icon_on: fa-bolt
+  icon_style_active: "color: #efe415;"
+  icon_style_inactive: "color: #82bced;"
+
+layout:
+  - include: Menu
+  - spacer(1x2), sun_room_lights(1x2), spacer(1x2)
+  - 
+  - 
+  - label_media(4x1)
+  #- scene_bright(1x2), scene_movies(1x2), scene_dim(1x2), auto_lights(1x2)
+  -
+  - label_tv(4x1)
+  #- tv_turn_off(1x2), tv_cast(1x2), tv_hdmi_5(1x2), tv_turn_on(1x2)
+  -
+  - label_scenes(4x1)
+  #- scene_cool(1x2), scene_honey(1x2), scene_grass(1x2), scene_warm(1x2)
+  #- sleep_mode(1x2), spacer(2x2), guest_sleep(1x2)
+  -
+
+  #- input_select.house_theme

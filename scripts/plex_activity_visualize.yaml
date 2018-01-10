@@ -1,0 +1,31 @@
+alias: "Plex Activity Visualize"
+sequence:
+  - service: light.turn_on
+    entity_id: light.go_1
+    data:
+      brightness: 200
+      rgb_color: [50, 50, 50]
+  - condition: numeric_state
+    entity_id: sensor.deepthink
+    above: 0
+  - service: light.turn_on
+    entity_id: light.go_1
+    data:
+      brightness: 200
+      rgb_color: [50, 100, 50]
+  - condition: numeric_state
+    entity_id: sensor.deepthink
+    above: 1
+  - service: light.turn_on
+    entity_id: light.go_1
+    data:
+      brightness: 200
+      rgb_color: [100, 125, 50]
+  - condition: numeric_state
+    entity_id: sensor.deepthink
+    above: 2
+  - service: light.turn_on
+    entity_id: light.go_1
+    data:
+      brightness: 200
+      rgb_color: [100, 50, 50]

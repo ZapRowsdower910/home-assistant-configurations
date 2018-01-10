@@ -13,24 +13,37 @@ condition:
       after: sunset
       after_offset: "-0:59:59"
 action:
- - service: scene.turn_on
-   entity_id: scene.living_room_cool
- - service: scene.turn_on
-   entity_id: scene.sun_room_cool
- - service: light.turn_on
-   entity_id: light.office_b_1
- - service: light.turn_on
-   entity_id: light.office_c_1
- - service: light.turn_on
-   entity_id: light.bedroom_c_1
- - service: climate.set_away_mode
-   entity_id: climate.main_floor
-   data:
-     away_mode: 'off'
- - service: notify.pushbullet
-   data:
-     title: Welcome Home
-     message: Turning on lights for you now
+  - service: scene.turn_on
+    entity_id: scene.living_room_warm
+  - service: scene.turn_on
+    entity_id: scene.sun_room_warm
+  - service: light.turn_on
+    entity_id: light.office_b_1
+    data:
+      brightness: 250   
+  - service: light.turn_on
+    entity_id: light.office_c_1
+    data:
+      brightness: 250
+  - service: light.turn_on
+    entity_id: light.bedroom_c_1
+    data:
+      brightness: 250
+  - service: climate.set_away_mode
+    entity_id: climate.main_floor
+    data:
+      away_mode: 'off'
+  - service: notify.pushbullet
+    data:
+      title: "Welcome Home"
+      message: "Turning on lights for you now"
+  - service: light.turn_on
+    entity_id: light.kitchen_strip_1
+    data:
+      effect: "Solid"
+
+
+
 #  - service: mqtt.publish
 #    data:
 #      topic: "hass/kitchen-leds-1/set-color"

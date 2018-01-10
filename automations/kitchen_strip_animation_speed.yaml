@@ -1,0 +1,11 @@
+alias: "Kitchen Strip Animation Speed"
+initial_state: True
+hide_entity: False
+trigger:
+  - platform: state
+    entity_id: input_number.kitchen_strip_animation_speed
+action:
+  - service: mqtt.publish
+    data_template:
+      topic: "hass/kitchen-leds/set"
+      payload: '{"transition":{{ trigger.to_state.state | int }}}'
