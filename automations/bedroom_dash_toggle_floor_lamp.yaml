@@ -1,8 +1,8 @@
-alias: "Bedroom Dash 4 Button"
+alias: "Bedroom Dash Toggle Floor Lamp"
 trigger:
   platform: state
   entity_id: sensor.bedroom_dash
-  to: '4'
+  to: '3'
 action:
   service: light.toggle
-  entity_id: light.bedroom_l_1
+  entity_id: light.bedroom_c_1

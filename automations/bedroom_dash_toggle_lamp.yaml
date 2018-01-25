@@ -1,4 +1,4 @@
-alias: "Sleep Mode"
+alias: "Bedroom Dash Toggle Lamp"
 trigger:
   platform: state
   entity_id: sensor.bedroom_dash

@@ -14,13 +14,9 @@ condition:
       before_offset: "-1:00:00"
 action:
   - service: scene.turn_on
-    entity_id: scene.living_room_cool
+    entity_id: scene.living_room_grass
   - service: light.turn_on
-    entity_id: light.office_b_1
-  - service: light.turn_on
-    entity_id: light.sun_room_b_1
-  - service: light.turn_on
-    entity_id: light.sun_room_b_2   
+    entity_id: group.accents
   - service: climate.set_away_mode
     entity_id: climate.main_floor
     data:

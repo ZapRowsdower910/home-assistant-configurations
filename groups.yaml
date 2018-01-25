@@ -65,7 +65,6 @@ kitchen_lights:
   - light.kitchen_d_1
   - light.kitchen_d_2
   - light.lx_kitchen_1
-  - light.kitchen_strip_1
 kitchen_accents:
   name: Kitchen Accents
   entities:
@@ -85,7 +84,7 @@ kitchen_base:
   entities:
   - light.lx_kitchen_1
   - light.kitchen_d_1
-  - light.kitchen_d_2
+  - light.kitchen_d_2  
 ###############
 ## Office
 ###############
@@ -210,10 +209,6 @@ accents:
   - light.sun_room_b_1
   - light.kitchen_strip_1
   - light.go_1
-outside_lights:
-  name: "Outside Lights"
-  entities:
-  - light.front_door_c_1
 
 ##########################################
 ## Rooms
@@ -381,9 +376,12 @@ flags:
   view: false
   control: hidden
   entities:
+  - input_boolean.auto_lights_climate
   - input_boolean.debug_mode
+  - input_boolean.guests_present  
+  - input_boolean.house_auto_lights  
   - input_boolean.sleep_mode
-  - input_boolean.guests_present
+  - input_boolean.state_climate_scene_active  
   - input_boolean.tv_auto_lights
 ###############
 ## Misc
@@ -430,9 +428,14 @@ automation_list:
   - automation.auto_lights_bedroom
   - automation.auto_lights_kitchen
   - automation.auto_lights_office
-  - automation.auto_lights_living_room  
+  - automation.auto_lights_living_room
   - automation.auto_off_bedroom
-  - automation.auto_renew_ssl_cert  
+  - automation.auto_off_kitchen
+  - automation.auto_renew_ssl_cert    
+  - automation.bedroom_dash_4_button
+  - automation.bedroom_dash_enable_sleep_mode
+  - automation.bedroom_dash_toggle_floor_lamp
+  - automation.bedroom_dash_toggle_lamp
   - automation.day_time_rain_lights
   - automation.detect_guests
   - automation.eth_24hr_drop
@@ -440,12 +443,12 @@ automation_list:
   - automation.eth_crash
   - automation.eth_daily
   - automation.house_themer
+  - automation.kitchen_strip_animation_speed
+  - automation.outside_lights_auto_off
+  - automation.outside_lights_auto_on
   - automation.plex_activity_monitor
   - automation.recover_from_power_outage
   - automation.sleep_mode
-  - automation.sleep_mode_2
-  - automation.sleep_mode_3
-  - automation.sleep_mode_4
   - automation.sleep_mode_auto_off
   - automation.sunset
   - automation.trigger_night_motion__living_room
@@ -586,6 +589,8 @@ sun_room_view:
   - group.sun_room_lights
   - group.scenes_sun_room
   - binary_sensor.sun_room_motion_1_sensor
+  - camera.amcrest_camera
+  - lock.front_door
 kitchen_view:
   name: "Kitchen"
   view: true

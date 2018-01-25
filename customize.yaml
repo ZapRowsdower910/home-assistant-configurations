@@ -1,2 +1,36 @@
 camera.amcrest_camera:
   friendly_name: Sun Room 1
+device_tracker.macbook_air:
+  icon: mdi:laptop-mac
+device_tracker.macbook_air_bt:
+  icon: mdi:bluetooth
+device_tracker.nexus_6p:
+  icon: mdi:wifi
+device_tracker.nexus_6p_bt:
+  icon: mdi:bluetooth
+switch.living_room_tv:
+  icon: mdi:power
+input_select.house_theme:
+  icon: mdi:home-variant
+scene.living_room_bright:
+  icon: mdi:lightbulb-on
+scene.living_room_dim:
+  icon: mdi:lightbulb-on-outline
+scene.living_room_late_night:
+  icon: mdi:movie
+sensor.bitcoin:
+  icon: mdi:currency-btc
+device_tracker.airpods_bt:
+  icon: mdi:apple
+binary_sensor.bedroom_motion_1_sensor:
+  device_class: motion
+binary_sensor.kitchen_motion_1_sensor:
+  device_class: motion
+binary_sensor.living_room_motion_2_sensor:
+  device_class: motion
+binary_sensor.living_room_motion_3_sensor:
+  device_class: motion
+binary_sensor.office_motion_1_sensor:
+  device_class: motion
+switch.switch:
+  friendly_name: Laundry Mat

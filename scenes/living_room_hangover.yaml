@@ -34,7 +34,9 @@ entities:
   light.living_room_track_l_2:
     state: off
   light.living_room_track_l_3:
-    state: off    
+    state: on
+    brightness: 92
+    color_temp: 429    
   light.living_room_c_1:
     state: on
     brightness: 122
