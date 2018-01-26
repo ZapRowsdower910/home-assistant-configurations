@@ -16,8 +16,8 @@ action:
      away_mode: 'on'
  - service: switch.turn_off
    entity_id: switch.switch
- #- service: media_player.turn_off
- #  entity_id: media_player.tv
+ - service: media_player.turn_off
+  entity_id: media_player.tv
  - service: notify.pushbullet
    data:
      title: Smell Ya Later

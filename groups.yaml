@@ -210,10 +210,6 @@ accents:
   - light.sun_room_b_1
   - light.kitchen_strip_1
   - light.go_1
-outside_lights:
-  name: "Outside Lights"
-  entities:
-  - light.front_door_c_1
 
 ##########################################
 ## Rooms
@@ -528,7 +524,7 @@ scenes_office:
 ## Views
 ##########################################
 default_view:
-  name: "Home"
+  name: "Homez"
   view: true
   icon: mdi:home 
   entities:
@@ -541,8 +537,10 @@ automation:
   name: "Smarts"
   view: true
   entities:
-  - group.automation_list
-  - group.script_list
+  # - group.automation_list
+  # - group.script_list
+  - group.all_automations
+  - group.all_scripts
   - group.scenes_all
 rooms:
   name: "Rooms"

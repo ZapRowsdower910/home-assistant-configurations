@@ -1,3 +1,0 @@
-platform: hue
-host: 192.168.1.17
-allow_hue_groups: false

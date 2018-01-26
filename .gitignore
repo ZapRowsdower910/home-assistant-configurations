@@ -34,3 +34,5 @@ Temporary Items
 .AppleDesktop
 .AppleDouble
 .DS_Store
+._.DS_Store
+coinmarketcap_cache.sqlite

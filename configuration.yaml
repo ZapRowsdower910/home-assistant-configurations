@@ -11,6 +11,10 @@ homeassistant:
   # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   time_zone: America/New_York
   customize:
+    group.all_scripts:
+      hidden: false
+    group.all_automations:
+      hidden: false      
     # automation.eth_24hr_drop:
     #   icon: mdi:currency-eth
     device_tracker.macbook_air:
@@ -53,11 +57,12 @@ conversation:
 discovery:
 frontend:
 #history:
+hassio:
 http:
   api_password: !secret http_api_key
-  ssl_certificate: /etc/letsencrypt/live/deepthink.asuscomm.com/fullchain.pem
-  ssl_key: /etc/letsencrypt/live/deepthink.asuscomm.com/privkey.pem
-  base_url: deepthink.asuscomm.com
+  ssl_certificate: /ssl/fullchain.pem
+  ssl_key: /ssl/privkey.pem
+  base_url: https://deepthink.asuscomm.com
   trusted_networks: 
     - 192.168.1.0/24
   ip_ban_enabled: true
@@ -84,47 +89,52 @@ amcrest:
   username: !secret amcrest_username
   password: !secret amcrest_password
 
-# ecobee:
-#   api_key: !secret ecobee_api_key
+ecobee:
+  api_key: !secret ecobee_api_key
 
 emulated_hue:
-  host_ip: 192.168.1.15
+  host_ip: 192.168.1.151
   exposed_domains:
     - group
     - input_boolean
     - switch
 #    - light
 
-envisalink:
-  host: 192.168.1.25
-  panel_type: HONEYWELL
-  user_name: !secret envisa_username
-  password: !secret envisa_password
-  code: '2580'
-  port: 4025
-  evl_version: 4
-  zones:
-    9:
-      name: 'Front Door'
-      type: 'opening'
-    10:
-      name: 'Back Door'
-      type: 'opening'
-    11:
-      name: 'Garage Door'
-      type: 'opening'
-    12:
-      name: 'Living Room Motion 1 Sensor'
-      type: 'motion'
-    13:
-      name: 'Sun Room Motion 1 Sensor'
-      type: 'motion'
-    14:
-      name: 'Upstairs Motion 1 Sensor'
-      type: 'motion'
-  partitions:
-    1:
-      name: 'Home Alarm'
+# envisalink:
+#   host: 192.168.1.25
+#   panel_type: HONEYWELL
+#   user_name: !secret envisa_username
+#   password: !secret envisa_password
+#   code: '2580'
+#   port: 4025
+#   evl_version: 4
+#   zones:
+#     9:
+#       name: 'Front Door'
+#       type: 'opening'
+#     10:
+#       name: 'Back Door'
+#       type: 'opening'
+#     11:
+#       name: 'Garage Door'
+#       type: 'opening'
+#     12:
+#       name: 'Living Room Motion 1 Sensor'
+#       type: 'motion'
+#     13:
+#       name: 'Sun Room Motion 1 Sensor'
+#       type: 'motion'
+#     14:
+#       name: 'Upstairs Motion 1 Sensor'
+#       type: 'motion'
+#   partitions:
+#     1:
+#       name: 'Home Alarm'
+
+hue:
+  bridges:
+    - host: 192.168.1.17
+      allow_hue_groups: false
 
 input_boolean:
   sleep_mode:
@@ -155,9 +165,9 @@ mqtt:
   broker: 192.168.1.7
   port: 1883  
 
-octoprint:
-  host: 192.168.1.35
-  api_key: !secret octoprint_api_key
+# octoprint:
+#   host: 192.168.1.35
+#   api_key: !secret octoprint_api_key
   # bed: true
   # number_of_tools: 1
 
@@ -171,13 +181,13 @@ shell_command:
 upnp:
   port_mapping: false
 
-# wink:
-#   email: !secret wink_username
-#   password: !secret wink_password
+wink:
+  # email: !secret wink_username
+  # password: !secret wink_password
 
-zwave:
-  usb_path: /dev/ttyACM0
-  network_key: !secret zwave_network_key
+#zwave:
+#  usb_path: /dev/ttyACM0
+#  network_key: !secret zwave_network_key
 
 
 #automation: !include automations.yaml
@@ -192,4 +202,4 @@ media_player: !include_dir_list media_players
 scene: !include_dir_list scenes
 script: !include_dir_named scripts
 sensor: !include_dir_list sensors
-# switch: !include_dir_list switches
+switch: !include_dir_list switches
