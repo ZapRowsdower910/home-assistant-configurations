@@ -1,2 +1,67 @@
+binary_sensor.back_door:
+  device_class: door
+binary_sensor.front_door:
+  device_class: door
+binary_sensor.garage_door:
+  device_class: door
+binary_sensor.bedroom_motion_1_sensor:
+  device_class: motion
+binary_sensor.kitchen_motion_1_sensor:
+  device_class: motion
+binary_sensor.living_room_motion_2_sensor:
+  device_class: motion
+binary_sensor.living_room_motion_3_sensor:
+  device_class: motion
+binary_sensor.office_motion_1_sensor:
+  device_class: motion
+sensor.master_bathroom_motion_1_burglar:
+  device_class: motion  
 camera.amcrest_camera:
   friendly_name: Sun Room 1
+device_tracker.airpods_bt:
+  icon: mdi:apple  
+device_tracker.macbook_air:
+  icon: mdi:laptop-mac
+device_tracker.macbook_air_bt:
+  icon: mdi:bluetooth
+device_tracker.nexus_6p:
+  icon: mdi:wifi
+device_tracker.nexus_6p_bt:
+  icon: mdi:bluetooth
+switch.living_room_tv:
+  icon: mdi:power
+group.all_scripts:
+  hidden: false
+group.all_automations:
+  hidden: false  
+input_select.house_theme:
+  icon: mdi:home-variant
+scene.living_room_bright:
+  icon: mdi:lightbulb-on
+scene.living_room_dim:
+  icon: mdi:lightbulb-on-outline
+scene.living_room_late_night:
+  icon: mdi:movie  
+sensor.bitcoin:
+  icon: mdi:bitcoin
+sensor.ethereum:
+  icon: mdi:ethereum  
+sensor.kitchen_motion_1_luminance:
+  icon: mdi:white-balance-sunny
+sensor.living_room_motion_3_luminance:
+  friendly_name: Living Room Lux
+  icon: mdi:white-balance-sunny
+sensor.master_bathroom_motion_1_luminance:
+  icon: mdi:white-balance-sunny
+sensor.workshop_hue_1_lux_sensor:
+  icon: mdi:white-balance-sunny
+sensor.living_room_motion_3_relative_humidity:
+  friendly_name: Living Room Humidity
+sensor.living_room_motion_3_temperature:
+  friendly_name: Living Room Temperature  
+sensor.living_room_motion_3_ultraviolet:
+  friendly_name: Living Room Ultraviolet
+switch.switch:
+  friendly_name: Laundry Mat
+binary_sensor.flic_80e4da702912:
+  friendly_name: "Coffee Table Flic 1"

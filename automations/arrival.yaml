@@ -13,36 +13,17 @@ condition:
       before: sunset
       before_offset: "-1:00:00"
 action:
-  - service: scene.turn_on
-    entity_id: scene.living_room_cool
   - service: light.turn_on
-    entity_id: light.office_b_1
+    entity_id: group.living_room_lights
   - service: light.turn_on
-    entity_id: light.sun_room_b_1
-  - service: light.turn_on
-    entity_id: light.sun_room_b_2   
+    entity_id: group.accents
   - service: climate.set_away_mode
     entity_id: climate.main_floor
     data:
-      away_mode: 'off'   
+      away_mode: 'off'
   - service: notify.pushbullet
     data:
       title: Welcome Home
       message: Turning on accent lights
-  - service: light.turn_on    
-    data:
-      entity_id: light.kitchen_strip_1
-      effect: "Solid"
-
-#  - service: mqtt.publish
-#    data:
-#      topic: "hass/kitchen-leds-1/set-color"
-#      data: "240,25,0"
-#  - service: mqtt.publish
-#    data: 
-#      topic: "hass/kitchen-leds-1/set-effect"
-#      payload: "Juggle"
-#  - service: mqtt.publish
-#    data:
-#      topic: "hass/kitchen-leds-1/set-animation-speed"
-#      payload: 5
+  - service: script.turn_on
+    entity_id: script.progressive_theme

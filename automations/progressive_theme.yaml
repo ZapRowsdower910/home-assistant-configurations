@@ -1,0 +1,10 @@
+alias: "Progressive Theme Trigger"
+hide_entity: False
+trigger:
+  - platform: state
+    entity_id: sensor.progressive_day_theme
+  - platform: homeassistant
+    event: start
+action:
+  - service: script.turn_on
+    entity_id: script.progressive_theme

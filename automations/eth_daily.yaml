@@ -6,4 +6,4 @@ action:
  - service: notify.pushbullet
    data_template:
     title: "Crypto Daily Update!"
-    message: "ETH: ${{ states.sensor.ethereum.state }}. BTC: ${{states.sensor.bitcoin.state}}."
+    message: "BTC: ${{states.sensor.bitcoin.state}}. ETH: ${{ states.sensor.ethereum.state }}. ZCash: ${{ states.sensor.zcash.state }}. "

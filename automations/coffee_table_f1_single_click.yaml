@@ -1,0 +1,11 @@
+alias: 'Coffee Table Flic 1 Single Click'
+trigger:
+  platform: event
+  event_type: flic_click
+  event_data:
+    button_name: flic_80e4da702912
+    click_type: single
+action:
+  - service: input_select.select_next
+    data:
+      entity_id: input_select.house_theme

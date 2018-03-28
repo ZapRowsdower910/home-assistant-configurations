@@ -1,0 +1,10 @@
+alias: 'Coffee Table Flic 1 Double Click'
+trigger:
+  platform: event
+  event_type: flic_click
+  event_data:
+    button_name: flic_80e4da702912
+    click_type: double
+action:
+  - service: scene.turn_on
+    entity_id: scene.living_room_dim

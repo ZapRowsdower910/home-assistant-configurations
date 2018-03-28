@@ -1,5 +1,5 @@
 alias: "Plex Activity Monitor"
-hide_entity: False
+initial_state: false
 trigger:
   - platform: state
     entity_id: sensor.deepthink

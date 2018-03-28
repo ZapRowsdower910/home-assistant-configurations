@@ -29,14 +29,13 @@ entities:
     brightness: 124
     rgb_color: [235,163,59]
     transition: 10
+  light.living_room_track_c_5:
+    state: off    
   light.living_room_track_l_1:
     state: off
   light.living_room_track_l_2:
     state: off
   light.living_room_track_l_3:
-    state: off    
-  light.living_room_c_1:
     state: on
-    brightness: 122
-    rgb_color: [219,170,88]
-    transition: 10
+    brightness: 92
+    color_temp: 429    

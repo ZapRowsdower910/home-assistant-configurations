@@ -1,0 +1,21 @@
+alias: "Print Completed"
+trigger:
+  - platform: state
+    entity_id: sensor.prusa_i3_mk2_current_state
+    from: "Printing"
+    to: "Idle"
+condition:
+  - condition: state
+    entity_id: input_boolean.sleep_mode
+    state: 'off'
+action:
+  - service: scene.turn_on
+    entity_id: scene.living_room_dim
+  - delay:
+      seconds: 5
+  - service: scene.turn_on
+    entity_id: scene.living_room_bright
+  - delay:
+      seconds: 5    
+  - service: scene.turn_on
+    entity_id: scene.living_room_dim

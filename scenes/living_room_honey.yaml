@@ -3,67 +3,15 @@ entities:
   group.living_room_shallow_accents:
     state: on
     brightness: 255
-    profile: honey_yellow
+    profile: honey_yellow_shallow
     transition: 15
   group.living_room_deep_accents:
     state: on
     brightness: 255
-    profile: honey_yellow
+    profile: honey_yellow_deep
     transition: 15  
   group.living_room_base:
     state: on
     brightness: 255
     color_temp: 325
     transition: 5
-
-    
-  # light.coffee_table:
-  #   state: on
-  #   brightness: 255
-  #   rgb_color: [200, 175, 0]
-  #   transition: 15
-  # light.tv_b_1:
-  #   state: on
-  #   brightness: 255
-  #   rgb_color: [250, 200, 0]
-  #   transition: 15
-  # light.living_room_track_c_1:
-  #   state: on
-  #   brightness: 255
-  #   rgb_color: [200, 170, 0]
-  #   transition: 10
-  # light.living_room_track_c_2:
-  #   state: on
-  #   brightness: 255
-  #   color_temp: 325
-  #   transition: 10
-  # light.living_room_track_c_3:
-  #   state: on
-  #   brightness: 255
-  #   rgb_color: [200, 170, 0]
-  #   transition: 10
-  # light.living_room_track_c_4:
-  #   state: on
-  #   brightness: 255
-  #   rgb_color: [200, 170, 0]
-  #   transition: 10    
-  # light.living_room_track_l_1:
-  #   state: on
-  #   brightness: 255
-  #   color_temp: 325
-  #   transition: 15
-  # light.living_room_track_l_2:
-  #   state: on
-  #   brightness: 255
-  #   color_temp: 325
-  #   transition: 10
-  # light.living_room_track_l_3:
-  #   state: on
-  #   brightness: 255
-  #   color_temp: 325
-  #   transition: 10  
-  # light.living_room_c_1:
-  #   state: on
-  #   brightness: 255
-  #   color_temp: 325
-  #   transition: 10

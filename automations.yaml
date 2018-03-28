@@ -1,20 +1,20 @@
-- action:
-  - data:
-      entity_id: 'entity_id: scene.living_room_warm'
-    service: scene.turn_on
-  - data:
-      entity_id: group.sun_room
-    service: light.turn_on
-  - data:
-      entity_id: group.accents
-    service: light.turn_on
-  alias: Sunsetter
-  condition:
-  - condition: state
-    entity_id: device_tracker.nexus_6p
-    state: home
-  id: '1502940796130'
-  trigger:
-  - event: sunset
-    offset: -01:00:00
-    platform: sun
+# - action:
+#   - data:
+#       entity_id: 'entity_id: scene.living_room_warm'
+#     service: scene.turn_on
+#   - data:
+#       entity_id: group.sun_room
+#     service: light.turn_on
+#   - data:
+#       entity_id: group.accents
+#     service: light.turn_on
+#   alias: Sunsetter
+#   condition:
+#   - condition: state
+#     entity_id: device_tracker.nexus_6p
+#     state: home
+#   id: '1502940796130'
+#   trigger:
+#   - event: sunset
+#     offset: -01:00:00
+#     platform: sun

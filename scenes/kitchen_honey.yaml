@@ -1,0 +1,17 @@
+name: "Kitchen Honey"
+entities:
+  group.kitchen_shallow_accents:
+    state: on
+    brightness: 255
+    profile: honey_yellow_shallow
+    transition: 15
+  group.kitchen_deep_accents:
+    state: on
+    brightness: 255
+    rgb_color: [255,255,0]
+    transition: 15  
+  group.kitchen_base:
+    state: on
+    brightness: 255
+    color_temp: 325
+    transition: 5

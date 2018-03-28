@@ -36,3 +36,4 @@ Temporary Items
 .DS_Store
 ._.DS_Store
 coinmarketcap_cache.sqlite
+.vscode/settings.json

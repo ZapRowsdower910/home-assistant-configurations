@@ -1,4 +1,4 @@
 platform: bluetooth_tracker
-device_id: hci0
+device_id: hci
 track_new_devices: false
 consider_home: '0:15:00'

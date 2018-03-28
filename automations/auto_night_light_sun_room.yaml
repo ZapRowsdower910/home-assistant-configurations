@@ -1,0 +1,22 @@
+alias: "Auto Night Light Sun Room"
+trigger:
+  - platform: state
+    entity_id: binary_sensor.sun_room_motion_1_sensor
+    to: 'on'
+condition:
+  - condition: state
+    entity_id: input_boolean.house_auto_lights
+    state: 'on'
+  - condition: state
+    entity_id: group.sun_room_lights
+    state: 'off'    
+  - condition: state
+    entity_id: sun.sun
+    state: "below_horizon"
+action:
+  - service: scene.turn_on
+    entity_id: scene.sun_room_night_light
+  # - service: notify.pushbullet
+  #   data:
+  #     title: Debugging Message
+  #     message: Sun Room Night Light Triggered

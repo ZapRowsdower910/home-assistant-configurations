@@ -1,0 +1,14 @@
+platform: template
+sensors:
+  progressive_day_theme:
+    friendly_name: "Progressive Day Theme"
+    value_template: >-
+      {% if now().hour >= 6 and now().hour < 11 %}
+        Cool
+      {% elif now().hour >= 11 and now().hour < 16 %}
+        Grass
+      {% elif now().hour >= 16 and now().hour < 22 %}
+        Honey
+      {% elif now().hour >= 22 or now().hour < 1 %}
+        Warm
+      {% endif %}

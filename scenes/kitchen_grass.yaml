@@ -15,20 +15,3 @@ entities:
     brightness: 255
     color_temp: 200
     transition: 5
-
-  # light.kitchen_d_1:
-  #   state: on
-  #   brightness: 255
-  # light.kitchen_d_2:
-  #   state: on
-  #   brightness: 255
-  # light.lx_kitchen_1:
-  #   state: on
-  #   brightness: 255
-  #   color_temp: 225
-  #   transition: 15
-  # light.kitchen_strip_1:
-  #   state: on
-  #   brightness: 255
-  #   rgb_color: [0, 125, 0]
-  #   transition: 15

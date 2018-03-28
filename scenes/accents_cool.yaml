@@ -1,0 +1,14 @@
+name: "Accent Cool"
+entities:
+  group.accents:
+    state: on
+    effect: solid
+    brightness: 255
+    profile: cool_blue_deep
+    transition: 15
+  light.kitchen_strip_1:
+    state: on
+    effect: solid
+    rgb_color: [0, 25, 150]
+    brightness: 255
+    transition: 15

@@ -1,0 +1,6 @@
+name: "Office Night Light"
+entities:
+  group.office_deep_accents:
+    state: on
+    brightness: 100
+    rgb_color: [100, 0, 0]

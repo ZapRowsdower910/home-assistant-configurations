@@ -1,0 +1,14 @@
+name: "Accent Grass"
+entities:
+  group.accents:
+    state: on
+    effect: solid
+    brightness: 255
+    rgb_color: [0, 125, 0]
+    transition: 15
+  light.kitchen_strip_1:
+    state: on
+    effect: solid
+    rgb_color: [0, 125, 0]
+    brightness: 255
+    transition: 15

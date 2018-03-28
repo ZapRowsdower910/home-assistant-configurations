@@ -1,4 +1,4 @@
-alias: "Trigger Night Motion - Living Room"
+alias: "Auto Night Light Living Room"
 trigger:
   - platform: state
     entity_id: binary_sensor.living_room_motion_1_sensor
@@ -8,14 +8,17 @@ trigger:
     to: 'on'
 condition:
   - condition: state
+    entity_id: input_boolean.house_auto_lights
+    state: 'on'
+  - condition: state
     entity_id: group.living_room_lights
     state: 'off'
   - condition: state
     entity_id: sun.sun
     state: "below_horizon"
 action:
-  - service: script.turn_on
-    entity_id: script.night_light_living_room
+  - service: scene.turn_on
+    entity_id: scene.living_room_night_light
   # - service: notify.pushbullet
   #   data:
   #     title: Debugging Message

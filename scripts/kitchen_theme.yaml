@@ -1,7 +1,7 @@
 alias: "Kitchen Theme"
 sequence:
   - condition: state
-    entity_id: light.lx_kitchen_1
+    entity_id: light.kitchen_strip_1
     state: 'on'
   - service: scene.turn_on
     data_template:

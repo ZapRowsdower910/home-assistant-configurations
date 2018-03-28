@@ -1,10 +1,10 @@
-'1505275476552':
-  alias: ui random color
-  sequence:
-  - data:
-      entity_id: light.go_1
-      rgb_color:
-      - 10
-      - 100
-      - 20
-    service: light.turn_on
+# '1505275476552':
+#   alias: ui random color
+#   sequence:
+#   - data:
+#       entity_id: light.go_1
+#       rgb_color:
+#       - 10
+#       - 100
+#       - 20
+#     service: light.turn_on

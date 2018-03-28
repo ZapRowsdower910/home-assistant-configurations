@@ -1,0 +1,6 @@
+name: "Sun Room Night Light"
+entities:
+  group.sun_room_deep_accents:
+    state: on
+    brightness: 100
+    rgb_color: [100,0,0]

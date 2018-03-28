@@ -1,0 +1,9 @@
+alias: "Accent Theme"
+sequence:
+  - condition: state
+    entity_id: light.kitchen_strip_1
+    state: 'on'
+  - service: scene.turn_on
+    data_template:
+      entity_id:
+        scene.accents_{{states('input_select.house_theme') | replace(" ","_") | lower}}

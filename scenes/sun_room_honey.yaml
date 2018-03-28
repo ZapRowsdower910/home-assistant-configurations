@@ -1,0 +1,17 @@
+name: "Sun Room Honey"
+entities:
+  group.sun_room_shallow_accents:
+    state: on
+    brightness: 255
+    profile: honey_yellow_shallow
+    transition: 15
+  group.sun_room_deep_accents:
+    state: on
+    brightness: 255
+    profile: honey_yellow_deep
+    transition: 15  
+  group.sun_room_base:
+    state: on
+    brightness: 255
+    color_temp: 325
+    transition: 5

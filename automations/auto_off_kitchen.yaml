@@ -1,0 +1,18 @@
+alias: 'Auto Off Kitchen'
+trigger:
+  - platform: state
+    entity_id: binary_sensor.kitchen_motion_1_sensor
+    to: 'off'
+    for:
+      minutes: 10
+condition:
+  - condition: state
+    entity_id: input_boolean.house_auto_lights
+    state: 'on'
+  - condition: state
+    entity_id: input_boolean.sleep_mode
+    state: 'off'
+action:
+  - service: script.auto_light_off
+    data:
+      entity: group.kitchen_lights

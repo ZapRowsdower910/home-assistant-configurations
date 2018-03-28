@@ -2,18 +2,15 @@ alias: "Tv Auto Bright"
 trigger:
   - platform: state
     entity_id: media_player.tv
-    to: 'playing'
+    to: 'idle'
     for:
-      minutes: 2
-  - platform: state
-    entity_id: media_player.mediapc
-    to: 'playing'
-    for:
-      minutes: 3
+      seconds: 30
 condition:
   - condition: state
     entity_id: input_boolean.tv_auto_lights
     state: 'on'
+  - condition: time
+    before: '23:20:00'    
 action:
   - service: scene.turn_on
-    entity_id: scene.living_room_dim
+    entity_id: scene.living_room_bright

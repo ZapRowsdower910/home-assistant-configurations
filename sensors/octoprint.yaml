@@ -1,0 +1,6 @@
+platform: octoprint
+name: Prusa i3 MK2
+monitored_conditions:
+  - Current State
+  - Temperatures
+  - Job Percentage

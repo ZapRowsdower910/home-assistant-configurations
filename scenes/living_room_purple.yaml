@@ -1,0 +1,17 @@
+name: "Living Room Purple"
+entities:
+  group.living_room_shallow_accents:
+    state: on
+    brightness: 255
+    profile: purple_shallow
+    transition: 15
+  group.living_room_deep_accents:
+    state: on
+    brightness: 255
+    profile: purple_deep
+    transition: 15  
+  group.living_room_base:
+    state: on
+    brightness: 255
+    color_temp: 215
+    transition: 5

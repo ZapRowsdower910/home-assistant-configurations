@@ -12,3 +12,5 @@ action:
     entity_id: script.kitchen_theme
   - service: homeassistant.turn_on
     entity_id: script.office_theme
+  - service: homeassistant.turn_on
+    entity_id: script.accents_theme

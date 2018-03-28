@@ -10,53 +10,13 @@ homeassistant:
   unit_system: imperial
   # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   time_zone: America/New_York
-  customize:
-    group.all_scripts:
-      hidden: false
-    group.all_automations:
-      hidden: false      
-    # automation.eth_24hr_drop:
-    #   icon: mdi:currency-eth
-    device_tracker.macbook_air:
-      icon: mdi:laptop-mac
-    device_tracker.macbook_air_bt:
-      icon: mdi:bluetooth
-    device_tracker.nexus_6p:
-      icon: mdi:wifi
-    device_tracker.nexus_6p_bt:
-      icon: mdi:bluetooth
-    switch.living_room_tv:
-      icon: mdi:power
-    input_select.house_theme:
-      icon: mdi:home-variant
-    scene.living_room_bright:
-      icon: mdi:lightbulb-on
-    scene.living_room_dim:
-      icon: mdi:lightbulb-on-outline
-    scene.living_room_late_night:
-      icon: mdi:movie
-    # sensor.ethereum:
-    #   icon: mdi:currency-eth
-    sensor.bitcoin:
-      icon: mdi:currency-btc
-    device_tracker.airpods_bt:
-      icon: mdi:apple
-    binary_sensor.bedroom_motion_1_sensor:
-      device_class: motion      
-    binary_sensor.kitchen_motion_1_sensor:
-      device_class: motion
-    binary_sensor.living_room_motion_2_sensor:
-      device_class: motion
-    binary_sensor.living_room_motion_3_sensor:
-      device_class: motion
-    binary_sensor.office_motion_1_sensor:
-      device_class: motion
+  customize: !include customize.yaml
 
 config:
 conversation:
 discovery:
 frontend:
-#history:
+history:
 hassio:
 http:
   api_password: !secret http_api_key
@@ -84,13 +44,17 @@ logger:
 
 alexa:
 
-amcrest:
-  host: 192.168.1.180
-  username: !secret amcrest_username
-  password: !secret amcrest_password
+# amcrest:
+#   host: 192.168.1.180
+#   username: !secret amcrest_username
+#   password: !secret amcrest_password
 
 ecobee:
   api_key: !secret ecobee_api_key
+
+binary_sensor:
+  platform: flic
+
 
 emulated_hue:
   host_ip: 192.168.1.151
@@ -100,36 +64,36 @@ emulated_hue:
     - switch
 #    - light
 
-# envisalink:
-#   host: 192.168.1.25
-#   panel_type: HONEYWELL
-#   user_name: !secret envisa_username
-#   password: !secret envisa_password
-#   code: '2580'
-#   port: 4025
-#   evl_version: 4
-#   zones:
-#     9:
-#       name: 'Front Door'
-#       type: 'opening'
-#     10:
-#       name: 'Back Door'
-#       type: 'opening'
-#     11:
-#       name: 'Garage Door'
-#       type: 'opening'
-#     12:
-#       name: 'Living Room Motion 1 Sensor'
-#       type: 'motion'
-#     13:
-#       name: 'Sun Room Motion 1 Sensor'
-#       type: 'motion'
-#     14:
-#       name: 'Upstairs Motion 1 Sensor'
-#       type: 'motion'
-#   partitions:
-#     1:
-#       name: 'Home Alarm'
+envisalink:
+  host: 192.168.1.25
+  panel_type: HONEYWELL
+  user_name: !secret envisa_username
+  password: !secret envisa_password
+  code: '2580'
+  port: 4025
+  evl_version: 4
+  zones:
+    9:
+      name: 'Front Door'
+      type: 'opening'
+    10:
+      name: 'Back Door'
+      type: 'opening'
+    11:
+      name: 'Garage Door'
+      type: 'opening'
+    12:
+      name: 'Living Room Motion 1 Sensor'
+      type: 'motion'
+    13:
+      name: 'Sun Room Motion 1 Sensor'
+      type: 'motion'
+    14:
+      name: 'Upstairs Motion 1 Sensor'
+      type: 'motion'
+  partitions:
+    1:
+      name: 'Home Alarm'
 
 hue:
   bridges:
@@ -165,11 +129,11 @@ mqtt:
   broker: 192.168.1.7
   port: 1883  
 
-# octoprint:
-#   host: 192.168.1.35
-#   api_key: !secret octoprint_api_key
-  # bed: true
-  # number_of_tools: 1
+octoprint:
+  host: 192.168.1.35
+  api_key: !secret octoprint_api_key
+  bed: true
+  number_of_tools: 1
 
 recorder:
   purge_interval: 1
@@ -185,9 +149,9 @@ wink:
   # email: !secret wink_username
   # password: !secret wink_password
 
-#zwave:
-#  usb_path: /dev/ttyACM0
-#  network_key: !secret zwave_network_key
+zwave:
+ usb_path: /dev/ttyACM0
+ network_key: !secret zwave_network_key
 
 
 #automation: !include automations.yaml

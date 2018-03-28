@@ -1,0 +1,18 @@
+alias: 'Auto Off Master Bath'
+trigger:
+  - platform: numeric_state
+    entity_id: sensor.master_bathroom_motion_1_burglar
+    above: '0'
+    for:
+      minutes: 40
+condition:
+  - condition: state
+    entity_id: input_boolean.house_auto_lights
+    state: 'on'
+  - condition: state
+    entity_id: input_boolean.sleep_mode
+    state: 'off'    
+action:
+  - service: script.auto_light_off
+    data:
+      entity: group.master_bathroom_lights

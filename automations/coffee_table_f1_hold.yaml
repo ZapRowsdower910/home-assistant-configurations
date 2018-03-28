@@ -1,0 +1,19 @@
+alias: 'Coffee Table Flic 1 Hold'
+trigger:
+  platform: event
+  event_type: flic_click
+  event_data:
+    button_name: flic_80e4da702912
+    click_type: hold
+# condition:
+#   condition: and
+#   conditions:
+#     - condition: state
+#       entity_id: input_boolean.sleep_mode
+#       state: 'off'
+#     - condition: sun
+#       after: sunset
+#       after_offset: "-0:59:59"
+action:
+  - service: scene.turn_on
+    entity_id: scene.living_room_hangover

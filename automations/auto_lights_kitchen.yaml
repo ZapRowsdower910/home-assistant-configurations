@@ -2,12 +2,17 @@ alias: 'Auto Lights Kitchen'
 trigger:
   - platform: state
     entity_id: binary_sensor.kitchen_motion_1_sensor
-    from: 'off'
     to: 'on'
 condition:
   - condition: state
     entity_id: input_boolean.house_auto_lights
-    state: 'on'    
+    state: 'on'
+  - condition: state
+    entity_id: input_boolean.sleep_mode
+    state: 'off'
+  - condition: numeric_state
+    entity_id: sensor.kitchen_motion_1_luminance
+    below: '30'
 action:
   - service: script.auto_light_on
     data:
@@ -18,3 +23,4 @@ action:
   - service: script.auto_light_on
     data:
       entity: "light.kithen_strip_1"
+      effect: solid

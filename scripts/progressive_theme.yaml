@@ -1,0 +1,10 @@
+alias: "Progressive Theme"
+sequence:
+  - service: homeassistant.turn_on
+    entity_id: script.living_room_theme
+  - service: homeassistant.turn_on
+    entity_id: script.sun_room_theme
+  - service: homeassistant.turn_on
+    entity_id: script.kitchen_theme
+  - service: homeassistant.turn_on
+    entity_id: script.office_theme

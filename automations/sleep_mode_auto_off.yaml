@@ -1,7 +1,7 @@
 alias: "Sleep Mode Auto Off"
 trigger:
   platform: time
-  at: '10:00:00'
+  at: '07:00:00'
 action:
   service: input_boolean.turn_off
   entity_id: input_boolean.sleep_mode

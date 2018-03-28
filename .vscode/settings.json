@@ -1,0 +1,5 @@
+{
+  "terminal.integrated.env.osx": {
+    "PATH": "/Users/roundofshort/.platformio/penv/bin:/usr/local/lib/node_modules/:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+  }
+}

@@ -1,0 +1,17 @@
+name: "Kitchen Purple"
+entities:
+  group.kitchen_shallow_accents:
+    state: on
+    brightness: 255
+    profile: purple_shallow
+    transition: 15
+  group.kitchen_deep_accents:
+    state: on
+    brightness: 255
+    rgb_color: [128,0,255]
+    transition: 15  
+  group.kitchen_base:
+    state: on
+    brightness: 255
+    color_temp: 215
+    transition: 5
