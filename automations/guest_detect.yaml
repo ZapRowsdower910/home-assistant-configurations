@@ -1,14 +1,19 @@
-alias: "Detect Guests"
+alias: "Guests Detection"
 trigger:
   - platform: state
-    entity_id: binary_sensor.living_room_motion
+    entity_id: group.occupancy
     to: 'on'
   - platform: state
-    entity_id: binary_sensor.sun_room_motion
+    entity_id: group.motion
     to: 'on'
+  - platform: numeric_state
+    entity_id: group.motion_plus
+    above: 0
   - platform: state
-    entity_id: binary_sensor.upstairs_motion
-    to: 'on' 
+    entity_id: media_player.tv
+    to: 'playing'
+    for:
+      seconds: 30
 action:
   - service: input_boolean.turn_on
     entity_id: input_boolean.guests_present

@@ -1,10 +1,23 @@
 alias: "Progressive Theme"
 sequence:
-  - service: homeassistant.turn_on
-    entity_id: script.living_room_theme
-  - service: homeassistant.turn_on
-    entity_id: script.sun_room_theme
-  - service: homeassistant.turn_on
+  - service: script.turn_on
+    entity_id: script.accents_theme
+    data_template:
+      theme_color: "{{ states('sensor.progressive_day_theme') }}"
+  - service: script.turn_on
     entity_id: script.kitchen_theme
-  - service: homeassistant.turn_on
+    data_template:
+      theme_color: "{{ states('sensor.progressive_day_theme') }}"
+  - service: script.turn_on    
+    entity_id: script.living_room_theme
+    data_template:
+      variables:
+        theme_color: "{{ states('sensor.progressive_day_theme') }}"
+  - service: script.turn_on
     entity_id: script.office_theme
+    data_template:
+      theme_color: "{{ states('sensor.progressive_day_theme') }}"
+  - service: script.turn_on
+    entity_id: script.sun_room_theme
+    data_template:
+      theme_color: "{{ states('sensor.progressive_day_theme') }}"

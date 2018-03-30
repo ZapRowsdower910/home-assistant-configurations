@@ -12,6 +12,9 @@ trigger:
     to: 'on'
 condition:
   - condition: state
+    entity_id: group.living_room_lights
+    state: 'off'
+  - condition: state
     entity_id: input_boolean.house_auto_lights
     state: 'on'
   - condition: state

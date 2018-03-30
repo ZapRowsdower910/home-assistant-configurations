@@ -6,4 +6,4 @@ sequence:
   - service: scene.turn_on
     data_template:
       entity_id:
-        scene.office_{{states('input_select.house_theme') | replace(" ","_") | lower}}
+        scene.office_{{ theme_color | lower }}

@@ -1,0 +1,32 @@
+alias: "Guests Auto Off"
+trigger:
+  - platform: state
+    entity_id: group.occupancy
+    to: 'off'
+  - platform: state
+    entity_id: group.motion
+    to: 'off'
+  - platform: numeric_state
+    entity_id: group.motion_plus
+    below: 1
+  - platform: state
+    entity_id: media_player.tv
+    to: 'idle'
+    for:
+      minutes: 20
+condition:
+  - condition: state
+    entity_id: group.occupancy
+    state: 'off'
+  - condition: state
+    entity_id: group.motion
+    state: 'off'
+  - condition: numeric_state
+    entity_id: group.motion_plus
+    below: 1
+  - condition: state
+    entity_id: media_player.tv
+    state: 'idle'
+action:
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.guests_present

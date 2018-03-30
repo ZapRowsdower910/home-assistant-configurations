@@ -365,7 +365,9 @@ motion:
   - binary_sensor.living_room_motion_1_sensor  
   - binary_sensor.living_room_motion_3_sensor
   - binary_sensor.kitchen_motion_1_sensor
+motion_plus:  
   - sensor.master_bathroom_motion_1_burglar
+  - sensor.basement_bathroom_motion_1_burglar
 doors:
   name: "Door Sensors"  
   view: false
@@ -516,7 +518,7 @@ scenes_living_room:
   - scene.living_room_warm
 scenes_sun_room:
   name: "Sun Room Scenes"
-  view: false
+  view: false 
   entities:
   - scene.sun_room_cool
   - scene.sun_room_grass
@@ -525,7 +527,6 @@ scenes_sun_room:
   - scene.sun_room_none
   - scene.sun_room_purple
   - scene.sun_room_warm
-  
 scenes_kitchen:
   name: "Kitchen Scenes"  
   view: false

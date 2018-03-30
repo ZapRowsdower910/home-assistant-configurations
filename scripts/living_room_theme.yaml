@@ -3,7 +3,11 @@ sequence:
   - condition: state
     entity_id: light.living_room_track_c_1
     state: 'on'
+  - service: notify.pushbullet
+    data_template:
+      title: "DEBUG MESSAGE"
+      message: "incoming theme_color value={{theme_color}}"      
   - service: scene.turn_on
     data_template:
-      entity_id:
-        scene.living_room_{{states('input_select.house_theme') | replace(" ","_") | lower}}
+      entity_id: 
+        scene.living_room_{{theme_color | lower}}
