@@ -2,11 +2,7 @@ alias: "Living Room Theme"
 sequence:
   - condition: state
     entity_id: light.living_room_track_c_1
-    state: 'on'
-  - service: notify.pushbullet
-    data_template:
-      title: "DEBUG MESSAGE"
-      message: "incoming theme_color value={{theme_color}}"      
+    state: 'on'  
   - service: scene.turn_on
     data_template:
       entity_id: 

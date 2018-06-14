@@ -46,6 +46,3 @@ entities:
   light.living_room_track_l_3:
     state: off
     transition: 10    
-  light.living_room_c_1:
-    state: off
-    transition: 10

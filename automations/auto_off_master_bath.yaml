@@ -1,8 +1,8 @@
 alias: 'Auto Off Master Bath'
 trigger:
-  - platform: numeric_state
-    entity_id: sensor.master_bathroom_motion_1_burglar
-    above: '0'
+  - platform: state
+    entity_id: binary_sensor.master_bathroom_motion
+    to: 'off'
     for:
       minutes: 40
 condition:

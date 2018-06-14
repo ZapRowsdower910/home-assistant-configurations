@@ -5,6 +5,11 @@ trigger:
     to: 'idle'
     for:
       seconds: 30
+  - platform: state
+    entity_id: media_player.living_room_cr2
+    to: 'idle'
+    for:
+      seconds: 30      
 condition:
   - condition: state
     entity_id: input_boolean.tv_auto_lights

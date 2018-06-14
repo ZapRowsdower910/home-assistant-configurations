@@ -1,10 +1,7 @@
 alias: "Auto Night Light Living Room"
 trigger:
   - platform: state
-    entity_id: binary_sensor.living_room_motion_1_sensor
-    to: 'on'
-  - platform: state
-    entity_id: binary_sensor.living_room_motion_3_sensor
+    entity_id: binary_sensor.living_room_motion
     to: 'on'
 condition:
   - condition: state

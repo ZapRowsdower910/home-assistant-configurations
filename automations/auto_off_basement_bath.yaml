@@ -1,8 +1,8 @@
 alias: 'Auto Off Basement Bath'
 trigger:
-  - platform: numeric_state
-    entity_id: sensor.basement_bathroom_motion_1_burglar
-    above: '0'
+  - platform: state
+    entity_id: binary_sensor.basement_bathroom_motion
+    to: 'off'
     for:
       minutes: 20
 condition:

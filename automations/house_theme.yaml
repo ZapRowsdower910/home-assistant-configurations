@@ -10,6 +10,11 @@ action:
       variables:
         theme_color: "{{ states('input_select.house_theme')|replace(' ', '_') }}"
   - service: script.turn_on
+    entity_id: script.bedroom_theme
+    data_template:
+      variables:
+        theme_color: "{{ states('input_select.house_theme')|replace(' ', '_') }}"        
+  - service: script.turn_on
     entity_id: script.living_room_theme
     data_template:
       variables:

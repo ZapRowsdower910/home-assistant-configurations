@@ -1,7 +1,7 @@
 alias: 'Auto Off Office'
 trigger:
   - platform: state
-    entity_id: binary_sensor.office_motion_1_sensor
+    entity_id: binary_sensor.office_motion
     to: 'off'
     for:
       minutes: 40
@@ -12,7 +12,7 @@ condition:
   - condition: and
     conditions:
       - condition: state
-        entity_id: binary_sensor.office_motion_1_sensor
+        entity_id: binary_sensor.office_motion
         state: 'off'
       - condition: state
         entity_id: binary_sensor.office_occupancy

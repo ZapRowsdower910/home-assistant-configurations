@@ -1,7 +1,7 @@
 alias: 'Auto Lights Office'
 trigger:
   - platform: state
-    entity_id: binary_sensor.office_motion_1_sensor
+    entity_id: binary_sensor.office_motion
     to: 'on'
   - platform: state
     entity_id: binary_sensor.office_occupancy
@@ -14,12 +14,7 @@ condition:
     entity_id: input_boolean.sleep_mode
     state: 'off'    
 action:
-  - service: script.auto_light_on
-    data:
-      entity: light.office_c_1
-  - service: script.auto_light_on
-    data:
-      entity: light.office_l_1
-  - service: script.auto_light_on
-    data:
-      entity: light.office_b_1
+  - service: scene.turn_on
+    data_template:
+      entity_id:
+        scene.office_{{ states('sensor.progressive_day_theme')|replace(' ', '_') | lower }}

@@ -5,12 +5,14 @@ trigger:
   offset: "-01:00:00"
 condition:
   condition: state
-  entity_id: device_tracker.nexus_6p
+  entity_id: group.nick
   state: 'home'
 action:
- - service: scene.turn_on
-   entity_id: scene.living_room_warm
- - service: scene.turn_on
-   entity_id: scene.sun_room_warm
+ - service: light.turn_on
+   entity_id: group.living_room_lights
+ - service: light.turn_on
+   entity_id: group.sun_room_lights
  - service: light.turn_on
    entity_id: group.accents
+ - service: script.turn_on
+   entity_id: script.progressive_theme

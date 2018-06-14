@@ -1,7 +1,7 @@
 alias: 'Auto Off Kitchen'
 trigger:
   - platform: state
-    entity_id: binary_sensor.kitchen_motion_1_sensor
+    entity_id: binary_sensor.kitchen_motion
     to: 'off'
     for:
       minutes: 10

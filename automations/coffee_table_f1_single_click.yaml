@@ -1,11 +1,9 @@
 alias: 'Coffee Table Flic 1 Single Click'
 trigger:
-  platform: event
-  event_type: flic_click
-  event_data:
-    button_name: flic_80e4da702912
-    click_type: single
+  platform: state
+  entity_id: sensor.coffee_table_flic_1
+  to: '1'
 action:
-  - service: input_select.select_next
+  - service: media_player.media_pause
     data:
-      entity_id: input_select.house_theme
+      entity_id: media_player.living_room_cr2

@@ -2,6 +2,8 @@ alias: "Turn off Living Room"
 sequence:
   - service: media_player.turn_off
     entity_id: media_player.vizio_tv
+  - service: media_player.turn_off
+    entity_id: media_player.living_room_stereo  
   - service: switch.turn_off
     entity_id: switch.laundry_mat
   - service: light.turn_off
@@ -10,12 +12,6 @@ sequence:
       transition: 60
   - delay:
       seconds: 20
-  - service: light.turn_off
-    entity_id: light.living_room_c_1
-    data:
-      transition: 60
-  - delay:
-      seconds: 10
   - service: light.turn_off
     entity_id: light.go_1
     data:

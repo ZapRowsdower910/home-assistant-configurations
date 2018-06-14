@@ -14,6 +14,11 @@ trigger:
     to: 'idle'
     for:
       minutes: 20
+  - platform: state
+    entity_id: media_player.living_room_cr2
+    to: 'idle'
+    for:
+      minutes: 20      
 condition:
   - condition: state
     entity_id: group.occupancy
@@ -27,6 +32,9 @@ condition:
   - condition: state
     entity_id: media_player.tv
     state: 'idle'
+  - condition: state
+    entity_id: media_player.living_room_cr2
+    state: 'idle'    
 action:
   - service: input_boolean.turn_off
     entity_id: input_boolean.guests_present
