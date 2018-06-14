@@ -1,0 +1,9 @@
+alias: "Bedroom Theme"
+sequence:
+  - condition: state
+    entity_id: light.bedroom_c_1
+    state: 'on'
+  - service: scene.turn_on
+    data_template:
+      entity_id: 
+        scene.bedroom_{{ theme_color | lower }}

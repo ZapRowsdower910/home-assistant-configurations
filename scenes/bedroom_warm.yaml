@@ -1,0 +1,17 @@
+name: "Bedroom Warm"
+entities:
+  group.bedroom_shallow_accents:
+    state: on
+    brightness: 255
+    color_temp: 400
+    transition: 15
+  group.bedroom_deep_accents:
+    state: on
+    brightness: 255
+    profile: warm_red
+    transition: 15  
+  group.bedroom_base:
+    state: on
+    brightness: 255
+    color_temp: 325
+    transition: 5

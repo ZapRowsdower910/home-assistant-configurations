@@ -1,0 +1,17 @@
+name: "Bedroom None"
+entities:
+  group.bedroom_shallow_accents:
+    state: on
+    brightness: 255
+    color_temp: 300
+    transition: 5
+  group.bedroom_deep_accents:
+    state: on
+    brightness: 255
+    color_temp: 300
+    transition: 5  
+  group.bedroom_base:
+    state: on
+    brightness: 255
+    color_temp: 300
+    transition: 5

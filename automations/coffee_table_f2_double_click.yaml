@@ -1,0 +1,8 @@
+alias: 'Coffee Table Flic 2 Double Click'
+trigger:
+  platform: state
+  entity_id: sensor.coffee_table_flic_2
+  to: '2'
+action:
+  - service: scene.turn_on
+    entity_id: scene.living_room_late_night

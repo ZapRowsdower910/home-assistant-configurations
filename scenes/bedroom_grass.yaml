@@ -1,0 +1,17 @@
+name: "Bedroom Grass"
+entities:
+  group.bedroom_shallow_accents:
+    state: on
+    brightness: 255
+    profile: grass_green_shallow
+    transition: 15
+  group.bedroom_deep_accents:
+    state: on
+    brightness: 255
+    profile: grass_green_deep
+    transition: 15  
+  group.bedroom_base:
+    state: on
+    brightness: 255
+    color_temp: 200
+    transition: 5

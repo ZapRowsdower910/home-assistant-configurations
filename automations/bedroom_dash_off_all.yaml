@@ -1,0 +1,12 @@
+alias: "Bedroom Dash Off All"
+trigger:
+  platform: state
+  entity_id: sensor.bedroom_dash
+  to: '4'
+action:
+  - service: light.turn_off
+    entity_id: light.bedroom_c_1
+  - service: light.turn_off
+    entity_id: light.bedroom_c_2
+  - service: light.turn_off
+    entity_id: light.bedroom_c_3
