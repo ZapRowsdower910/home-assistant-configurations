@@ -1,8 +1,16 @@
 alias: 'Coffee Table Flic 2 Double Click'
 trigger:
-  platform: state
-  entity_id: sensor.coffee_table_flic_2
-  to: '2'
+    platform: event
+    event_type: flic_click
+    event_data:
+      button_name: coffee_table_2
+      click_type: double
+  # platform: state
+  # entity_id: sensor.coffee_table_flic_2
+  # to: '2'
 action:
-  - service: scene.turn_on
-    entity_id: scene.living_room_late_night
+  - service: script.turn_on
+    entity_id: script.living_room_theme
+    data_template:
+      variables:
+        theme_color: "{{ states('sensor.progressive_day_theme')|replace(' ', '_') }}"

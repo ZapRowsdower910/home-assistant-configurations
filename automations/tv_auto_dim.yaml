@@ -14,8 +14,14 @@ condition:
   - condition: state
     entity_id: input_boolean.tv_auto_lights
     state: 'on'
-  - condition: time
-    before: '23:20:00'
 action:
-  - service: scene.turn_on
-    entity_id: scene.living_room_dim
+  - service: scene.turn_on    
+    data_template:
+      entity_id: > 
+        {% if is_state("sensor.time_of_day", "Late Night") %}
+          scene.living_room_late_night
+        {% else %}
+          scene.living_room_dim
+        {% endif %}
+  - service: input_boolean.turn_on
+    entity_id: input_boolean.is_living_room_dim

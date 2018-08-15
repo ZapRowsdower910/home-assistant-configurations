@@ -1,8 +1,10 @@
 alias: 'Coffee Table Flic 1 Hold'
 trigger:
-  platform: state
-  entity_id: sensor.coffee_table_flic_1
-  to: '3'
+    platform: event
+    event_type: flic_click
+    event_data:
+      button_name: coffee_table_1
+      click_type: hold
 action:
   - service: media_player.media_stop
     data:

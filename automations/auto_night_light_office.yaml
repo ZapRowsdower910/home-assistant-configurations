@@ -1,8 +1,8 @@
 alias: "Auto Night Light Office"
 trigger:
-  - platform: numeric_state
-    entity_id: sensor.office_motion_1_burglar
-    above: '0'
+  - platform: state
+    entity_id: sensor.office_motion
+    to: 'on'
 condition:
   - condition: state
     entity_id: input_boolean.house_auto_lights

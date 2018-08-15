@@ -14,7 +14,7 @@ condition:
     before: sunset
   - condition: state
     entity_id: group.nick
-    state: home
+    state: 'home'
   - condition: time
     after: '11:00:00'    
 #    - condition: state

@@ -27,7 +27,7 @@ http:
     - 192.168.1.0/24
   ip_ban_enabled: true
   login_attempts_threshold: 5
-# logbook:
+logbook:
 updater:
 sun:
 tts:
@@ -104,14 +104,14 @@ binary_sensor:
           {%- else -%}
           false
           {%- endif -%}
-      # sun_room_motion:
-      #   friendly_name: "Sun Room Motion"
-      #   value_template: >-
-      #     {%- if is_state('sensor.sun_room_motion_1_burglar', '8') -%}
-      #     true
-      #     {%- else -%}
-      #     false
-      #     {%- endif -%}
+      sun_room_motion:
+        friendly_name: "Sun Room Motion"
+        value_template: >-
+          {%- if is_state('sensor.sun_room_motion_1_burglar', '8') -%}
+          true
+          {%- else -%}
+          false
+          {%- endif -%}
 
 emulated_hue:
   host_ip: 192.168.1.15
@@ -158,6 +158,9 @@ hue:
       allow_hue_groups: false
 
 input_boolean:
+  is_living_room_dim:
+    name: "Active Living Room"
+    initial: off
   sleep_mode:
     name: "Sleep Mode"
     initial: off
@@ -181,6 +184,9 @@ input_boolean:
   state_climate_scene_active:
     name: "Climate Scene Actived"
     initial: off
+  office_main_temp:
+    name: "Office Temperature Watch"
+    initial: off
 
 mqtt:
   broker: 192.168.1.7
@@ -197,7 +203,7 @@ octoprint:
 #   purge_keep_days: 60
 
 shell_command: 
-  renew_ssl: /mnt/config/certbot/certbot-auto renew --quiet --no-self-upgrade --standalone --preferred-challenges http-01
+  renew_ssl: /mnt/config/certbot/./certbot-auto certonly --standalone --preferred-challenges http-01 --email nsimone1911@gmail.com -d deepthink.asuscomm.com
 
 # upnp:
 #   port_mapping: false

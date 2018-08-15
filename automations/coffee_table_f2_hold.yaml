@@ -1,8 +1,13 @@
 alias: 'Coffee Table Flic 2 Hold'
 trigger:
-  platform: state
-  entity_id: sensor.coffee_table_flic_2
-  to: '3'
+    platform: event
+    event_type: flic_click
+    event_data:
+      button_name: coffee_table_2
+      click_type: hold
+  # platform: state
+  # entity_id: sensor.coffee_table_flic_2
+  # to: '3'
 action:
   - service: scene.turn_on
-    entity_id: scene.living_room_night_light
+    entity_id: scene.living_room_late_night

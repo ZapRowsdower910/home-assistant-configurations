@@ -8,11 +8,15 @@ condition:
   entity_id: group.nick
   state: 'home'
 action:
- - service: light.turn_on
-   entity_id: group.living_room_lights
- - service: light.turn_on
-   entity_id: group.sun_room_lights
- - service: light.turn_on
-   entity_id: group.accents
- - service: script.turn_on
-   entity_id: script.progressive_theme
+  - service: script.turn_on
+    entity_id: script.sunset
+#  - service: light.turn_on
+#    entity_id: group.living_room_lights
+#  - service: light.turn_on
+#    entity_id: group.sun_room_lights
+#  - service: light.turn_on
+#    data:
+#      brightness: 230
+#    entity_id: group.accents
+#  - service: script.turn_on
+#    entity_id: script.progressive_theme

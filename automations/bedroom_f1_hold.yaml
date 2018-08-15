@@ -1,0 +1,11 @@
+alias: 'Bedroom Flic Hold'
+trigger:
+    platform: event
+    event_type: flic_click
+    event_data:
+      button_name: bedroom
+      click_type: hold
+action:
+  - service: scene.turn_on
+    data_template:
+      entity_id: scene.bedroom_{{ states('sensor.progressive_day_theme')|replace(' ', '_') | lower }}

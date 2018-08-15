@@ -1,0 +1,17 @@
+name: "Workshop Honey"
+entities:
+  group.workshop_shallow_accents:
+    state: on
+    brightness: 255
+    profile: honey_yellow_shallow
+    transition: 15
+  group.workshop_deep_accents:
+    state: on
+    brightness: 255
+    profile: honey_yellow_deep
+    transition: 15  
+  group.workshop_base:
+    state: on
+    brightness: 255
+    color_temp: 325
+    transition: 5

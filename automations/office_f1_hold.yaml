@@ -1,0 +1,11 @@
+alias: 'Office Flic Hold'
+trigger:
+    platform: event
+    event_type: flic_click
+    event_data:
+      button_name: office
+      click_type: hold
+action:
+  - service: light.turn_off
+    data:
+      entity_id: group.office_lights

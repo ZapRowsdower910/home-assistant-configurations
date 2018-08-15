@@ -10,8 +10,6 @@ sequence:
     entity_id: light.bedroom_c_1
     data:      
       brightness: 200
-  - service: light.turn_on
-    entity_id: group.master_bathroom_lights
   - service: script.turn_on
     entity_id: script.turn_off_living_room
   - service: light.turn_off

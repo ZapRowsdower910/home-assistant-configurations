@@ -1,9 +1,21 @@
 alias: "Living Room Theme"
 sequence:
-  - condition: state
-    entity_id: light.living_room_track_c_1
-    state: 'on'  
+  # - service: scene.turn_on
+  #   data_template:
+  #     entity_id: >-
+  #       {% for entity_id in states.group.living_room_lights.attributes.entity_id if states(entity_id) == 'on' -%}
+  #         {% set parts = entity_id.split('.') -%}
+  #         {% if states(entity_id) == 'on' %}{{ states[parts[0]][parts[1]].entity_id }}{% endif -%}{%- if loop.last %} {% else  %}, {%endif%}
+  #       {% endfor %}
+  # - condition: state
+  #   entity_id: light.living_room_track_c_1
+  #   state: 'on'  
   - service: scene.turn_on
     data_template:
-      entity_id: 
+      entity_id:
         scene.living_room_{{theme_color | lower}}
+  - condition: state
+    entity_id: sensor.is_living_room_dim
+    state: "On"
+  - service: scene.turn_on
+    entity_id: scene.living_room_dim

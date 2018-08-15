@@ -1,404 +1,610 @@
 media_player.living_room_display:
+  config_entry_id:
   name:
   platform: cast
   unique_id: e8b6e989-5893-2bad-a4e9-54d03698bc99
 media_player.living_room_cr2:
+  config_entry_id:
   name:
   platform: plex
   unique_id: cc252f9c-56f9-4ead-bf2c-f043674aaf3f
 light.lx_kitchen_1:
+  config_entry_id:
   name:
   platform: lifx
   unique_id: d0:73:d5:14:1b:5e
 light.lx_sun_room_2:
+  config_entry_id:
   name:
   platform: lifx
   unique_id: d0:73:d5:02:8c:13
-light.level:
-  name:
+light.workshop_d_z_1:
+  config_entry_id:
+  name: Workshop D 1
   platform: zwave
   unique_id: 2-72057594076299265
 sensor.alarm_type:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 5-72057594127859713
 sensor.alarm_level:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 5-72057594127859729
 binary_sensor.sensor:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 5-72057594126794752
 sensor.kitchen_motion_1_temperature:
+  config_entry_id:
   name: Kitchen M1 Temperature
   platform: zwave
   unique_id: 5-72057594126811154
 sensor.kitchen_motion_1_luminance:
+  config_entry_id:
   name: Kitchen M1 Lux
   platform: zwave
   unique_id: 5-72057594126811186
 sensor.kitchen_motion_1_seismic_intensity:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 5-72057594126811538
 sensor.kitchen_motion_1_sourcenodeid:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 5-72057594127859745
 sensor.kitchen_motion_1_burglar:
+  config_entry_id:
   name: Kitchen M1 Burglar
   platform: zwave
   unique_id: 5-72057594127859873
 sensor.kitchen_motion_1_general:
-  name:
+  config_entry_id:
+  name: Kitchen M1 General
   platform: zwave
   unique_id: 5-72057594128564225
 sensor.alarm_type_2:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 6-72057594144636929
 sensor.alarm_level_2:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 6-72057594144636945
-binary_sensor.sensor_2:
-  name:
+binary_sensor.living_room_motion_3:
+  config_entry_id:
+  name: Living Room Motion 3
   platform: zwave
   unique_id: 6-72057594143571968
 sensor.living_room_motion_3_temperature:
-  name: Living Room M1 Temperature
+  config_entry_id:
+  name: Living Room M3 Temperature
   platform: zwave
   unique_id: 6-72057594143588370
 sensor.living_room_motion_3_luminance:
-  name:
+  config_entry_id:
+  name: Living Room M3 Lux
   platform: zwave
   unique_id: 6-72057594143588402
 sensor.living_room_motion_3_relative_humidity:
-  name:
+  config_entry_id:
+  name: Living Room M3 Humidity
   platform: zwave
   unique_id: 6-72057594143588434
 sensor.living_room_motion_3_ultraviolet:
-  name:
+  config_entry_id:
+  name: Living Room M3 UV
   platform: zwave
   unique_id: 6-72057594143588786
 sensor.living_room_motion_3_sourcenodeid:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 6-72057594144636961
 sensor.living_room_motion_3_burglar:
-  name: Living Room M1 Motion
+  config_entry_id:
+  name: Living Room M3 Motion
   platform: zwave
   unique_id: 6-72057594144637089
 sensor.alarm_type_3:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 10-72057594211745793
 sensor.alarm_level_3:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 10-72057594211745809
-binary_sensor.sensor_3:
-  name:
+binary_sensor.office_motion_1:
+  config_entry_id:
+  name: Office Motion 1
   platform: zwave
   unique_id: 10-72057594210680832
 sensor.office_motion_1_temperature:
+  config_entry_id:
   name: Office M1 Temperature
   platform: zwave
   unique_id: 10-72057594210697234
 sensor.office_motion_1_luminance:
-  name: Office M1 Luminance
+  config_entry_id:
+  name: Office M1 Lux
   platform: zwave
   unique_id: 10-72057594210697266
 sensor.office_motion_1_relative_humidity:
+  config_entry_id:
   name: Office M1 Humidity
   platform: zwave
   unique_id: 10-72057594210697298
 sensor.office_motion_1_sourcenodeid:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 10-72057594211745825
 sensor.office_motion_1_burglar:
+  config_entry_id:
   name: Office M1 Burglar
   platform: zwave
   unique_id: 10-72057594211745953
 sensor.office_motion_1_power_management:
+  config_entry_id:
   name: Office M1 Power
   platform: zwave
   unique_id: 10-72057594211745969
 sensor.office_motion_1_system:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 10-72057594211745985
 sensor.office_motion_1_emergency:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 10-72057594211746001
 light.office_b_1:
+  config_entry_id: 5191c64da9ae48f9b962cf2cfdb9f0dc
   name:
   platform: hue
   unique_id: 00:17:88:01:00:c3:90:5d-0b
 light.bedroom_c_1:
+  config_entry_id: 5191c64da9ae48f9b962cf2cfdb9f0dc
   name:
   platform: hue
   unique_id: 00:17:88:01:00:ec:8d:7c-0b
 light.front_door_c_1:
+  config_entry_id: 5191c64da9ae48f9b962cf2cfdb9f0dc
   name:
   platform: hue
   unique_id: 00:17:88:01:00:e6:a7:26-0b
 light.sun_room_c_3:
+  config_entry_id: 5191c64da9ae48f9b962cf2cfdb9f0dc
   name:
   platform: hue
   unique_id: 00:17:88:01:03:70:29:c8-0b
 light.coffee_table:
+  config_entry_id: 5191c64da9ae48f9b962cf2cfdb9f0dc
   name:
   platform: hue
   unique_id: 00:17:88:01:00:cf:97:95-0b
 light.living_room_stairs_d_1:
+  config_entry_id: 5191c64da9ae48f9b962cf2cfdb9f0dc
   name:
   platform: hue
   unique_id: 00:17:88:01:02:09:8d:2c-0b
 light.sun_room_c_2:
+  config_entry_id: 5191c64da9ae48f9b962cf2cfdb9f0dc
   name:
   platform: hue
   unique_id: 00:17:88:01:02:77:d7:12-0b
 light.bedroom_l_1:
+  config_entry_id:
   name:
   platform: hue
   unique_id: 00:17:88:01:00:db:29:b8-0b
 light.sun_room_bar_strip:
+  config_entry_id: 5191c64da9ae48f9b962cf2cfdb9f0dc
   name:
   platform: hue
   unique_id: 00:17:88:01:02:af:29:72-0b
 light.living_room_track_l_3:
+  config_entry_id: 5191c64da9ae48f9b962cf2cfdb9f0dc
   name:
   platform: hue
   unique_id: 00:17:88:01:02:26:f4:92-0b
 light.bedroom_c_2:
+  config_entry_id: 5191c64da9ae48f9b962cf2cfdb9f0dc
   name:
   platform: hue
   unique_id: 00:17:88:01:00:b1:b6:a5-0b
 light.office_l_1:
+  config_entry_id:
   name:
   platform: hue
   unique_id: 00:17:88:01:00:de:c3:93-0b
 light.upstairs_bathroom_d_2:
+  config_entry_id: 5191c64da9ae48f9b962cf2cfdb9f0dc
   name:
   platform: hue
   unique_id: 00:17:88:01:02:09:a7:fa-0b
 light.kitchen_d_1:
+  config_entry_id:
   name:
   platform: hue
   unique_id: 00:17:88:01:02:3b:00:b7-0b
 light.sun_room_d_1:
+  config_entry_id:
   name:
   platform: hue
   unique_id: 00:17:88:01:00:da:54:08-0b
 light.upstairs_bathroom_d_1:
+  config_entry_id: 5191c64da9ae48f9b962cf2cfdb9f0dc
   name:
   platform: hue
   unique_id: 00:17:88:01:02:3b:0d:85-0b
 light.workshop_l_1:
+  config_entry_id: 5191c64da9ae48f9b962cf2cfdb9f0dc
   name:
   platform: hue
   unique_id: 00:17:88:01:00:da:53:dc-0b
 light.sun_room_c_1:
+  config_entry_id: 5191c64da9ae48f9b962cf2cfdb9f0dc
   name:
   platform: hue
   unique_id: 00:17:88:01:02:32:09:6a-0b
 light.living_room_track_l_1:
+  config_entry_id: 5191c64da9ae48f9b962cf2cfdb9f0dc
   name:
   platform: hue
   unique_id: 00:17:88:01:02:74:37:d4-0b
 light.sun_room_b_1:
+  config_entry_id: 5191c64da9ae48f9b962cf2cfdb9f0dc
   name:
   platform: hue
   unique_id: 00:17:88:01:00:c2:6e:1e-0b
 light.living_room_track_c_3:
+  config_entry_id: 5191c64da9ae48f9b962cf2cfdb9f0dc
   name:
   platform: hue
   unique_id: 00:17:88:01:00:f1:f5:b1-0b
 light.sun_room_b_2:
+  config_entry_id: 5191c64da9ae48f9b962cf2cfdb9f0dc
   name:
   platform: hue
   unique_id: 00:17:88:01:00:1d:79:8b-0b
 light.living_room_track_c_5:
+  config_entry_id: 5191c64da9ae48f9b962cf2cfdb9f0dc
   name:
   platform: hue
   unique_id: 00:17:88:01:02:df:cc:71-0b
 light.basement_bathroom_d_2:
+  config_entry_id: 5191c64da9ae48f9b962cf2cfdb9f0dc
   name:
   platform: hue
   unique_id: 00:17:88:01:02:4a:cd:4b-0b
 light.office_c_1:
+  config_entry_id: 5191c64da9ae48f9b962cf2cfdb9f0dc
   name:
   platform: hue
   unique_id: 00:17:88:01:00:ba:68:a0-0b
 light.upper_stairs_c_1:
+  config_entry_id: 5191c64da9ae48f9b962cf2cfdb9f0dc
   name:
   platform: hue
   unique_id: 00:17:88:01:00:b1:ef:8d-0b
 light.living_room_track_l_2:
+  config_entry_id: 5191c64da9ae48f9b962cf2cfdb9f0dc
   name:
   platform: hue
   unique_id: 00:17:88:01:02:74:48:ad-0b
 light.upper_stairs_d_1:
+  config_entry_id: 5191c64da9ae48f9b962cf2cfdb9f0dc
   name:
   platform: hue
   unique_id: 00:17:88:01:02:3e:9d:ea-0b
 light.living_room_track_c_4:
+  config_entry_id: 5191c64da9ae48f9b962cf2cfdb9f0dc
   name:
   platform: hue
   unique_id: 00:17:88:01:02:df:ea:ec-0b
 light.go_1:
+  config_entry_id: 5191c64da9ae48f9b962cf2cfdb9f0dc
   name:
   platform: hue
   unique_id: 00:17:88:01:01:19:4c:b1-0b
 light.living_room_track_c_1:
+  config_entry_id: 5191c64da9ae48f9b962cf2cfdb9f0dc
   name:
   platform: hue
   unique_id: 00:17:88:01:00:e8:0c:a7-0b
 light.tv_b_1:
+  config_entry_id: 5191c64da9ae48f9b962cf2cfdb9f0dc
   name:
   platform: hue
   unique_id: 00:17:88:01:00:c0:80:5c-0b
 light.living_room_track_c_2:
+  config_entry_id: 5191c64da9ae48f9b962cf2cfdb9f0dc
   name:
   platform: hue
   unique_id: 00:17:88:01:00:e8:0b:fa-0b
 light.kitchen_d_2:
+  config_entry_id:
   name:
   platform: hue
   unique_id: 00:17:88:01:02:3e:c3:45-0b
 light.basement_bathroom_d_1:
+  config_entry_id: 5191c64da9ae48f9b962cf2cfdb9f0dc
   name:
   platform: hue
   unique_id: 00:17:88:01:02:4a:d3:4e-0b
 sensor.alarm_type_4:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 8-72057594178191361
 sensor.alarm_level_4:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 8-72057594178191377
 binary_sensor.sensor_4:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 8-72057594177126400
 sensor.master_bathroom_motion_1_temperature:
+  config_entry_id:
   name: Master Bathroom Temperature
   platform: zwave
   unique_id: 8-72057594177142802
 sensor.master_bathroom_motion_1_luminance:
-  name: Master Bathroom M1 Luminance
+  config_entry_id:
+  name: Master Bathroom M1 Lux
   platform: zwave
   unique_id: 8-72057594177142834
 sensor.master_bathroom_motion_1_relative_humidity:
+  config_entry_id:
   name: Master Bathroom M1 Humidity
   platform: zwave
   unique_id: 8-72057594177142866
 sensor.master_bathroom_motion_1_sourcenodeid:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 8-72057594178191393
 sensor.master_bathroom_motion_1_burglar:
+  config_entry_id:
   name: Master Bathroom M1 Burglar
   platform: zwave
   unique_id: 8-72057594178191521
 sensor.master_bathroom_motion_1_power_management:
+  config_entry_id:
   name: Master Bathroom M1 Power
   platform: zwave
   unique_id: 8-72057594178191537
 sensor.master_bathroom_motion_1_emergency:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 8-72057594178191569
 sensor.alarm_type_5:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 4-72057594111082497
 sensor.alarm_level_5:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 4-72057594111082513
 binary_sensor.basement_bathroom_motion_1_occupancy:
-  name:
+  config_entry_id:
+  name: Basement Bathroom M1 Occupancy
   platform: zwave
   unique_id: 4-72057594110017536
 sensor.basement_bathroom_motion_1_sourcenodeid:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 4-72057594111082529
 sensor.basement_bathroom_motion_1_burglar:
-  name:
+  config_entry_id:
+  name: Basement Bathroom M1 Burglar
   platform: zwave
   unique_id: 4-72057594111082657
 sensor.basement_bathroom_motion_1_power_management:
-  name:
+  config_entry_id:
+  name: Basement Bathroom M1 Power
   platform: zwave
   unique_id: 4-72057594111082673
 sensor.alarm_type_6:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 7-72057594161414145
 sensor.alarm_level_6:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 7-72057594161414161
-binary_sensor.sensor_6:
-  name:
+binary_sensor.bedroom_motion_1:
+  config_entry_id:
+  name: Bedroom Motion 1
   platform: zwave
   unique_id: 7-72057594160349184
 sensor.bedroom_motion_1_sourcenodeid:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 7-72057594161414177
 sensor.bedroom_motion_1_burglar:
-  name:
+  config_entry_id:
+  name: Bedroom M1 Burglar
   platform: zwave
   unique_id: 7-72057594161414305
 sensor.bedroom_motion_1_power_management:
-  name:
+  config_entry_id:
+  name: Bedroom M1 Power
   platform: zwave
   unique_id: 7-72057594161414321
 light.lx_sun_room_1:
+  config_entry_id:
   name:
   platform: lifx
   unique_id: d0:73:d5:14:67:17
 media_player.fire_tv_stick:
+  config_entry_id:
   name:
   platform: plex
   unique_id: df290683c8eecd6b-com-plexapp-android
 media_player.chrome:
+  config_entry_id:
   name:
   platform: plex
   unique_id: 3pgd9ds9yts797i7d0m9aih4
 media_player.chrome_2:
+  config_entry_id:
   name:
   platform: plex
   unique_id: mqtqcpsayhob6ku0l2hp4sru
 media_player.galaxy_s7:
+  config_entry_id:
   name:
   platform: plex
   unique_id: 837cbe34de684bb-com-plexapp-android
 light.bedroom_c_3:
+  config_entry_id: 5191c64da9ae48f9b962cf2cfdb9f0dc
   name:
   platform: hue
   unique_id: 00:17:88:01:03:58:c4:e7-0b
 light.kitchen_c_1:
+  config_entry_id: 5191c64da9ae48f9b962cf2cfdb9f0dc
   name:
   platform: hue
   unique_id: 00:17:88:01:02:8b:db:c5-0b
 light.lx_kitchen_2:
+  config_entry_id:
   name:
   platform: lifx
   unique_id: d0:73:d5:28:67:88
 light.lx_office_1:
+  config_entry_id:
   name:
   platform: lifx
   unique_id: d0:73:d5:27:f5:3c
 media_player.pioneer_vsx:
+  config_entry_id:
   name:
   platform: cast
   unique_id: 1219f62b-f665-05c1-c5cd-492735a86d73
+media_player.chrome_3:
+  config_entry_id:
+  name:
+  platform: plex
+  unique_id: 8w1gk2pvvfk9hq15ekqgkcs3
+light.sun_room_c_4:
+  config_entry_id: 5191c64da9ae48f9b962cf2cfdb9f0dc
+  name:
+  platform: hue
+  unique_id: 00:17:88:01:03:70:2c:4a-0b
+zwave.aeotec_zw090_zstick_gen5_us:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: node-1
+zwave.workshop_d_z_1:
+  config_entry_id:
+  name: Workshop D 1
+  platform: zwave
+  unique_id: node-2
+zwave.basement_bathroom_motion_1:
+  config_entry_id:
+  name: Basement Bathroom Motion 1
+  platform: zwave
+  unique_id: node-4
+zwave.kitchen_motion_1_sensor:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: node-5
+zwave.living_room_motion_3:
+  config_entry_id:
+  name: Living Room Motion 3
+  platform: zwave
+  unique_id: node-6
+zwave.bedroom_motion_1:
+  config_entry_id:
+  name: Bedroom Motion 1
+  platform: zwave
+  unique_id: node-7
+zwave.master_bathroom_motion_1:
+  config_entry_id:
+  name: Master Bathroom Motion 1
+  platform: zwave
+  unique_id: node-8
+zwave.office_motion_1:
+  config_entry_id:
+  name: Office Motion 1
+  platform: zwave
+  unique_id: node-10
+zwave.cold_room_multi_1:
+  config_entry_id:
+  name: Cold Room Motion 1
+  platform: zwave
+  unique_id: node-11
+binary_sensor.cold_room_motion_1:
+  config_entry_id:
+  name: Cold Room M1
+  platform: zwave
+  unique_id: 11-72057594227458048
+sensor.cold_room_motion_1_temperature:
+  config_entry_id:
+  name: Cold Room M1 Temperature
+  platform: zwave
+  unique_id: 11-72057594227474450
+sensor.cold_room_motion_1_luminance:
+  config_entry_id:
+  name: Cold Room M1 Lux
+  platform: zwave
+  unique_id: 11-72057594227474482
+sensor.cold_room_motion_1_relative_humidity:
+  config_entry_id:
+  name: Cold Room M1 Humidity
+  platform: zwave
+  unique_id: 11-72057594227474514
+sensor.cold_room_motion_1_ultraviolet:
+  config_entry_id:
+  name: Cold Room M1 UV
+  platform: zwave
+  unique_id: 11-72057594227474866
+sensor.cold_room_motion_1_sourcenodeid:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 11-72057594228523041
+sensor.cold_room_motion_1_burglar:
+  config_entry_id:
+  name: Cold Room M1 Burglar
+  platform: zwave
+  unique_id: 11-72057594228523169
+sensor.cold_room_motion_1_alarm_type:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 11-72057594228523009
+sensor.cold_room_motion_1_alarm_level:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 11-72057594228523025
+media_player.chrome_4:
+  config_entry_id:
+  name:
+  platform: plex
+  unique_id: tdxbbvhdzsxspc2ivgfkwqaor

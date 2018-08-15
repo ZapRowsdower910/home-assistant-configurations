@@ -1,0 +1,30 @@
+alias: 'Auto Off Sun Room'
+trigger:
+  - platform: state
+    entity_id: binary_sensor.sun_room_motion
+    to: 'off'
+    for:
+      minutes: 40  
+condition:
+  - condition: state
+    entity_id: input_boolean.house_auto_lights
+    state: 'on'
+action:
+  - service: script.auto_light_off
+    data:
+      entity: light.sun_room_c_1
+  - service: script.auto_light_off
+    data:
+      entity: light.sun_room_c_2
+  - service: script.auto_light_off
+    data:
+      entity: light.sun_room_c_3
+  - service: script.auto_light_off
+    data:
+      entity: light.sun_room_c_4
+  - service: script.auto_light_off
+    data:
+      entity: light.lx_sun_room_1
+  - service: script.auto_light_off
+    data:
+      entity: light.lx_sun_room_2     

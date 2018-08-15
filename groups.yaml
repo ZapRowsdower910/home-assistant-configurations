@@ -120,13 +120,14 @@ sun_room_lights:
   - light.sun_room_c_1
   - light.sun_room_c_2
   - light.sun_room_c_3
-  - light.sun_room_d_1    
+  - light.sun_room_c_4
   - light.sun_room_b_1
   - light.sun_room_b_2 
 sun_room_shallow_accents:
   name: "Sun Room Shallow Accents"
   view: false
-  entities:  
+  entities:
+  - light.sun_room_c_1
 sun_room_deep_accents:
   name: "Sun Room Deep Accents"
   view: false
@@ -139,11 +140,10 @@ sun_room_base:
   name: "Sun Room Base"
   view: false
   entities:
-  - light.lx_sun_room_2
-  - light.sun_room_c_1
-  - light.sun_room_d_1
+  - light.lx_sun_room_2    
   - light.sun_room_c_2
   - light.sun_room_c_3
+  - light.sun_room_c_4
 ###############
 ## Bedroom
 ###############
@@ -175,7 +175,21 @@ workshop_lights:
   name: "Workshop Lights"
   entities:
   - light.workshop_l_1
-  - light.workshop_d_z_1_level
+  - light.workshop_d_z_1
+workshop_shallow_accents:
+  name: "Workshop Shallow Accents"
+  view: false
+  entities:
+workshop_deep_accents:
+  name: "Workshop Deep Accents"
+  view: false
+  entities:
+workshop_base:
+  name: "Workshop Base"
+  view: false
+  entities:
+  - light.workshop_l_1
+  - light.workshop_d_z_1
 ###############
 ## Bathrooms
 ###############
@@ -286,6 +300,7 @@ workshop:
   name: "Workshop"
   entities:
   - group.workshop_lights
+  - group.workshop_multi_1
 master_bathroom:
   name: "Master Bathroom"
   entities:
@@ -336,6 +351,7 @@ floor_0:
   - binary_sensor.living_room_occupancy
   - binary_sensor.garage_door
   - sensor.home_alarm_keypad
+  - light.living_room_stairs_d_1
 
 ##########################################
 ## People
@@ -390,6 +406,7 @@ motion:
   - binary_sensor.living_room_motion_3_sensor
   - binary_sensor.kitchen_motion_1_sensor
   - binary_sensor.basement_bathroom_motion_1
+  - binary_sensor.cold_room_motion_1
 motion_plus:
   - sensor.basement_bathroom_motion_1_burglar
   - sensor.bedroom_motion_1_burglar
@@ -397,6 +414,7 @@ motion_plus:
   - sensor.kitchen_motion_1_burglar
   - sensor.master_bathroom_motion_1_burglar
   - sensor.office_motion_1_burglar
+  - sensor.cold_room_motion_1_burglar
 doors:
   name: "Door Sensors"  
   view: false
@@ -412,6 +430,28 @@ network_health:
   - sensor.igd_packets_sent
   - sensor.igd_received_bytes
   - sensor.igd_sent_bytes
+bedroom_motion_1:
+  name: "Bedroom Motion 1"
+  entities:
+  - sensor.bedroom_motion_1_burglar
+  - sensor.bedroom_motion_1_power_management  
+cold_room_multi_1:
+  name: "Cold Room Multi 1"
+  entities:
+  - sensor.cold_room_motion_1_sensor
+  - sensor.cold_room_motion_1_burglar
+  - sensor.cold_room_motion_1_luminance
+  - sensor.cold_room_motion_1_power
+  - sensor.cold_room_motion_1_temperature
+  - sensor.cold_room_motion_1_relative_humidity
+  - sensor.cold_room_motion_1_ultraviolet  
+kitchen_multi_1:
+  name: "Kitchen Multi 1"
+  entities:
+  - binary_sensor.kitchen_motion_1_sensor
+  - sensor.kitchen_motion_1_burglar
+  - sensor.kitchen_motion_1_luminance
+  - sensor.kitchen_motion_1_temperature  
 living_room_multi_1:
   name: "Living Room Multi 1"
   entities:
@@ -422,13 +462,6 @@ living_room_multi_1:
   - sensor.living_room_motion_3_temperature
   - sensor.living_room_motion_3_relative_humidity
   - sensor.living_room_motion_3_ultraviolet
-kitchen_multi_1:
-  name: "Kitchen Multi 1"
-  entities:
-  - binary_sensor.kitchen_motion_1_sensor
-  - sensor.kitchen_motion_1_burglar
-  - sensor.kitchen_motion_1_luminance
-  - sensor.kitchen_motion_1_temperature
 master_bathroom_multi_1:
   name: "Master Bathroom Multi 1"
   entities:
@@ -451,11 +484,6 @@ workshop_multi_1:
   # - binary_sensor.workshop_motion_1_sensor
   - sensor.workshop_hue_1_lux_sensor
   - sensor.workshop_hue_1_temperature_sensor
-bedroom_motion_1:
-  name: "Bedroom Motion 1"
-  entities:
-  - sensor.bedroom_motion_1_burglar
-  - sensor.bedroom_motion_1_power_management
 ###############
 ## Flags
 ###############
@@ -496,14 +524,36 @@ house_temp:
   name: "House Temperature"
   view: false
   icon: mdi:thermometer
-  entities:
-  - sensor.living_room_temperature
-  - sensor.office_temperature
+  entities:  
   - sensor.bedroom_temperature
+  - sensor.cold_room_motion_1_temperature
   - sensor.kitchen_motion_1_temperature
   - sensor.living_room_motion_3_temperature
+  - sensor.living_room_temperature
   - sensor.master_bathroom_motion_1_temperature
+  - sensor.office_temperature
+  - sensor.office_motion_1_temperature
   - sensor.workshop_hue_1_temperature_sensor
+house_humditiy:
+  name: "House Humidity"
+  view: false
+  icon: mdi:thermometer
+  entities:  
+  - sensor.cold_room_motion_1_relative_humidity
+  - sensor.kitchen_motion_1_relative_humidity
+  - sensor.living_room_motion_3_relative_humidity
+  - sensor.main_floor_humidity
+  - sensor.master_bathroom_motion_1_relative_humidity
+  - sensor.office_motion_1_relative_humidity 
+house_lux:
+  name: "House Lux"  
+  view: false
+  entities:
+  - sensor.cold_room_motion_1_luminance
+  - sensor.kitchen_motion_1_luminance
+  - sensor.living_room_motion_3_luminance
+  - sensor.master_bathroom_motion_1_luminance
+  - sensor.office_motion_1_luminance
 weather:
   name: "Current Weather"
   view: false
@@ -529,6 +579,15 @@ prusa:
 ###############
 ## Scenes
 ###############  
+scenes_accents:
+  name: "Accents Scenes"  
+  view: false
+  entities:
+  - scene.accent_cool
+  - scene.accent_grass
+  - scene.accent_honey
+  - scene.accent_purple
+  - scene.accent_warm
 scenes_all:
   name: "All Scenes"  
   view: false
@@ -563,17 +622,6 @@ scenes_living_room:
   - scene.living_room_none
   - scene.living_room_purple
   - scene.living_room_warm
-scenes_sun_room:
-  name: "Sun Room Scenes"
-  view: false 
-  entities:
-  - scene.sun_room_cool
-  - scene.sun_room_grass
-  - scene.sun_room_honey
-  - scene.sun_room_late_night
-  - scene.sun_room_none
-  - scene.sun_room_purple
-  - scene.sun_room_warm
 scenes_kitchen:
   name: "Kitchen Scenes"  
   view: false
@@ -596,15 +644,27 @@ scenes_office:
   - scene.office_none     
   - scene.office_purple
   - scene.office_warm
-scenes_accents:
-  name: "Accents Scenes"  
-  view: false
+scenes_sun_room:
+  name: "Sun Room Scenes"
+  view: false 
   entities:
-  - scene.accent_cool
-  - scene.accent_grass
-  - scene.accent_honey
-  - scene.accent_purple
-  - scene.accent_warm
+  - scene.sun_room_cool
+  - scene.sun_room_grass
+  - scene.sun_room_honey
+  - scene.sun_room_late_night
+  - scene.sun_room_none
+  - scene.sun_room_purple
+  - scene.sun_room_warm
+scenes_workshop:
+  name: "Workshop Scenes"
+  view: false 
+  entities:
+  - scene.workshop_cool
+  - scene.workshop_grass
+  - scene.workshop_honey
+  - scene.workshop_none
+  - scene.workshop_purple
+  - scene.workshop_warm
 
 ##########################################
 ## Views
@@ -622,15 +682,18 @@ default_view:
   - sensor.deepthink
   - sensor.progressive_day_theme
   - group.ecobee
+  - sensor.time_of_day
 automation_view:
   name: "Smarts"
   view: true
+  icon: mdi:robot
   entities:
   - group.all_automations
   - group.all_scripts
   - group.scenes_all
 rooms:
   name: "Rooms"
+  icon: mdi:floor-plan
   view: true
   entities:
   - group.bedroom
@@ -640,10 +703,11 @@ rooms:
   - group.sun_room
   - group.workshop
   - group.master_bathroom
-  - group.basement_bathroom
+  - groxup.basement_bathroom
 floors:
   name: "Floors"
   view: true
+  icon: mdi:home-modern
   entities:
   - climate.main_floor
   - group.floor_0
@@ -651,6 +715,7 @@ floors:
   - group.floor_2
 living_room_view:
   name: "Living Room"
+  icon: mdi:television-classic
   view: true
   entities:
   - group.living_room_lights
@@ -670,6 +735,7 @@ living_room_view:
   - binary_sensor.living_room_motion
 sun_room_view:
   name: "Sun Room"
+  icon: mdi:glass-cocktail
   view: true
   entities:
   - group.sun_room_lights
@@ -680,6 +746,7 @@ sun_room_view:
   - binary_sensor.sun_room_motion
 kitchen_view:
   name: "Kitchen"
+  icon: mdi:fridge
   view: true
   entities:
   - group.kitchen_lights
@@ -690,6 +757,7 @@ kitchen_view:
   - binary_sensor.kitchen_motion
 office_view:
   name: "Office"
+  icon: mdi:desktop-classic
   view: true
   entities:
   - group.office_lights
@@ -698,6 +766,7 @@ office_view:
   - binary_sensor.office_motion
 bedroom_view:
   name: "Bedroom"
+  icon: mdi:bed-empty
   view: true
   entities:
   - group.scenes_bedroom
@@ -706,14 +775,17 @@ bedroom_view:
   - group.bedroom_motion_1
 workshop_view:
   name: "Workshop"
+  icon: mdi:desk-lamp
   view: true
   entities:
   - group.workshop_lights
   # - binary_sensor.workshop_hue_motion_1_sensor
   - group.workshop_multi_1
   - group.prusa
+  - group.scenes_workshop
 master_bath_view:
   name: "Master Bathroom"
+  icon: mdi:toilet
   view: true
   entities:
   - group.master_bathroom_lights
@@ -722,6 +794,7 @@ master_bath_view:
   - binary_sensor.master_bathroom_motion
 the_world:
   name: "Outside"
+  icon: mdi:globe-model
   view: true
   entities:
   - group.weather
@@ -729,6 +802,7 @@ the_world:
   - group.crypto
 sensor_view:
   name: "Sensors"
+  icon: mdi:cctv
   view: true
   entities:
   - group.motion
@@ -742,3 +816,6 @@ sensor_view:
   - group.master_bathroom_multi_1
   - group.bedroom_motion_1
   - group.workshop_multi_1
+  - group.house_temp
+  - group.house_lux
+  - group.house_humditiy

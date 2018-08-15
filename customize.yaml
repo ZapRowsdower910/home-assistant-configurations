@@ -59,22 +59,36 @@ scene.living_room_late_night:
 sensor.bitcoin:
   icon: mdi:bitcoin
 sensor.ethereum:
-  icon: mdi:ethereum  
+  icon: mdi:ethereum
+sensor.cold_room_motion_1_luminance:
+  icon: mdi:white-balance-sunny    
 sensor.kitchen_motion_1_luminance:
   icon: mdi:white-balance-sunny
 sensor.living_room_motion_3_luminance:
   friendly_name: Living Room Lux
   icon: mdi:white-balance-sunny
+sensor.office_motion_1_luminance:
+  icon: mdi:white-balance-sunny  
 sensor.master_bathroom_motion_1_luminance:
   icon: mdi:white-balance-sunny
 sensor.workshop_hue_1_lux_sensor:
   icon: mdi:white-balance-sunny
+sensor.cold_room_motion_1_relative_humidity:
+  icon: mdi:water-percent
 sensor.living_room_motion_3_relative_humidity:
-  friendly_name: Living Room Humidity
-sensor.living_room_motion_3_temperature:
-  friendly_name: Living Room Temperature  
-sensor.living_room_motion_3_ultraviolet:
-  friendly_name: Living Room Ultraviolet
+  icon: mdi:water-percent
+sensor.office_motion_1_relative_humidity:
+  icon: mdi:water-percent
+sensor.master_bathroom_motion_1_relative_humidity:
+  icon: mdi:water-percent
+sensor.bedroom_motion_1_power_management:
+  icon: mdi:power-plug
+sensor.basement_bathroom_motion_1_power_management:
+  icon: mdi:power-plug
+sensor.master_bathroom_motion_1_power_management:
+  icon: mdi:power-plug
+sensor.office_motion_1_power_management:
+  icon: mdi:power-plug      
 switch.switch:
   friendly_name: Laundry Mat
 binary_sensor.flic_80e4da702912:

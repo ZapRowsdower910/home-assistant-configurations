@@ -3,4 +3,4 @@ resource: http://192.168.1.17/api/hUYgWbmGK7ozsgJ4HZrXQbF8-XQ3URytT7Zqx927/senso
 # value_template: '{{ value_json.state.lightlevel }}'
 value_template: '{{ (10 ** (float(value_json.state.lightlevel) / 10000) -1) | round (1)}}'
 unit_of_measurement: Lux
-name: 'Workshop Hue 1 Lux Sensor'
+name: 'Workshop Hue 1 Lux'

@@ -12,7 +12,7 @@ condition:
   - condition: and
     conditions:
       - condition: state
-        entity_id: binary_sensor.bedroom_motion_1_sensor
+        entity_id: binary_sensor.bedroom_motion
         state: 'off'
       - condition: state
         entity_id: binary_sensor.bedroom_occupancy

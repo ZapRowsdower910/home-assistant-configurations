@@ -1,0 +1,12 @@
+alias: 'Workshop Flic Single Click'
+trigger:
+    platform: event
+    event_type: flic_click
+    event_data:
+      button_name: workshop
+      click_type: single
+action:
+  - service: scene.turn_on
+    data_template:
+      variables:
+        entity_id: scene.workshop_{{ states('sensor.progressive_day_theme')|replace(' ', '_') | lower }}

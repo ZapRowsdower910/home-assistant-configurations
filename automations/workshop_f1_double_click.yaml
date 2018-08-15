@@ -1,0 +1,11 @@
+alias: 'Workshop Flic Double Click'
+trigger:
+    platform: event
+    event_type: flic_click
+    event_data:
+      button_name: workshop
+      click_type: double
+action:
+  - service: light.turn_off
+    data:
+      entity_id: group.workshop_lights

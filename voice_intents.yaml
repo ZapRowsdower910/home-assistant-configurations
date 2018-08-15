@@ -22,6 +22,28 @@ ActivateRoomSceneIntent:
     type: plain
     text: "how's that?"
 
+ExecuteScriptIntent:
+  action:
+    service: script.turn_on
+    data_template: 
+      entity_id: >-
+        {%- if Script == "Bravo" -%}
+          script.bedtime
+        {%- elif Script == "Tango" -%}
+          script.progressive_theme
+        {%- elif Script == "Zulu" -%}
+          script.entertainment_turn_on
+        {%- endif -%}
+  speech:
+    type: plain
+    text: >
+      {{ [
+        "Executing Protocol",
+        "Program Started",
+        "Beginning",
+        "Initiated"
+      ] | random }}    
+
 MediaPlayerTurnOnIntent:
   action:
     service: media_player.turn_on

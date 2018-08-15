@@ -3,16 +3,32 @@ sensors:
   progressive_day_theme:
     friendly_name: "Progressive Day Theme"
     value_template: >-
-      {% if now().hour >= 4 and now().hour < 7 %}
+      {% if is_state("sensor.time_of_day", "Early Morning") %}
         Purple
-      {% elif now().hour >= 7 and now().hour < 11 %}
+      {% elif is_state("sensor.time_of_day", "Morning") %}
         Cool
-      {% elif now().hour >= 11 and now().hour < 17 %}
+      {% elif is_state("sensor.time_of_day", "Mid Day") %}
         Grass
-      {% elif now().hour >= 17 and now().hour < 22 %}
+      {% elif is_state("sensor.time_of_day", "Evening") %}
         Honey
-      {% elif now().hour >= 22 or now().hour < 2 %}
+      {% elif is_state("sensor.time_of_day", "Late Evening") %}
         Warm
+      {% elif is_state("sensor.time_of_day", "Late Night") %}
+        Late Night
+      {% endif %}
+  time_of_day:
+    friendly_name: "Time of Day"
+    value_template: >-
+      {% if now().hour >= 4 and now().hour < 7 %}
+        Early Morning
+      {% elif now().hour >= 7 and now().hour < 11 %}
+        Morning
+      {% elif now().hour >= 11 and now().hour < 17 %}
+        Mid Day
+      {% elif now().hour >= 17 and now().hour < 22 %}
+        Evening
+      {% elif now().hour >= 22 or now().hour < 2 %}
+        Late Evening
       {% elif now().hour >= 1 or now().hour < 4 %}
         Late Night
       {% endif %}

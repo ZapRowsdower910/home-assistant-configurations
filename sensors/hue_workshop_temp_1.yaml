@@ -2,4 +2,4 @@ platform: rest
 resource: http://192.168.1.17/api/hUYgWbmGK7ozsgJ4HZrXQbF8-XQ3URytT7Zqx927/sensors/4
 value_template: '{{ value_json.state.temperature | float / 100 }}'
 unit_of_measurement: °C
-name: 'Workshop Hue 1 Temperature Sensor'
+name: 'Workshop Hue 1 Temperature'

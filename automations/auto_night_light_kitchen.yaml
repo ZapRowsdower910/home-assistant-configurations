@@ -13,6 +13,8 @@ condition:
   - condition: numeric_state
     entity_id: sensor.kitchen_motion_1_luminance
     below: '1'
+  - condition: sun
+    after: sunset
 action:  
   - service: scene.turn_on
     entity_id: scene.kitchen_night_light
