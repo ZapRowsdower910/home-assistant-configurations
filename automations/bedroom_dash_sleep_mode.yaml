@@ -4,5 +4,9 @@ trigger:
   entity_id: sensor.bedroom_dash
   to: '1'
 action:
-  service: script.turn_on
-  entity_id: script.bedtime
+  - service: script.turn_on
+    entity_id: script.bedtime
+  - service: light.turn_on
+    entity_id: light.bedroom_c_2
+    data:      
+      flash: short

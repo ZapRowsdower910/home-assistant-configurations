@@ -6,6 +6,6 @@ trigger:
       button_name: office
       click_type: hold
 action:
-  - service: light.turn_off
+  - service: input_boolean.toggle
     data:
-      entity_id: group.office_lights
+      entity_id: input_boolean.office_override

@@ -1,8 +1,8 @@
 alias: 'Auto Lights Living Room'
 trigger:
   - platform: state
-    entity_id: sensor.living_room_motion
-    to: 'on'  
+    entity_id: binary_sensor.living_room_motion
+    to: 'on'
 condition:
   - condition: state
     entity_id: group.living_room_lights
@@ -13,8 +13,8 @@ condition:
   - condition: state
     entity_id: input_boolean.sleep_mode
     state: 'off'
-  - condition: template
-    value_template: '{{ states("media_player.living_room_cr2") == "idle" }}'
+  # - condition: template
+  #   value_template: '{{ states("media_player.living_room_cr2") == "idle" }}'
 action:
   - service: scene.turn_on
     data_template:

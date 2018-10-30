@@ -8,5 +8,4 @@ trigger:
 action:
   - service: scene.turn_on
     data_template:
-      variables:
-        entity_id: scene.office_{{ states('sensor.progressive_day_theme')|replace(' ', '_') | lower }}
+      entity_id: scene.office_{{ states('sensor.progressive_day_theme')|replace(' ', '_') | lower }}

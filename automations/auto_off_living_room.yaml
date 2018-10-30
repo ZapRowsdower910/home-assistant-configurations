@@ -9,6 +9,9 @@ trigger:
     entity_id: binary_sensor.living_room_occupancy
     to: 'off'
 condition:
+  - condition: state
+    entity_id: group.living_room_lights
+    state: 'on'
   - condition: and
     conditions:
       - condition: state

@@ -1,7 +1,7 @@
 alias: "Tv Auto Dim"
 trigger:
   - platform: state
-    entity_id: media_player.tv
+    entity_id: media_player.vizio_tv
     to: 'playing'
     for:
       seconds: 30

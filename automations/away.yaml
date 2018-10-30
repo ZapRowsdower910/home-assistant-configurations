@@ -1,12 +1,18 @@
 alias: "Auto Away"
 trigger:
-  platform: state
-  entity_id: group.nick
-  to: 'not_home'
+  - platform: state
+    entity_id: group.nick
+    to: 'not_home'
+  - platform: state
+    entity_id: input_boolean.guests_present
+    to: 'off'
 condition:
-  condition: state
-  entity_id: input_boolean.guests_present
-  state: 'off'  
+  - condition: state
+    entity_id: input_boolean.guests_present
+    state: 'off'  
+  - condition: state
+    entity_id: group.nick
+    state: 'not_home'
 action:
   - service: light.turn_off
     entity_id: group.inside_lights

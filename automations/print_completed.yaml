@@ -9,13 +9,17 @@ condition:
     entity_id: input_boolean.sleep_mode
     state: 'off'
 action:
-  - service: scene.turn_on
-    entity_id: scene.living_room_dim
-  - delay:
-      seconds: 5
-  - service: scene.turn_on
-    entity_id: scene.living_room_bright
-  - delay:
-      seconds: 5    
-  - service: scene.turn_on
-    entity_id: scene.living_room_dim
+  - service: media_player.alexa_tts
+    entity_id: media_player.living_room_dot
+    data:
+      message: "Ding, fries are done"
+  # - service: scene.turn_on
+  #   entity_id: scene.living_room_dim
+  # - delay:
+  #     seconds: 5
+  # - service: scene.turn_on
+  #   entity_id: scene.living_room_bright
+  # - delay:
+  #     seconds: 5    
+  # - service: scene.turn_on
+  #   entity_id: scene.living_room_dim

@@ -2,6 +2,8 @@ alias: "Bedtime"
 sequence:
   - service: input_boolean.turn_on
     entity_id: input_boolean.sleep_mode
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.office_override
   - service: climate.set_hold_mode
     entity_id: climate.main_floor
     data:

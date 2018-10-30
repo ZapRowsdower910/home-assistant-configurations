@@ -1,7 +1,7 @@
 alias: "Tv Auto Bright"
 trigger:
   - platform: state
-    entity_id: media_player.tv
+    entity_id: media_player.vizio_tv
     to: 'idle'
     for:
       seconds: 30
@@ -14,6 +14,12 @@ condition:
   - condition: state
     entity_id: input_boolean.tv_auto_lights
     state: 'on'
+  - condition: state
+    entity_id: media_player.living_room_cr2
+    state: 'idle'
+  - condition: state
+    entity_id: media_player.vizio_tv
+    state: 'idle'
 action:
   - service: scene.turn_on
     data_template:

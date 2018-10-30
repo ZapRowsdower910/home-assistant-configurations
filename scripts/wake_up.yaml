@@ -1,0 +1,82 @@
+alias: "Wake Up"
+sequence:
+  - service: light.turn_on
+    data:
+      entity_id: group.bedroom_lights
+      brightness: 1
+      rgb_color: [10,0,0]
+      transition: 0
+  - delay:
+      seconds: 1
+  - service: light.turn_on
+    data:
+      entity_id: group.bedroom_lights
+      brightness: 100
+      rgb_color: [100,0,0]
+      transition: 10
+  - delay:
+      seconds: 10
+  - service: light.turn_on
+    data:
+      entity_id: group.bedroom_lights
+      brightness: 100
+      rgb_color: [100,75,0]
+      transition: 15
+  - service: media_player.select_source
+    data:
+      entity_id: media_player.spotify
+      source: "Bedroom Dot"
+  - service: media_player.volume_set
+    data:
+      entity_id: media_player.bedroom_dot
+      volume_level: .2
+  - service: media_player.play_media    
+    data:
+      entity_id: media_player.spotify
+      media_content_type: playlist
+      media_content_id: spotify:user:ufomammut66:playlist:3PF4IB6B3BCkwZd7RTHxRW
+  - service: media_player.shuffle_set
+    data:
+      entity_id: media_player.spotify
+      shuffle: true
+  - service: media_player.media_next_track
+    data:
+      entity_id: media_player.spotify
+  - delay:
+      seconds: 15
+  - service: light.turn_on
+    data:
+      entity_id: group.bedroom_lights
+      brightness: 150
+      rgb_color: [100,100,0]
+      transition: 15
+  - service: media_player.volume_set
+    data:
+      entity_id: media_player.bedroom_dot
+      volume_level: .25
+  - delay:
+      seconds: 15
+  - service: light.turn_on
+    data:
+      entity_id: group.bedroom_lights
+      brightness: 200
+      rgb_color: [100,100,0]
+      transition: 15
+  - service: light.turn_on
+    data:
+      entity_id: group.bedroom_base
+      brightness: 200
+      color_temp: 400
+      transition: 15
+  - delay:
+      seconds: 15
+  - service: media_player.volume_set
+    data:
+      entity_id: media_player.bedroom_dot
+      volume_level: .3
+  - delay:
+      seconds: 15
+  - service: media_player.volume_set
+    data:
+      entity_id: media_player.bedroom_dot
+      volume_level: .4

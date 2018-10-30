@@ -1,7 +1,7 @@
 platform: mqtt_json
-name: "Kitchen Strip 1"
-state_topic: "hass/kitchen-leds"
-command_topic: "hass/kitchen-leds/set"
+name: "Bed Strip 1"
+state_topic: "hass/bedAccent"
+command_topic: "hass/bedAccent/set"
 effect: true
 effect_list:
   - bpm

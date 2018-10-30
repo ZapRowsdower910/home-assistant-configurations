@@ -20,6 +20,9 @@ condition:
   - condition: state
     entity_id: input_boolean.house_auto_lights
     state: 'on'
+  - condition: state
+    entity_id: input_boolean.office_override
+    state: 'off'
   # - condition: state
   #   entity_id: input_boolean.sleep_mode
   #   state: 'off'    

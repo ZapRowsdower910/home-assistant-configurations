@@ -4,7 +4,12 @@ trigger:
   entity_id: sensor.bedroom_dash
   to: '3'
 action:
+  - service: light.turn_on
+    entity_id: light.bedroom_c_2
+    data:      
+      flash: short
   - service: light.toggle
     entity_id: light.bedroom_c_1
   - service: light.toggle
     entity_id: light.bedroom_c_2
+  

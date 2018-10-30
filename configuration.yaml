@@ -44,18 +44,60 @@ logger:
 
 alexa:
 
-# amcrest:
-#   host: 192.168.1.180
-#   username: !secret amcrest_username
-#   password: !secret amcrest_password
+amcrest:
+  host: 192.168.1.180
+  username: !secret amcrest_username
+  password: !secret amcrest_password
 
 ecobee:
   api_key: !secret ecobee_api_key
 
 binary_sensor:
-#   platform: flic
+  - platform: workday
+    country: US
+    province: OH
   - platform: template
     sensors: 
+      motion:
+        friendly_name: "Motion"
+        value_template: >-
+          {%- if is_state('binary_sensor.basement_bathroom_motion', 'on') 
+            or is_state('binary_sensor.bedroom_motion', 'on') 
+            or is_state('binary_sensor.kitchen_motion', 'on') 
+            or is_state('binary_sensor.living_room_motion', 'on') 
+            or is_state('binary_sensor.office_motion', 'on')
+            or is_state('binary_sensor.master_bathroom_motion', 'on')
+            or is_state('binary_sensor.sun_room_motion', 'on')  
+          -%}
+          true
+          {%- else -%}
+          false
+          {%- endif -%}
+
+      basement_bathroom_motion:
+        friendly_name: "Basement Bathroom Motion"
+        value_template: >-
+          {%- if is_state('sensor.basement_bathroom_motion_1_burglar', '8') -%}
+          true
+          {%- else -%}
+          false
+          {%- endif -%}          
+      bedroom_motion:
+        friendly_name: "Bedroom Motion"
+        value_template: >-
+          {%- if is_state('sensor.bedroom_motion_1_burglar', '8') -%}
+          true
+          {%- else -%}
+          false
+          {%- endif -%}
+      living_room_motion:
+        friendly_name: "Living Room Motion"
+        value_template: >-
+          {%- if is_state('sensor.living_room_motion_3_burglar', '8') -%}
+          true
+          {%- else -%}
+          false
+          {%- endif -%}          
       kitchen_motion:
         friendly_name: "Kitchen Motion"
         value_template: >-
@@ -71,15 +113,7 @@ binary_sensor:
           true
           {%- else -%}
           false
-          {%- endif -%}
-      bedroom_motion:
-        friendly_name: "Bedroom Motion"
-        value_template: >-
-          {%- if is_state('sensor.bedroom_motion_1_burglar', '8') -%}
-          true
-          {%- else -%}
-          false
-          {%- endif -%}
+          {%- endif -%}    
       master_bathroom_motion:
         friendly_name: "Master Bathroom Motion"
         value_template: >-
@@ -87,23 +121,7 @@ binary_sensor:
           true
           {%- else -%}
           false
-          {%- endif -%}
-      living_room_motion:
-        friendly_name: "Living Room Motion"
-        value_template: >-
-          {%- if is_state('sensor.living_room_motion_3_burglar', '8') -%}
-          true
-          {%- else -%}
-          false
-          {%- endif -%}
-      basement_bathroom_motion:
-        friendly_name: "Basement Bathroom Motion"
-        value_template: >-
-          {%- if is_state('sensor.basement_bathroom_motion_1_burglar', '8') -%}
-          true
-          {%- else -%}
-          false
-          {%- endif -%}
+          {%- endif -%}            
       sun_room_motion:
         friendly_name: "Sun Room Motion"
         value_template: >-
@@ -187,6 +205,27 @@ input_boolean:
   office_main_temp:
     name: "Office Temperature Watch"
     initial: off
+  office_override:
+    name: "Office Override"
+    initial: off
+  alarms_work_enabled:
+    name: "Weekday Alarm Enabled"
+    initial: on
+  alarms_one_off_enabled:
+    name: "One Off Alarm Enabled"
+    initial: off
+
+input_datetime:
+  alarms_work:
+    name: "Work Alarm Time"
+    has_date: false
+    has_time: true
+    initial: "07:30"
+  alarms_one_off:
+    name: "One Off Alarm Time"
+    has_date: false
+    has_time: true
+    initial: "10:30"
 
 mqtt:
   broker: 192.168.1.7
@@ -198,9 +237,14 @@ octoprint:
   bed: true
   number_of_tools: 1
 
-# recorder:
-#   purge_interval: 1
-#   purge_keep_days: 60
+influxdb:
+  host: 192.168.1.13
+  username: !secret influx_user
+  password: !secret influx_password
+
+recorder:
+  purge_interval: 1
+  purge_keep_days: 30
 
 shell_command: 
   renew_ssl: /mnt/config/certbot/./certbot-auto certonly --standalone --preferred-challenges http-01 --email nsimone1911@gmail.com -d deepthink.asuscomm.com

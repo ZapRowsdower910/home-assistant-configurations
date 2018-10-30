@@ -7,9 +7,9 @@ sequence:
   #         {% set parts = entity_id.split('.') -%}
   #         {% if states(entity_id) == 'on' %}{{ states[parts[0]][parts[1]].entity_id }}{% endif -%}{%- if loop.last %} {% else  %}, {%endif%}
   #       {% endfor %}
-  # - condition: state
-  #   entity_id: light.living_room_track_c_1
-  #   state: 'on'  
+  - condition: state
+    entity_id: light.living_room_track_c_1
+    state: 'on'  
   - service: scene.turn_on
     data_template:
       entity_id:

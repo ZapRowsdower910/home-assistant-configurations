@@ -31,8 +31,14 @@ ExecuteScriptIntent:
           script.bedtime
         {%- elif Script == "Tango" -%}
           script.progressive_theme
-        {%- elif Script == "Zulu" -%}
-          script.entertainment_turn_on
+        {%- elif Script == "Zulu" or Script == "Zulu Alpha" -%}
+          script.entertainment_turn_on_cr2
+        {%- elif Script == "Zulu Charlie" -%}
+          script.entertainment_turn_on_cast
+        {%- elif Script == "Zulu Sierra" -%}
+          script.entertainment_turn_on_switch
+        {%- else  -%}
+          {{Script}}
         {%- endif -%}
   speech:
     type: plain

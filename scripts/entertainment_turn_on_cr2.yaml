@@ -1,0 +1,16 @@
+alias: "Entertainment Turn On CR2"
+sequence:
+  - service: media_player.turn_on
+    data:
+      entity_id: media_player.vizio_tv
+  - service: media_player.turn_on
+    entity_id: media_player.living_room_stereo
+  - delay: 00:00:02
+  - service: media_player.select_source
+    data:
+      entity_id: media_player.living_room_stereo
+      source: "Bluray"
+  - service: media_player.select_source
+    data:
+      entity_id: media_player.vizio_tv
+      source: "HDMI-1"

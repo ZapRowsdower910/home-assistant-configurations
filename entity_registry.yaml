@@ -68,51 +68,6 @@ sensor.kitchen_motion_1_general:
   name: Kitchen M1 General
   platform: zwave
   unique_id: 5-72057594128564225
-sensor.alarm_type_2:
-  config_entry_id:
-  name:
-  platform: zwave
-  unique_id: 6-72057594144636929
-sensor.alarm_level_2:
-  config_entry_id:
-  name:
-  platform: zwave
-  unique_id: 6-72057594144636945
-binary_sensor.living_room_motion_3:
-  config_entry_id:
-  name: Living Room Motion 3
-  platform: zwave
-  unique_id: 6-72057594143571968
-sensor.living_room_motion_3_temperature:
-  config_entry_id:
-  name: Living Room M3 Temperature
-  platform: zwave
-  unique_id: 6-72057594143588370
-sensor.living_room_motion_3_luminance:
-  config_entry_id:
-  name: Living Room M3 Lux
-  platform: zwave
-  unique_id: 6-72057594143588402
-sensor.living_room_motion_3_relative_humidity:
-  config_entry_id:
-  name: Living Room M3 Humidity
-  platform: zwave
-  unique_id: 6-72057594143588434
-sensor.living_room_motion_3_ultraviolet:
-  config_entry_id:
-  name: Living Room M3 UV
-  platform: zwave
-  unique_id: 6-72057594143588786
-sensor.living_room_motion_3_sourcenodeid:
-  config_entry_id:
-  name:
-  platform: zwave
-  unique_id: 6-72057594144636961
-sensor.living_room_motion_3_burglar:
-  config_entry_id:
-  name: Living Room M3 Motion
-  platform: zwave
-  unique_id: 6-72057594144637089
 sensor.alarm_type_3:
   config_entry_id:
   name:
@@ -535,9 +490,9 @@ zwave.kitchen_motion_1_sensor:
   unique_id: node-5
 zwave.living_room_motion_3:
   config_entry_id:
-  name: Living Room Motion 3
+  name: Living Room M3
   platform: zwave
-  unique_id: node-6
+  unique_id: node-12
 zwave.bedroom_motion_1:
   config_entry_id:
   name: Bedroom Motion 1
@@ -608,3 +563,143 @@ media_player.chrome_4:
   name:
   platform: plex
   unique_id: tdxbbvhdzsxspc2ivgfkwqaor
+binary_sensor.living_room_motion_3_sensor:
+  config_entry_id:
+  name: Living Room M3
+  platform: zwave
+  unique_id: 12-72057594244235264
+sensor.living_room_motion_3_temperature:
+  config_entry_id:
+  name: Living Room M3 Temperature
+  platform: zwave
+  unique_id: 12-72057594244251666
+sensor.living_room_motion_3_luminance:
+  config_entry_id:
+  name: Living Room M3 Lux
+  platform: zwave
+  unique_id: 12-72057594244251698
+sensor.living_room_motion_3_relative_humidity:
+  config_entry_id:
+  name: Living Room M3 Humidity
+  platform: zwave
+  unique_id: 12-72057594244251730
+sensor.living_room_motion_3_ultraviolet:
+  config_entry_id:
+  name: Living Room M3 UV
+  platform: zwave
+  unique_id: 12-72057594244252082
+sensor.living_room_motion_3_sourcenodeid:
+  config_entry_id:
+  name: Living Room M3 SID
+  platform: zwave
+  unique_id: 12-72057594245300257
+sensor.living_room_motion_3_burglar:
+  config_entry_id:
+  name: Living Room M3 Burglar
+  platform: zwave
+  unique_id: 12-72057594245300385
+sensor.living_room_motion_3_alarm_type:
+  config_entry_id:
+  name: Living Room M3 Alarm Type
+  platform: zwave
+  unique_id: 12-72057594245300225
+sensor.living_room_motion_3_alarm_level:
+  config_entry_id:
+  name: Living Room M3 Alarm Level
+  platform: zwave
+  unique_id: 12-72057594245300241
+binary_sensor.sun_room_motion_1_sensor:
+  config_entry_id:
+  name: Sun Room Motion 1
+  platform: zwave
+  unique_id: 13-72057594261012480
+zwave.sun_room_motion_1:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: node-13
+sensor.sun_room_motion_1_temperature:
+  config_entry_id:
+  name: Sun Room M1 Temperature
+  platform: zwave
+  unique_id: 13-72057594261028882
+sensor.sun_room_motion_1_luminance:
+  config_entry_id:
+  name: Sun Room M1 Lux
+  platform: zwave
+  unique_id: 13-72057594261028914
+sensor.sun_room_motion_1_relative_humidity:
+  config_entry_id:
+  name: Sun Room M1 Humidity
+  platform: zwave
+  unique_id: 13-72057594261028946
+sensor.sun_room_motion_1_ultraviolet:
+  config_entry_id:
+  name: Sun Room M1 UV
+  platform: zwave
+  unique_id: 13-72057594261029298
+sensor.sun_room_motion_1_sourcenodeid:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 13-72057594262077473
+sensor.sun_room_motion_1_burglar:
+  config_entry_id:
+  name: Sun Room M1 Burglar
+  platform: zwave
+  unique_id: 13-72057594262077601
+sensor.sun_room_motion_1_alarm_type:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 13-72057594262077441
+sensor.sun_room_motion_1_alarm_level:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 13-72057594262077457
+media_player.chrome_5:
+  config_entry_id:
+  name:
+  platform: plex
+  unique_id: mupxhfkg40mh6hlsva6ddesy
+media_player.this_device:
+  config_entry_id:
+  name:
+  platform: alexa
+  unique_id: 90710d5026e64eef944dbdfb51933194
+media_player.living_room_dot:
+  config_entry_id:
+  name:
+  platform: alexa
+  unique_id: G090LF0964471GH1
+media_player.bedroom_dot:
+  config_entry_id:
+  name:
+  platform: alexa
+  unique_id: G090LF1072541R1M
+media_player.nicks_alexa_apps:
+  config_entry_id:
+  name:
+  platform: alexa
+  unique_id: A000002FB949DC
+media_player.nicks_echosim_beta:
+  config_entry_id:
+  name:
+  platform: alexa
+  unique_id: 0b1f768573ce40a08c2743f8c0b40da1
+media_player.bedroom_fire_stick:
+  config_entry_id:
+  name:
+  platform: alexa
+  unique_id: 70940504546606RK
+media_player.lg_g7_thinq:
+  config_entry_id:
+  name:
+  platform: plex
+  unique_id: 39c6da747280fb33-com-plexapp-android
+media_player.chrome_6:
+  config_entry_id:
+  name:
+  platform: plex
+  unique_id: r8ohpzet2a6fiotdzrgggy69

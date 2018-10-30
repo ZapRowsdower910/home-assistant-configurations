@@ -1,0 +1,14 @@
+alias: "One Off Alarm"
+trigger:
+  platform: template
+  value_template: "{{ states('sensor.time') == (states.input_datetime.alarms_one_off.attributes.timestamp | int | timestamp_custom('%H:%M', False)) }}"
+condition:
+  - condition: state
+    entity_id: binary_sensor.workday_sensor
+    state: 'on'
+  - condition: state
+    entity_id: input_boolean.alarms_one_off_enabled
+    state: 'on'  
+action:
+  - service: script.turn_on
+    entity_id: script.wake_up
