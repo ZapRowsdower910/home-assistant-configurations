@@ -27,15 +27,15 @@ binary_sensor.master_bathroom_motion:
 binary_sensor.living_room_motion:
   device_class: motion
 binary_sensor.basement_bathroom_motion:
-  device_class: motion  
+  device_class: motion
 binary_sensor.sun_room_motion:
   device_class: motion
 camera.amcrest_camera:
   friendly_name: Cold Room 1
 device_tracker.airpods_bt:
-  icon: mdi:apple  
+  icon: mdi:apple
 device_tracker.lg_g7:
-  icon: mdi:wifi  
+  icon: mdi:wifi
 device_tracker.macbook_air:
   icon: mdi:laptop-mac
 device_tracker.macbook_air_bt:
@@ -49,7 +49,7 @@ switch.living_room_tv:
 group.all_scripts:
   hidden: false
 group.all_automations:
-  hidden: false  
+  hidden: false
 input_select.house_theme:
   icon: mdi:home-variant
 scene.living_room_bright:
@@ -57,24 +57,24 @@ scene.living_room_bright:
 scene.living_room_dim:
   icon: mdi:lightbulb-on-outline
 scene.living_room_late_night:
-  icon: mdi:movie  
+  icon: mdi:movie
 sensor.bitcoin:
   icon: mdi:bitcoin
 sensor.ethereum:
   icon: mdi:ethereum
 sensor.cold_room_motion_1_luminance:
-  icon: mdi:white-balance-sunny    
+  icon: mdi:white-balance-sunny
 sensor.kitchen_motion_1_luminance:
   icon: mdi:white-balance-sunny
 sensor.living_room_motion_3_luminance:
   friendly_name: Living Room Lux
   icon: mdi:white-balance-sunny
 sensor.office_motion_1_luminance:
-  icon: mdi:white-balance-sunny  
+  icon: mdi:white-balance-sunny
 sensor.master_bathroom_motion_1_luminance:
   icon: mdi:white-balance-sunny
 sensor.sun_room_motion_1_luminance:
-  icon: mdi:white-balance-sunny  
+  icon: mdi:white-balance-sunny
 sensor.workshop_hue_1_lux_sensor:
   icon: mdi:white-balance-sunny
 sensor.cold_room_motion_1_relative_humidity:
@@ -86,7 +86,7 @@ sensor.office_motion_1_relative_humidity:
 sensor.master_bathroom_motion_1_relative_humidity:
   icon: mdi:water-percent
 sensor.sun_room_motion_1_relative_humidity:
-  icon: mdi:water-percent  
+  icon: mdi:water-percent
 sensor.bedroom_motion_1_power_management:
   icon: mdi:power-plug
 sensor.basement_bathroom_motion_1_power_management:
@@ -94,12 +94,15 @@ sensor.basement_bathroom_motion_1_power_management:
 sensor.master_bathroom_motion_1_power_management:
   icon: mdi:power-plug
 sensor.office_motion_1_power_management:
-  icon: mdi:power-plug      
+  icon: mdi:power-plug
 switch.switch:
   friendly_name: Laundry Mat
 binary_sensor.flic_80e4da702912:
-  friendly_name: "Coffee Table Flic 1"
+  friendly_name: Coffee Table Flic 1
 input_boolean.alarms_work_enabled:
   icon: mdi:alarm
 input_boolean.alarms_one_off_enabled:
-  icon: mdi:alarm    
+  icon: mdi:alarm
+light.aurora:
+  friendly_name: Living Room Aurora
+  icon: mdi:triangle-outline

@@ -1,10 +1,10 @@
 alias: 'Coffee Table Flic 1 Single Click'
 trigger:
-    platform: event
-    event_type: flic_click
-    event_data:
-      button_name: coffee_table_1
-      click_type: single
+  platform: event
+  event_type: flic_click
+  event_data:
+    button_name: coffee_table_1
+    click_type: single
 action:
   - service: media_player.media_pause
     data:

@@ -9,6 +9,17 @@ condition:
   - condition: state
     entity_id: input_boolean.house_auto_lights
     state: 'on'
+  - condition: state
+    entity_id: group.sun_room_lights
+    state: 'on'
+  - condition: and
+    conditions:
+      - condition: state
+        entity_id: binary_sensor.sun_room_motion
+        state: 'off'
+      - condition: state
+        entity_id: binary_sensor.main_floor_occupancy
+        state: 'off'
 action:
   - service: script.auto_light_off
     data:

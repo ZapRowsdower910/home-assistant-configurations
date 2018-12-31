@@ -1,0 +1,17 @@
+name: "Living Room Party"
+entities:
+  group.living_room_color:
+    state: on
+    brightness: 255
+    profile: purple_deep
+    transition: 15
+  group.living_room_deep_accents:
+    state: on
+    brightness: 255
+    profile: warm_red
+    transition: 15  
+  group.living_room_lux:
+    state: on
+    brightness: 255
+    color_temp: 215
+    transition: 5

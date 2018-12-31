@@ -11,23 +11,34 @@ homeassistant:
   # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   time_zone: America/New_York
   customize: !include customize.yaml
-
 config:
 conversation:
 discovery:
 frontend:
 # history:
-# hassio:
 http:
-  api_password: !secret http_api_key
-  ssl_certificate: /etc/letsencrypt/live/deepthink.asuscomm.com/fullchain.pem
-  ssl_key: /etc/letsencrypt/live/deepthink.asuscomm.com/privkey.pem
+  api_password: !secret http_api_key  
+  ssl_certificate: /usr/local/etc/letsencrypt/live/deepthink.asuscomm.com/fullchain.pem
+  ssl_key: /usr/local/etc/letsencrypt/live/deepthink.asuscomm.com/privkey.pem  
   base_url: https://deepthink.asuscomm.com
   trusted_networks: 
     - 192.168.1.0/24
   ip_ban_enabled: true
   login_attempts_threshold: 5
+  server_host: 192.168.1.15
+  # server_port: 8234
 logbook:
+  include:
+    domains:
+      - automation
+      - script
+      - input_boolean
+      - binary_sensor
+    entities:
+      - sensor.progressive_day_theme
+      - sensor.time_of_day
+      - device_tracker.lg_g7
+      - group.nick
 updater:
 sun:
 tts:
@@ -48,6 +59,16 @@ amcrest:
   host: 192.168.1.180
   username: !secret amcrest_username
   password: !secret amcrest_password
+
+asuswrt:
+  host: 192.168.1.1
+  username: !secret router_username
+  password: !secret router_password
+
+august:
+  login_method: email
+  username: !secret august_username
+  password: !secret august_password
 
 ecobee:
   api_key: !secret ecobee_api_key
@@ -73,7 +94,6 @@ binary_sensor:
           {%- else -%}
           false
           {%- endif -%}
-
       basement_bathroom_motion:
         friendly_name: "Basement Bathroom Motion"
         value_template: >-
@@ -130,7 +150,44 @@ binary_sensor:
           {%- else -%}
           false
           {%- endif -%}
+      bedroom_media_active:
+        friendly_name: "Bedroom Media Active"
+        value_template: >-
+          {%- if is_state('media_player.bedroom_fire_stick', 'playing') 
+            or is_state('media_player.bedroom_dot', 'playing') 
+            or is_state('media_player.bedroom_tv', 'playing') 
+          -%}
+          true
+          {%- else -%}
+          false
+          {%- endif -%}
+      living_room_media_active:
+        friendly_name: "Living Room Media Active"
+        value_template: >-
+          {%- if is_state('media_player.living_room_cr2', 'playing') 
+            or is_state('media_player.living_room_display', 'playing') 
+            or is_state('media_player.living_room_stereo', 'playing') 
+          -%}
+          true
+          {%- else -%}
+          false
+          {%- endif -%}
+      media_active:
+        friendly_name: "Media Active"
+        value_template: >-
+          {%- if is_state('binary_sensor.living_room_media_active', 'on') 
+            or is_state('binary_sensor.bedroom_media_active', 'on') 
+          -%}
+          true
+          {%- else -%}
+          false
+          {%- endif -%}
 
+cast:
+  media_player: 
+    - host: 192.168.1.210          
+    - host: 192.168.1.223
+    
 emulated_hue:
   host_ip: 192.168.1.15
   exposed_domains:
@@ -214,18 +271,25 @@ input_boolean:
   alarms_one_off_enabled:
     name: "One Off Alarm Enabled"
     initial: off
+  random_color_mode:
+    name: "Random Color Mode"
+    initial: off
 
 input_datetime:
   alarms_work:
     name: "Work Alarm Time"
     has_date: false
     has_time: true
-    initial: "07:30"
+    initial: "07:00"
   alarms_one_off:
     name: "One Off Alarm Time"
     has_date: false
     has_time: true
     initial: "10:30"
+
+lifx:
+  light:
+    server: 192.168.1.15
 
 mqtt:
   broker: 192.168.1.7
@@ -249,10 +313,14 @@ recorder:
 shell_command: 
   renew_ssl: /mnt/config/certbot/./certbot-auto certonly --standalone --preferred-challenges http-01 --email nsimone1911@gmail.com -d deepthink.asuscomm.com
 
+timer:
+  randomize_color:
+    duration: 300
 # upnp:
 #   port_mapping: false
 
 wink:
+wemo:
 
 zwave:
  usb_path: /dev/cuaU0

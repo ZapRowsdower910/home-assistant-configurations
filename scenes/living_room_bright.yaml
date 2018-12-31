@@ -12,7 +12,9 @@ entities:
     state: on
     brightness: 255
     transition: 10
-
+  light.aurora:
+    state: on
+    brightness: 140
 
 
   # light.go_1:

@@ -10,15 +10,17 @@ bedroom_lights:
   - light.bedroom_c_1
   - light.bedroom_c_2
   - light.bedroom_c_3
+  - light.bed_strip_1
 bedroom_shallow_accents:
   name: "Bedroom Shallow Accents"
   view: false
   entities:
+  - light.bedroom_c_2
 bedroom_deep_accents:
   name: "Bedroom Deep Accents"
   view: false
   entities:
-  - light.bedroom_c_2
+  - light.bed_strip_1
 bedroom_base:
   name: "Bedroom Base"
   view: false
@@ -73,6 +75,7 @@ living_room_lights:
   - light.living_room_track_l_1
   - light.living_room_track_l_2
   - light.living_room_track_l_3
+  - light.aurora
 living_room_track_lights:
   name: "Living Room Track Lights"
   view: false
@@ -105,6 +108,22 @@ living_room_base:
   view: false
   entities:
   - light.living_room_track_c_2
+  - light.living_room_track_l_1
+  - light.living_room_track_l_2
+  - light.living_room_track_l_3
+living_room_color:
+  name: "Living Room Color"
+  view: false
+  entities:
+  - light.living_room_track_c_1
+  - light.living_room_track_c_2
+  - light.living_room_track_c_3
+  - light.living_room_track_c_4
+  - light.living_room_track_c_5  
+living_room_lux:
+  name: "Living Room Color"
+  view: false
+  entities:
   - light.living_room_track_l_1
   - light.living_room_track_l_2
   - light.living_room_track_l_3
@@ -240,6 +259,7 @@ accents:
   - light.kitchen_strip_1
   - light.go_1
   - light.sun_room_bar_strip
+  - light.bed_strip_1
 inside_lights:
   name: "Inside Lights"
   entities:
@@ -385,9 +405,9 @@ living_room_media:
   - media_player.living_room_cr2
   # - media_player.openpht
 living_room_scenes:
-  name: "Living Room Scenes"
+  name: "Living Room Scene Modifiers"
   entities:
-  - input_select.house_theme
+  # - input_select.house_theme
   - scene.living_room_bright
   - scene.living_room_dim
   - scene.living_room_hangover
@@ -403,6 +423,18 @@ occupancy:
   - binary_sensor.bedroom_occupancy
   - binary_sensor.office_occupancy
   - binary_sensor.main_floor_occupancy
+room_motion:
+  name: "Room Motion State"
+  view: false
+  entities:
+  - binary_sensor.basement_bathroom_motion
+  - binary_sensor.bedroom_motion
+  - binary_sensor.kitchen_motion
+  - binary_sensor.living_room_motion  
+  - binary_sensor.master_bathroom_motion
+  - binary_sensor.motion
+  - binary_sensor.office_motion
+  - binary_sensor.sun_room_motion  
 motion:
   name: "Motion Sensors"
   view: false
@@ -417,6 +449,9 @@ motion:
   - binary_sensor.basement_bathroom_motion_1
   - binary_sensor.cold_room_motion_1
 motion_plus:
+  name: "Motion Plus Sensors"
+  view: false
+  entities:
   - sensor.basement_bathroom_motion_1_burglar
   - sensor.bedroom_motion_1_burglar
   - sensor.living_room_motion_3_burglar
@@ -509,6 +544,13 @@ workshop_multi_1:
   # - binary_sensor.workshop_motion_1_sensor
   - sensor.workshop_hue_1_lux_sensor
   - sensor.workshop_hue_1_temperature_sensor
+media_states:
+  name: "Media States"
+  view: false
+  entities:
+  - binary_sensor.bedroom_media_active
+  - binary_sensor.living_room_media_active
+  - binary_sensor.media_active
 ###############
 ## Flags
 ###############
@@ -527,6 +569,7 @@ flags:
   - input_boolean.office_override
   - input_boolean.alarms_work_enabled
   - input_boolean.alarms_one_off_enabled
+  - input_boolean.random_color_mode
 ###############
 ## Misc
 ###############  
@@ -655,7 +698,12 @@ scenes_bedroom:
   - scene.bedroom_honey
   - scene.bedroom_none     
   - scene.bedroom_purple
-  - scene.bedroom_warm  
+  - scene.bedroom_warm
+scenes_bedroom_modifiers:
+  name: "Bedroom Scenes Mods"  
+  view: false
+  entities:
+  - scene.bedroom_theater
 scenes_living_room:
   name: "Living Room Scenes"
   view: false
@@ -668,8 +716,30 @@ scenes_living_room:
   - scene.living_room_hangover
   - scene.living_room_honey
   - scene.living_room_none
+  - scene.living_room_party
   - scene.living_room_purple
   - scene.living_room_warm
+scenes_living_room_themes:
+  name: "Living Room Themes"
+  view: false
+  entities:
+  - scene.living_room_cool
+  - scene.living_room_grass
+  - scene.living_room_late_night
+  - scene.living_room_honey
+  - scene.living_room_party
+  - scene.living_room_purple
+  - scene.living_room_warm
+scenes_living_room_modifiers:
+  name: "Living Room Modifier Scenes"
+  view: false
+  entities:
+  - scene.living_room_bright
+  - scene.living_room_dim
+  - scene.living_room_late_night
+  - scene.living_room_hangover
+  - scene.living_room_none  
+  - scene.living_room_night_light
 scenes_kitchen:
   name: "Kitchen Scenes"  
   view: false
@@ -725,12 +795,14 @@ default_view:
   - group.house_temp
   - group.flags
   - group.nick
+  - sensor.nick_status
   - device_tracker.nexus_6p
   - group.network_health
   - sensor.deepthink
   - sensor.progressive_day_theme
   - group.ecobee
   - sensor.time_of_day
+  - input_select.house_theme
 automation_view:
   name: "Smarts"
   view: true
@@ -773,7 +845,8 @@ living_room_view:
   - binary_sensor.living_room_motion_3_sensor
   - group.living_room_lights
   - group.living_room_media
-  - group.living_room_scenes  
+  - group.scenes_living_room_themes
+  - group.scenes_living_room_modifiers
   - group.living_room_multi_1
   - media_player.living_room_cr2
   - media_player.living_room_dot
@@ -781,7 +854,7 @@ living_room_view:
   - media_player.tv
   - media_player.vizio_tv  
   - sensor.living_room_temperature  
-  - switch.laundry_mat
+  # - switch.laundry_mat
 sun_room_view:
   name: "Sun Room"
   icon: mdi:glass-cocktail
@@ -793,6 +866,7 @@ sun_room_view:
   - group.sun_room_multi_1
   - lock.front_door
   - binary_sensor.sun_room_motion
+  - switch.vr_monitor_power
 kitchen_view:
   name: "Kitchen"
   icon: mdi:fridge
@@ -824,6 +898,8 @@ bedroom_view:
   - group.bedroom_motion_1
   - media_player.bedroom_fire_stick
   - media_player.bedroom_dot
+  - group.scenes_bedroom_modifiers
+  - media_player.bedroom_tv
 workshop_view:
   name: "Workshop"
   icon: mdi:desk-lamp
@@ -834,6 +910,7 @@ workshop_view:
   - group.workshop_multi_1
   - group.prusa
   - group.scenes_workshop
+  - switch.print_shelf_middle
 master_bath_view:
   name: "Master Bathroom"
   icon: mdi:toilet
@@ -865,6 +942,8 @@ sensor_view:
   entities:
   - group.motion
   - group.motion_plus
+  - group.room_motion  
+  - group.media_states  
   - group.doors
   - group.ecobee
   - group.occupancy

@@ -1,0 +1,19 @@
+name: "Bedroom Theater"
+entities:
+  light.bedroom_c_1:
+    state: on
+    brightness: 100
+    color_temp: 500
+    transition: 15
+  light.bedroom_c_2:
+    state: on
+    brightness: 100
+    color_temp: 500
+    transition: 15  
+  light.bedroom_c_3:
+    state: off
+  light.bedroom_strip_1:
+    state: on
+    brightness: 200
+    profile: warm_red
+    transition: 15  

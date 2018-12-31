@@ -5,9 +5,6 @@ trigger:
     event_data:
       button_name: coffee_table_2
       click_type: double
-  # platform: state
-  # entity_id: sensor.coffee_table_flic_2
-  # to: '2'
 action:
   - service: script.turn_on
     entity_id: script.living_room_theme

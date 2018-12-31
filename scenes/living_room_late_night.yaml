@@ -46,3 +46,7 @@ entities:
   light.living_room_track_l_3:
     state: off
     transition: 10    
+  light.aurora:
+    state: on
+    brightness: 110
+    effect: Late Night Cycle

@@ -1,0 +1,67 @@
+alias: Mark Nick as just arrived
+trigger:
+  - platform: state
+    entity_id: group.nick
+    from: 'not_home'
+    to: 'home'
+action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.nick_status_dropdown
+      option: Just Arrived
+ 
+alias: Mark Nick as home
+trigger:
+  - platform: state
+    entity_id: input_select.nick_status_dropdown
+    to: 'Just Arrived'
+    for:
+      minutes: 10
+  - platform: state
+    entity_id: input_select.nick_status_dropdown
+    from: 'Just Left'
+    to: 'Just Arrived'
+condition:
+action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.nick_status_dropdown
+      option: Home
+ 
+alias: Mark Nick as just left
+trigger:
+  - platform: state
+    entity_id: group.nick
+    from: 'home'
+    to: 'not_home'
+action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.nick_status_dropdown
+      option: Just Left
+ 
+alias: Mark Nick as away
+trigger:
+  - platform: state
+    entity_id: input_select.nick_status_dropdown
+    to: 'Just Left'
+    for:
+      minutes: 10
+action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.nick_status_dropdown
+      option: Away
+
+alias: Mark Phil as extended away
+trigger:
+  - platform: state
+    entity_id: input_select.phil_status_dropdown
+    to: 'Away'
+    for:
+      hours: 24
+action:
+  - service: input_select.select_option
+    data_template:
+      entity_id: input_select.phil_status_dropdown
+      option: Extended Away

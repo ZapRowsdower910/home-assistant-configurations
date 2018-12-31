@@ -12,8 +12,12 @@ entities:
     state: on
     brightness: 200
     transition: 10
-  
-  
+  light.living_room_track_c_5:
+    state: off
+    transition: 20
+  light.aurora:
+    state: on
+    brightness: 90
   
   # light.go_1:
   #   state: on

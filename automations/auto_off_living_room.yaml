@@ -24,7 +24,7 @@ condition:
     entity_id: input_boolean.house_auto_lights
     state: 'on'
   - condition: template
-    value_template: '{{ states("media_player.living_room_cr2") == "idle" }}'
+    value_template: '{{ states("binary_sensor.living_room_media_active") == "true" }}'
 action:
   - service: script.auto_light_off
     data:

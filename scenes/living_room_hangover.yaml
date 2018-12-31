@@ -39,3 +39,5 @@ entities:
     state: on
     brightness: 92
     color_temp: 429    
+  light.aurora:
+    brightness: 100

@@ -19,16 +19,30 @@ sensors:
   time_of_day:
     friendly_name: "Time of Day"
     value_template: >-
-      {% if now().hour >= 4 and now().hour < 7 %}
+      {% set current_hour = strptime(states('sensor.time'), "%H:%M").hour %}
+      {% if current_hour >= 4 and current_hour < 7 %}
         Early Morning
-      {% elif now().hour >= 7 and now().hour < 11 %}
+      {% elif current_hour >= 7 and current_hour < 11 %}
         Morning
-      {% elif now().hour >= 11 and now().hour < 17 %}
+      {% elif current_hour >= 11 and current_hour < 17 %}
         Mid Day
-      {% elif now().hour >= 17 and now().hour < 22 %}
+      {% elif current_hour >= 17 and current_hour < 22 %}
         Evening
-      {% elif now().hour >= 22 or now().hour < 2 %}
+      {% elif current_hour >= 22 or current_hour < 2 %}
         Late Evening
-      {% elif now().hour >= 1 or now().hour < 4 %}
+      {% elif current_hour >= 1 or current_hour < 4 %}
         Late Night
       {% endif %}
+  # aurora_animation:
+  #   friendly_name: "Aurora Animation"
+  #   value_template: >-
+  #     {% if is_state('sensor.dark_sky_icon', 'snow') %}
+  #       snow time
+  #     {% elif current_hour >= 7 and current_hour < 11 %}
+  #       Morning
+  #     {% elif current_hour >= 1 or current_hour < 4 %}
+  #       Late Night
+  #     {% endif %}
+  nick_status:
+    value_template: '{{ states.input_select.nick_status_dropdown.state }}'
+    friendly_name: 'Nick'

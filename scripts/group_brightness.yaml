@@ -1,0 +1,16 @@
+#########
+## Iterates thru group entities and bright each
+##    - group - What group to dim
+##    - brightness - How dim to make it
+########
+alias: "Group Brightness Change"
+sequence:
+  - service: light.turn_on
+    data_template:                
+      brightness: "{{ brightness | int }}"
+      transition: 10
+      entity_id: >
+        {% for entity_id in states.group[group].attributes.entity_id if states(entity_id) == 'on' -%}
+          {% set parts = entity_id.split('.') -%}
+          {% if states(entity_id) == 'on' %}{{ states[parts[0]][parts[1]].entity_id }}{% endif -%}{%- if loop.last %} {% else  %}, {%endif%}{% endfor %}
+

@@ -1,0 +1,28 @@
+alias: "Randomize Kitchen"
+trigger:
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.randomize_color
+  - platform: state
+    entity_id: input_boolean.random_color_mode
+    to: 'on'
+condition:
+  - condition: state
+    entity_id: input_boolean.random_color_mode
+    state: 'on'
+action:
+  - service: script.turn_on
+    entity_id: script.random_color
+    data:
+      variables:
+        light_id: group.kitchen_deep_accents
+  - delay:
+      seconds: 2
+  - service: script.turn_on
+    entity_id: script.random_color
+    data:
+      variables:
+        light_id: group.kitchen_shallow_accents
+  - service: timer.start
+    entity_id: timer.randomize_color

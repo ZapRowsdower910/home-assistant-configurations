@@ -15,3 +15,7 @@ entities:
     brightness: 255
     color_temp: 200
     transition: 5
+  light.aurora:
+    state: on
+    brightness: 150
+    effect: Cool Cycle

@@ -7,20 +7,25 @@ trigger:
     entity_id: binary_sensor.motion
     to: 'on'
   - platform: state
-    entity_id: media_player.vizio_tv
-    to: 'playing'
+    entity_id: binary_sensor.media_active
+    to: 'on'
     for:
       seconds: 30
-  - platform: state
-    entity_id: media_player.living_room_cr2
-    to: 'playing'
-    for:
-      seconds: 30
-  - platform: state
-    entity_id: media_player.living_room_stereo
-    to: 'playing'
-    for:
-      seconds: 30
+  # - platform: state
+  #   entity_id: media_player.vizio_tv
+  #   to: 'playing'
+  #   for:
+  #     seconds: 30
+  # - platform: state
+  #   entity_id: media_player.living_room_cr2
+  #   to: 'playing'
+  #   for:
+  #     seconds: 30
+  # - platform: state
+  #   entity_id: media_player.living_room_stereo
+  #   to: 'playing'
+  #   for:
+  #     seconds: 30
 condition:
   - condition: state
     entity_id: input_boolean.guests_present

@@ -32,3 +32,13 @@ kitchen_led_effect:
     - "Solid"
     - "Twinkle"
   initial: "Solid"
+
+nick_status_dropdown:
+  name: Nick
+  options:
+    - Home
+    - Just Arrived
+    - Just Left
+    - Away
+    - Extended Away
+  initial: Home

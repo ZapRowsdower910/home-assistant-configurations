@@ -4,3 +4,15 @@ kitchen_strip_animation_speed:
     min: 1
     max: 150
     step: 10
+constant_brightness_dim:
+    name: "Dim Brightness"
+    initial: 150
+    min: 0
+    max: 255
+    step: 10
+constant_brightness_bright:
+    name: "Bright Brightness"
+    initial: 250
+    min: 0
+    max: 255
+    step: 10

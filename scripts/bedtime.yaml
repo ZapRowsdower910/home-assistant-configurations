@@ -50,3 +50,8 @@ sequence:
     entity_id: group.kitchen_accents
     data:
       transition: 120    
+  - condition: state
+    entity_id: sensor.prusa_i3_mk2_current_state
+    state: 'idle'
+  - service: switch.turn_off
+    entity_id: switch.print_shelf_middle

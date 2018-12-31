@@ -7,6 +7,6 @@ action:
   - service: script.turn_on
     entity_id: script.bedtime
   - service: light.turn_on
-    entity_id: light.bedroom_c_2
+    entity_id: light.bed_strip_1
     data:      
       flash: short

@@ -31,7 +31,7 @@ if [ -z "$VENV_PATH" ]; then
 fi
 VENV_BIN="$VENV_PATH/bin"
 BOOTSTRAP_VERSION_PATH="$VENV_PATH/certbot-auto-bootstrap-version.txt"
-LE_AUTO_VERSION="0.26.1"
+LE_AUTO_VERSION="0.28.0"
 BASENAME=$(basename $0)
 USAGE="Usage: $BASENAME [OPTIONS]
 A self-updating wrapper script for the Certbot ACME client. When run, updates
@@ -195,7 +195,7 @@ if [ "$1" = "--cb-auto-has-root" ]; then
 else
   SetRootAuthMechanism
   if [ -n "$SUDO" ]; then
-    echo "Requesting to rerun $0 with root privileges..."
+    say "Requesting to rerun $0 with root privileges..."
     $SUDO "$0" --cb-auto-has-root "$@"
     exit 0
   fi
@@ -1197,18 +1197,18 @@ letsencrypt==0.7.0 \
     --hash=sha256:105a5fb107e45bcd0722eb89696986dcf5f08a86a321d6aef25a0c7c63375ade \
     --hash=sha256:c36e532c486a7e92155ee09da54b436a3c420813ec1c590b98f635d924720de9
 
-certbot==0.26.1 \
-    --hash=sha256:4e2ffdeebb7f5097600bcb1ca19131441fa021f952b443ca7454a279337af609 \
-    --hash=sha256:4983513d63f7f36e24a07873ca2d6ea1c0101aa6cb1cd825cda02ed520f6ca66
-acme==0.26.1 \
-    --hash=sha256:d47841e66adc1336ecca2f0d41a247c1b62307c981be6d07996bbf3f95af1dc5 \
-    --hash=sha256:86e7b5f4654cb19215f16c0e6225750db7421f68ef6a0a040a61796f24e690be
-certbot-apache==0.26.1 \
-    --hash=sha256:c16acb49bd4f84fff25bcbb7eaf74412145efe9b68ce46e1803be538894f2ce3 \
-    --hash=sha256:b7fa327e987b892d64163e7519bdeaf9723d78275ef6c438272848894ace6d87
-certbot-nginx==0.26.1 \
-    --hash=sha256:c0048dc83672dc90805a8ddf513be3e48c841d6e91607e91e8657c1785d65660 \
-    --hash=sha256:d0c95a32625e0f1612d7fcf9021e6e050ba3d879823489d1edd2478a78ae6624
+certbot==0.28.0 \
+    --hash=sha256:f2f7c816acd695cbcda713a779b0db2b08e9de407146b46e1c4ef5561e0f5417 \
+    --hash=sha256:31e3e2ee2a25c009a621c59ac9182f85d937a897c7bd1d47d0e01f3c712a090a
+acme==0.28.0 \
+    --hash=sha256:d3a564031155fece3f6edce8c5246d4cf34be0977b4c7c5ce84e86c68601c895 \
+    --hash=sha256:bf7c2f1c24a26ab5b9fce3a6abca1d74a5914d46919649ae00ad5817db62bb85
+certbot-apache==0.28.0 \
+    --hash=sha256:a57d7bac4f13ae5ecea4f4cbd479d381c02316c4832b25ab5a9d7c6826166370 \
+    --hash=sha256:3f93f5de4a548e973c493a6cac5eeeb3dbbcae2988b61299ea0727d04a00f5bb
+certbot-nginx==0.28.0 \
+    --hash=sha256:1822a65910f0801087fa20a3af3fc94f878f93e0f11809483bb5387df861e296 \
+    --hash=sha256:426fb403b0a7b203629f4e350a862cbc3bc1f69936fdab8ec7eafe0d8a3b5ddb
 
 UNLIKELY_EOF
     # -------------------------------------------------------------------------

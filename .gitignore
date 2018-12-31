@@ -38,3 +38,6 @@ Temporary Items
 coinmarketcap_cache.sqlite
 .vscode/settings.json
 .storage
+alexa_media.pickle
+alexa_mediaget.html
+alexa_mediapost.html
