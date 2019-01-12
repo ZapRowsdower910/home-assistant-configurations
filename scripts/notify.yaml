@@ -1,0 +1,16 @@
+########
+## A generic message sender to allow for flexible / generic notifications
+##  - title
+##  - message
+########
+alias: Send Messages
+sequence:
+  - service: notify.pushbullet
+    data_template:
+      title: "{{ title }}}"
+      message: "{{ message }}"
+      
+# - service: notify.pushbullet
+  #   data_template:
+  #     title: "DEBUG MESSAGE"
+  #     message: "incoming theme_color value={{sensor.progressive_day_theme}}"

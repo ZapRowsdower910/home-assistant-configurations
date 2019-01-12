@@ -1,11 +1,12 @@
 alias: "Eth 24hr Drop"
+initial_state: 'Off'
 trigger:
   platform: numeric_state
   entity_id: sensor.ethereum
   value_template: '{{ state.attributes.percent_change_24h }}'
   below: -10
 action:
- - service: notify.pushbullet
-   data_template:
-     title: "Large ETH Drop!"
-     message: "Large 24hr ETH Price Change: {{ states.sensor.ethereum.attributes.percent_change_24h }}% to ${{ states.sensor.ethereum.state }}"
+#  - service: notify.pushbullet
+#    data_template:
+#      title: "Large ETH Drop!"
+#      message: "Large 24hr ETH Price Change: {{ states.sensor.ethereum.attributes.percent_change_24h }}% to ${{ states.sensor.ethereum.state }}"

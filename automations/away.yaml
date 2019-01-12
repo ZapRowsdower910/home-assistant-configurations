@@ -26,7 +26,7 @@ action:
     entity_id: switch.laundry_mat
 #  - service: media_player.turn_off
 #    entity_id: media_player.tv
-  - service: notify.pushbullet
-    data:
-      title: Smell Ya Later
-      message: I'll make sure everythings off for ya!
+  # - service: notify.pushbullet
+  #   data:
+  #     title: Smell Ya Later
+  #     message: I'll make sure everythings off for ya!

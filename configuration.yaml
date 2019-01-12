@@ -17,7 +17,7 @@ discovery:
 frontend:
 # history:
 http:
-  api_password: !secret http_api_key  
+  # api_password: !secret http_api_key  
   ssl_certificate: /usr/local/etc/letsencrypt/live/deepthink.asuscomm.com/fullchain.pem
   ssl_key: /usr/local/etc/letsencrypt/live/deepthink.asuscomm.com/privkey.pem  
   base_url: https://deepthink.asuscomm.com
@@ -308,7 +308,7 @@ influxdb:
 
 recorder:
   purge_interval: 1
-  purge_keep_days: 30
+  purge_keep_days: 4
 
 shell_command: 
   renew_ssl: /mnt/config/certbot/./certbot-auto certonly --standalone --preferred-challenges http-01 --email nsimone1911@gmail.com -d deepthink.asuscomm.com
@@ -323,7 +323,7 @@ wink:
 wemo:
 
 zwave:
- usb_path: /dev/cuaU0
+ usb_path: /dev/cuau1
  network_key: !secret zwave_network_key
 
 

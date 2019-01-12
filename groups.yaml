@@ -140,6 +140,7 @@ office_shallow_accents:
   name: "Office Shallow Accents"
   view: false
   entities:
+  - light.lx_office_1
 office_deep_accents:
   name: "Office Deep Accents"
   view: false
@@ -149,8 +150,7 @@ office_base:
   name: "Office Base"
   view: false
   entities:
-  - light.office_c_1
-  - light.lx_office_1
+  - light.office_c_1  
 ###############
 ## Sun Room
 ###############

@@ -23,9 +23,9 @@ action:
     entity_id: climate.main_floor
     data:
       away_mode: 'off'
-  - service: notify.pushbullet
-    data:
-      title: "Welcome Home"
-      message: "Turning on lights for you now"
+  # - service: notify.pushbullet
+  #   data:
+  #     title: "Welcome Home"
+  #     message: "Turning on lights for you now"
   - service: script.turn_on
     entity_id: script.progressive_theme

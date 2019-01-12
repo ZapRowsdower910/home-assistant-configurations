@@ -22,14 +22,14 @@ condition:
 action:
   - service: script.turn_on
     data_template:
-      entity_id: >
-      {% set fullNameParts = trigger.entity_id.split('.') -%}
-      {% set nameParts = fullNameParts.split('_') -%}
-      {% set scriptName = 'dim' + nameParts[0] + '_' -%}
-      {% if(nameParts[1] == 'room' -%}
-        {% scriptName += 'room' -%}
-      {% endif -%}
-      '{{ scriptName }}'
+      entity_id: >-
+        {% set fullNameParts = trigger.entity_id.split('.') %}
+        {% set nameParts = fullNameParts.split('_') %}
+        {% set scriptName = 'dim' + nameParts[0] + '_' %}
+        {% if(nameParts[1] == 'room') %}
+          {% set scriptName = scriptName + 'room' %}
+        {% endif %}
+        '{{ scriptName }}'
 
 
 # alias: "Group Brightness Change"

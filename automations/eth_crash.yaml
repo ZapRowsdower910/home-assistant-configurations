@@ -1,10 +1,11 @@
 alias: "Eth Crash"
+initial_state: 'Off'
 trigger:
   platform: numeric_state
   entity_id: sensor.ethereum
   below: 200
 action:
- - service: notify.pushbullet
-   data_template:
-     title: "ETH Crashed!"
-     message: "ETH Price Change: ${{ states.sensor.ethereum.state }}. Time to buy!"
+#  - service: notify.pushbullet
+#    data_template:
+#      title: "ETH Crashed!"
+#      message: "ETH Price Change: ${{ states.sensor.ethereum.state }}. Time to buy!"

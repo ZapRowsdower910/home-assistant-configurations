@@ -21,7 +21,11 @@ sensors:
     value_template: >-
       {% set current_hour = strptime(states('sensor.time'), "%H:%M").hour %}
       {% if current_hour >= 4 and current_hour < 7 %}
-        Early Morning
+        {% if (as_timestamp(now()) - as_timestamp(states.input_boolean.sleep_mode.last_updated)) < 43200 %}
+          Early Morning
+        {% else %}
+          Late Night
+        {% endif %}
       {% elif current_hour >= 7 and current_hour < 11 %}
         Morning
       {% elif current_hour >= 11 and current_hour < 17 %}

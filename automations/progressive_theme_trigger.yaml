@@ -5,6 +5,10 @@ trigger:
     entity_id: sensor.progressive_day_theme
   - platform: homeassistant
     event: start
+condition:
+  - condition: state
+    entity_id: script.progressive_theme
+    state: 'off'
 action:
   - service: script.turn_on
     entity_id: script.progressive_theme

@@ -33,7 +33,7 @@ sequence:
   # - condition: state
   #   entity_id: input_boolean.debug_mode
   #   state: 'on'
-  - service: notify.pushbullet
-    data_template:
-      title: "DEBUG MESSAGE"
-      message: "incoming theme_color value={{sensor.progressive_day_theme}}"        
+  # - service: notify.pushbullet
+  #   data_template:
+  #     title: "DEBUG MESSAGE"
+  #     message: "incoming theme_color value={{sensor.progressive_day_theme}}"        

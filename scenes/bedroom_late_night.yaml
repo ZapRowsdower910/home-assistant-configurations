@@ -1,16 +1,16 @@
-name: "Office Late Night"
+name: "Bedroom Late Night"
 entities:
-  group.office_shallow_accents:
+  group.bedroom_shallow_accents:
     state: on
     brightness: 255
     profile: cool_blue_shallow
     transition: 15
-  group.office_deep_accents:
+  group.bedroom_deep_accents:
     state: on
     brightness: 255
     profile: cool_blue_deep
     transition: 15  
-  group.office_base:
+  group.bedroom_base:
     state: on
     brightness: 255
     rgb_color: [0, 35, 170]
