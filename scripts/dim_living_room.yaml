@@ -28,5 +28,5 @@ sequence:
     entity_id: light.aurora
     data:
       transition: 10
-      brightness: 90
- 
+      brightness: 70
+  

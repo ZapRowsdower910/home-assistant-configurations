@@ -1,11 +1,8 @@
 alias: "Auto Away"
 trigger:
-  - platform: state
-    entity_id: group.nick
-    to: 'not_home'
-  - platform: state
-    entity_id: input_boolean.guests_present
-    to: 'off'
+  platform: state
+  entity_id: input_boolean.occupany
+  to: 'off'
 condition:
   - condition: state
     entity_id: input_boolean.guests_present

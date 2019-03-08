@@ -106,3 +106,34 @@ input_boolean.alarms_one_off_enabled:
 light.aurora:
   friendly_name: Living Room Aurora
   icon: mdi:triangle-outline
+binary_sensor.motion:
+  device_class: motion
+binary_sensor.cold_room_motion_1:
+  device_class: motion
+binary_sensor.bedroom_motion_1:
+  device_class: motion
+binary_sensor.office_motion_1:
+  device_class: motion
+binary_sensor.bedroom_media_active:
+  icon: mdi:play-network
+binary_sensor.living_room_media_active:
+  icon: mdi:play-network
+binary_sensor.media_active:
+  icon: mdi:play-network
+binary_sensor.workshop_hue_1_motion:
+  device_class: motion
+sensor.asuswrt_download:
+  icon: mdi:download-network
+sensor.asuswrt_download_speed:
+  friendly_name: Asuswrt Download Speed
+  icon: mdi:download-network-outline
+sensor.asuswrt_upload:
+  icon: mdi:upload-network
+sensor.asuswrt_upload_speed:
+  icon: mdi:upload-network-outline
+binary_sensor.masterbath_media_active:
+  icon: mdi:play-network
+binary_sensor.sun_room_motion_1_sensor_2:
+  friendly_name: Sun Room Motion 2
+binary_sensor.workshop_motion:
+  device_class: motion

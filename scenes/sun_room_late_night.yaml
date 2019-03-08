@@ -10,6 +10,11 @@ entities:
     brightness: 255
     rgb_color: [0,75, 100]
     transition: 15
+  light.lx_sun_room_3:
+    state: on
+    brightness: 255
+    rgb_color: [0, 50,120]
+    transition: 15    
   light.sun_room_c_1:
     state: on
     brightness: 255

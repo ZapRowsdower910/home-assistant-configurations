@@ -1,27 +1,32 @@
-alias: "dimma doer"
+alias: "Brighten Living Room"
 sequence:
   - service: script.turn_on
-    entity_id: script.dim_group
+    entity_id: script.group_brightness
     data_template:
       variables:
+        brightness: "{{ states('input_number.constant_brightness_bright') }}"
         group: "living_room_shallow_accents"
   - delay: 
       seconds: 1
   - service: script.turn_on
-    entity_id: script.dim_group
+    entity_id: script.group_brightness
     data_template:
       variables:
+        brightness: "{{ states('input_number.constant_brightness_bright') }}"
         group: "living_room_deep_accents"
   - delay: 
       seconds: 1
   - service: script.turn_on
-    entity_id: script.dim_group
+    entity_id: script.group_brightness
     data_template:
       variables:
+        brightness: "{{ states('input_number.constant_brightness_bright') }}"
         group: "living_room_base"
   - delay: 
       seconds: 1
   - service: light.turn_on
     entity_id: light.aurora
     data:
-      brightness: 90   
+      transition: 10
+      brightness: 90
+ 

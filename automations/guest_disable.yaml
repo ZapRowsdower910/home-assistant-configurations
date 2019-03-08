@@ -1,8 +1,8 @@
 alias: "Guests Auto Off"
 trigger:
-  - platform: state
-    entity_id: group.occupancy
-    to: 'off'
+  # - platform: state
+  #   entity_id: group.occupancy
+  #   to: 'off'
   - platform: state
     entity_id: binary_sensor.motion
     to: 'off'
@@ -11,25 +11,10 @@ trigger:
     to: 'off'
     for:
       minutes: 20
-  # - platform: state
-  #   entity_id: media_player.vizio_tv
-  #   to: 'off'
-  #   for:
-  #     minutes: 20
-  # - platform: state
-  #   entity_id: media_player.living_room_cr2
-  #   to: 'idle'
-  #   for:
-  #     minutes: 20
-  # - platform: state
-  #   entity_id: media_player.living_room_stereo
-  #   to: 'off'
-  #   for:
-  #     minutes: 20
 condition:
-  - condition: state
-    entity_id: group.occupancy
-    state: 'off'
+  # - condition: state
+  #   entity_id: group.occupancy
+  #   state: 'off'
   - condition: state
     entity_id: binary_sensor.motion
     state: 'off'
@@ -38,30 +23,6 @@ condition:
     state: 'off'
     for:
       minutes: 20
-  # - condition: or
-  #   conditions:
-  #   - condition: state
-  #     entity_id: media_player.vizio_tv
-  #     state: 'off'
-  #   - condition: state
-  #     entity_id: media_player.vizio_tv
-  #     state: 'idle'
-  # - condition: or
-  #   conditions:
-  #   - condition: state
-  #     entity_id: media_player.living_room_cr2
-  #     state: 'off'
-  #   - condition: state
-  #     entity_id: media_player.living_room_cr2
-  #     state: 'idle'
-  # - condition: or
-  #   conditions:
-  #   - condition: state
-  #     entity_id: media_player.living_room_stereo
-  #     state: 'off'
-  #   - condition: state
-  #     entity_id: media_player.living_room_stereo
-  #     state: 'idle'
 action:
   - service: input_boolean.turn_off
     entity_id: input_boolean.guests_present

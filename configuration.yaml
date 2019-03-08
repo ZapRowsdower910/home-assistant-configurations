@@ -11,6 +11,7 @@ homeassistant:
   # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   time_zone: America/New_York
   customize: !include customize.yaml
+  packages: !include_dir_named packages
 config:
 conversation:
 discovery:
@@ -20,13 +21,12 @@ http:
   # api_password: !secret http_api_key  
   ssl_certificate: /usr/local/etc/letsencrypt/live/deepthink.asuscomm.com/fullchain.pem
   ssl_key: /usr/local/etc/letsencrypt/live/deepthink.asuscomm.com/privkey.pem  
-  base_url: https://deepthink.asuscomm.com
+  base_url: "https://deepthink.asuscomm.com"
   trusted_networks: 
     - 192.168.1.0/24
   ip_ban_enabled: true
   login_attempts_threshold: 5
-  server_host: 192.168.1.15
-  # server_port: 8234
+  # server_host: 192.168.1.15
 logbook:
   include:
     domains:
@@ -52,6 +52,7 @@ logger:
   logs:
     homeassistant.components.media_player: error
     homeassistant.components.script: debug
+    # homeassistant.components.switch.command_line: debug
 
 alexa:
 
@@ -64,6 +65,11 @@ asuswrt:
   host: 192.168.1.1
   username: !secret router_username
   password: !secret router_password
+  sensors:
+    - upload
+    - download
+    - upload_speed
+    - download_speed
 
 august:
   login_method: email
@@ -77,6 +83,11 @@ binary_sensor:
   - platform: workday
     country: US
     province: OH
+  - platform: rest
+    resource: http://192.168.1.17/api/hUYgWbmGK7ozsgJ4HZrXQbF8-XQ3URytT7Zqx927/sensors/8
+    value_template: '{{ value_json.state.status }}'
+    scan_interval: 2
+    name: 'Workshop Hue 1 Motion'
   - platform: template
     sensors: 
       motion:
@@ -89,6 +100,8 @@ binary_sensor:
             or is_state('binary_sensor.office_motion', 'on')
             or is_state('binary_sensor.master_bathroom_motion', 'on')
             or is_state('binary_sensor.sun_room_motion', 'on')  
+            or is_state('binary_sensor.upstairs_motion_1_sensor', 'on')
+            or is_state('binary_sensor.workshop_sensor', 'on')  
           -%}
           true
           {%- else -%}
@@ -113,7 +126,9 @@ binary_sensor:
       living_room_motion:
         friendly_name: "Living Room Motion"
         value_template: >-
-          {%- if is_state('sensor.living_room_motion_3_burglar', '8') -%}
+          {%- if is_state('sensor.living_room_motion_3_burglar', '8') 
+            or is_state('binary_sensor.living_room_motion_1_sensor', 'on')
+          -%}
           true
           {%- else -%}
           false
@@ -145,7 +160,17 @@ binary_sensor:
       sun_room_motion:
         friendly_name: "Sun Room Motion"
         value_template: >-
-          {%- if is_state('sensor.sun_room_motion_1_burglar', '8') -%}
+          {%- if is_state('sensor.sun_room_motion_1_burglar', '8') 
+            or is_state('binary_sensor.sun_room_motion_1_sensor_2', 'on')
+          -%}
+          true
+          {%- else -%}
+          false
+          {%- endif -%}
+      workshop_motion:
+        friendly_name: "Workshop Motion"
+        value_template: >-
+          {%- if is_state('binary_sensor.workshop_hue_1_motion', 'on') -%}
           true
           {%- else -%}
           false
@@ -160,13 +185,24 @@ binary_sensor:
           true
           {%- else -%}
           false
-          {%- endif -%}
+          {%- endif -%}      
       living_room_media_active:
         friendly_name: "Living Room Media Active"
         value_template: >-
           {%- if is_state('media_player.living_room_cr2', 'playing') 
+            or is_state('media_player.living_room_dot', 'playing') 
             or is_state('media_player.living_room_display', 'playing') 
             or is_state('media_player.living_room_stereo', 'playing') 
+            or is_state('media_player.vizio_tv', 'playing')             
+          -%}
+          true
+          {%- else -%}
+          false
+          {%- endif -%}
+      masterbath_media_active:
+        friendly_name: "Master Bath Media Active"
+        value_template: >-
+          {%- if is_state('media_player.bathroom_speaker', 'playing') 
           -%}
           true
           {%- else -%}
@@ -196,36 +232,56 @@ emulated_hue:
     - switch
 #    - light
 
-# envisalink:
-#   host: 192.168.1.25
-#   panel_type: HONEYWELL
-#   user_name: !secret envisa_username
-#   password: !secret envisa_password
-#   code: '2580'
-#   port: 4025
-#   evl_version: 4
-#   zones:
-#     9:
-#       name: 'Front Door'
-#       type: 'opening'
-#     10:
-#       name: 'Back Door'
-#       type: 'opening'
-#     11:
-#       name: 'Garage Door'
-#       type: 'opening'
-#     12:
-#       name: 'Living Room Motion 1 Sensor'
-#       type: 'motion'
-#     13:
-#       name: 'Sun Room Motion 1 Sensor'
-#       type: 'motion'
-#     14:
-#       name: 'Upstairs Motion 1 Sensor'
-#       type: 'motion'
-#   partitions:
-#     1:
-#       name: 'Home Alarm'
+envisalink:
+  host: 192.168.1.25
+  panel_type: HONEYWELL
+  user_name: !secret envisa_username
+  password: !secret envisa_password
+  code: '2580'
+  port: 4025
+  evl_version: 4
+  zones:
+    9:
+      name: 'Front Door'
+      type: 'opening'
+    10:
+      name: 'Back Door'
+      type: 'opening'
+    11:
+      name: 'Garage Door'
+      type: 'opening'
+    12:
+      name: 'Living Room Motion 1 Sensor'
+      type: 'motion'
+    13:
+      name: 'Sun Room Motion 1 Sensor'
+      type: 'motion'
+    14:
+      name: 'Upstairs Motion 1 Sensor'
+      type: 'motion'
+  partitions:
+    1:
+      name: 'Home Alarm'
+
+google_assistant:
+  project_id: hass-deepthink
+  api_key: !secret google_api_key
+  exposed_domains:
+    - group
+    - input_boolean
+    # - light
+    - switch
+    
+    
+  # entity_config:
+  #   switch.kitchen:
+  #     name: CUSTOM_NAME_FOR_GOOGLE_ASSISTANT
+  #     aliases:
+  #       - BRIGHT_LIGHTS
+  #       - ENTRY_LIGHTS
+  #   light.living_room:
+  #     expose: false
+  #     room: LIVING_ROOM
 
 hue:
   bridges:
@@ -274,6 +330,9 @@ input_boolean:
   random_color_mode:
     name: "Random Color Mode"
     initial: off
+  occupancy:
+    name: "Occupancy Detected"
+    initial: off
 
 input_datetime:
   alarms_work:
@@ -293,7 +352,9 @@ lifx:
 
 mqtt:
   broker: 192.168.1.7
-  port: 1883  
+  port: 1883
+  discovery: true
+  discovery_prefix: homeassistant
 
 octoprint:
   host: 192.168.1.35
@@ -310,8 +371,14 @@ recorder:
   purge_interval: 1
   purge_keep_days: 4
 
+roku:
+  - host: 192.168.1.71
+
 shell_command: 
-  renew_ssl: /mnt/config/certbot/./certbot-auto certonly --standalone --preferred-challenges http-01 --email nsimone1911@gmail.com -d deepthink.asuscomm.com
+  renew_ssl: /usr/local/bin/certbot certonly renew
+  # --standalone --preferred-challenges http-01 --email nsimone1911@gmail.com -d deepthink.asuscomm.com
+
+system_health:
 
 timer:
   randomize_color:
@@ -319,7 +386,7 @@ timer:
 # upnp:
 #   port_mapping: false
 
-wink:
+# wink:
 wemo:
 
 zwave:

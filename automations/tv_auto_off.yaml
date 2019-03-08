@@ -1,0 +1,56 @@
+alias: 'Tv Auto Off'
+trigger:
+  - platform: state
+    entity_id: binary_sensor.living_room_media_active
+    to: 'off'
+    for:
+      hours: 1
+  - platform: state
+    entity_id: binary_sensor.bedroom_media_active
+    to: 'off'
+    for:
+      minutes: 30
+condition:
+  # - condition: state
+  #   entity_id: input_boolean.house_auto_lights
+  #   state: 'on'
+  # - condition: template
+  #   value_template: >-
+  #     {% set fullNameParts = trigger.entity_id.split('.') %}
+  #     {% set nameParts = fullNameParts[1].split('_') %}
+  #     {% set roomName = 'binary_sensor.' + nameParts[0] %}
+  #     {% if(nameParts[1] == 'room') %}
+  #       {% set roomName = roomName + '_room' %}
+  #     {% endif %}
+  #     {% set roomName = roomName + '_media_active' %}
+  #     {% if( is_state(roomName, 'on') ) %}
+  #       false
+  #     {% else %}
+  #       true
+  #     {% endif %}
+  - condition: template
+    value_template: >-
+      {% set fullNameParts = trigger.entity_id.split('.') %}
+      {% set nameParts = fullNameParts[1].split('_') %}
+      {% set roomName = 'media_player.' + nameParts[0] %}
+      {% if(nameParts[1] == 'room') %}
+        {% set roomName = roomName + '_room' %}
+      {% endif %}
+      {% set roomName = roomName + '_tv' %}
+      {{not is_state(roomName, 'playing')}}
+      # {% if( is_state(roomName, 'playing') ) %}
+      #   false
+      # {% else %}
+      #   true
+      # {% endif %}
+action:
+  - service: media_player.turn_off
+    data_template:
+      entity_id: >-
+        {% set fullNameParts = trigger.entity_id.split('.') %}
+        {% set nameParts = fullNameParts[1].split('_') %}
+        {% set roomName = 'media_player.' + nameParts[0] %}
+        {% if(nameParts[1] == 'room') %}
+          {% set roomName = roomName + '_room' %}
+        {% endif %}
+        {{roomName}}_tv

@@ -1,0 +1,21 @@
+alias: "Occupancy Disabled"
+trigger:
+  - platform: state
+    entity_id: input_boolean.guests_present
+    to: 'off'
+  - platform: state
+    entity_id: group.nick
+    to: 'away'
+condition:
+  - condition: state
+    entity_id: input_boolean.occupancy
+    state: 'off'
+  - condition: state
+    entity_id: input_boolean.guests_present
+    state: 'off'
+  - condition: state
+    entity_id: group.nick
+    state: 'away'
+action:
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.occupancy

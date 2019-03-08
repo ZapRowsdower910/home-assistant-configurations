@@ -1,9 +1,14 @@
 alias: 'Office Flic Single Click'
 trigger:
-    platform: event
+  - platform: event
     event_type: flic_click
     event_data:
       button_name: office
+      click_type: single
+  - platform: event
+    event_type: flic_click
+    event_data:
+      button_name: office_desk
       click_type: single
 action:
   - service: scene.turn_on

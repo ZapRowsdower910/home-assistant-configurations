@@ -1,0 +1,92 @@
+alias: 'Auto Off Lights Generic'
+trigger:
+  - platform: state
+    entity_id: binary_sensor.bedroom_motion
+    to: 'off'
+    for:
+      minutes: 10
+  - platform: state
+    entity_id: binary_sensor.bedroom_occupancy
+    to: 'off'
+  - platform: state
+    entity_id: binary_sensor.kitchen_motion
+    to: 'off'
+    for:
+      minutes: 10
+  - platform: state
+    entity_id: binary_sensor.living_room_motion
+    to: 'off'
+    for:
+      minutes: 40
+  - platform: state
+    entity_id: binary_sensor.office_motion
+    to: 'off'
+    for:
+      minutes: 40
+  - platform: state
+    entity_id: binary_sensor.office_occupancy
+    to: 'off'       
+  - platform: state
+    entity_id: binary_sensor.sun_room_motion
+    to: 'off'
+    for:
+      minutes: 40
+  - platform: state
+    entity_id: binary_sensor.workshop_motion
+    to: 'off'
+    for:
+      minutes: 20
+condition:
+  - condition: state
+    entity_id: input_boolean.house_auto_lights
+    state: 'on'
+  - condition: template
+    value_template: >-
+      {% set fullNameParts = trigger.entity_id.split('.') %}
+      {% set nameParts = fullNameParts[1].split('_') %}
+      {% set roomName = 'binary_sensor.' + nameParts[0] %}
+      {% if(nameParts[1] == 'room') %}
+        {% set roomName = roomName + '_room' %}
+      {% endif %}
+      {% if( is_state(roomName + '_media_active', 'on') ) %}
+        false
+      {% else %}
+        true
+      {% endif %}
+  - condition: template
+    value_template: >-
+      {% set fullNameParts = trigger.entity_id.split('.') %}
+      {% set nameParts = fullNameParts[1].split('_') %}
+      {% set roomName = 'input_boolean.' + nameParts[0] %}
+      {% if(nameParts[1] == 'room') %}
+        {% set roomName = roomName + '_room' %}
+      {% endif %}
+      {% if( is_state(roomName + '_override' , 'on') ) %}
+        false
+      {% else %}
+        true
+      {% endif %}
+  - condition: template
+    value_template: >-
+      {% if(is_state('input_boolean.sleep_mode', 'on')) %}
+        {% set fullNameParts = trigger.entity_id.split('.') %}
+        {% set nameParts = fullNameParts[1].split('_') %}
+        {% if( nameParts[0] == 'bedroom' ) %}
+          false
+        {% else %}
+          true
+        {% endif %}
+      {% else %}
+        true
+      {% endif %}      
+action:
+  - service: light.turn_off
+    data_template:
+      entity_id: >-
+        {% set fullNameParts = trigger.entity_id.split('.') %}
+        {% set nameParts = fullNameParts[1].split('_') %}
+        {% set roomName = nameParts[0] %}
+        {% if(nameParts[1] == 'room') %}
+          {% set roomName = roomName + '_room' %}
+        {% endif %}
+        group.{{roomName}}_shallow_accents, group.{{roomName}}_base

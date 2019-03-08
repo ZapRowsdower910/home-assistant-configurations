@@ -1,5 +1,5 @@
-alias: 'Auto Lights Master Bath'
-initial_state: 'on'
+alias: 'Auto Night Light Master Bath'
+initial_state: 'off'
 trigger:
   - platform: state
     entity_id: binary_sensor.master_bathroom_motion
@@ -15,4 +15,4 @@ action:
   - service: script.auto_light_on
     data:
       entity: "group.master_bathroom_lights"
-      brightness: 255
+      brightness: 100

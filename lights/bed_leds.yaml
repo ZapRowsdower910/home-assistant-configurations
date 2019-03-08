@@ -1,4 +1,5 @@
-platform: mqtt_json
+platform: mqtt
+schema: json
 name: "Bed Strip 1"
 state_topic: "hass/bedAccent"
 command_topic: "hass/bedAccent/set"
@@ -23,7 +24,7 @@ effect_list:
   - solid  
   - twinkle 
 brightness: true
-flash: true
+# flash: true
 rgb: true
 optimistic: false
 qos: 0

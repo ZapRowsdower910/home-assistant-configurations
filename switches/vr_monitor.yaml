@@ -3,7 +3,7 @@ switches:
   #toggles VR Roku TV
   vr_monitor_power:
     friendly_name: "VR Monitor Power"
-    command_on: 'curl -X POST http://192.168.1.71:8060/keypress/PowerOn'
-    command_off: 'curl -X POST http://192.168.1.71:8060/keypress/PowerOff'
-    command_state: 'curl -s GET http://192.168.1.71:8060/query/device-info | grep power-mode | sed -e "s:<power-mode>Headless</power-mode>:OFF:" -e "s:<power-mode>PowerOn</power-mode>:ON:"'
+    command_on: '/usr/local/bin/curl -X POST http://192.168.1.71:8060/keypress/PowerOn'
+    command_off: '/usr/local/bin/curl -X POST http://192.168.1.71:8060/keypress/PowerOff'
+    command_state: '/usr/local/bin/curl -s GET http://192.168.1.71:8060/query/device-info | grep power-mode | sed -e "s:<power-mode>Headless</power-mode>:OFF:" -e "s:<power-mode>PowerOn</power-mode>:ON:"'
     value_template: '{{ value == "ON" }}'

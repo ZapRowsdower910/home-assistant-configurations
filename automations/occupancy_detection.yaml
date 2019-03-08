@@ -1,0 +1,24 @@
+alias: "Occupancy Detection"
+trigger:
+  - platform: state
+    entity_id: input_boolean.guests_present
+    to: 'on'
+  - platform: state
+    entity_id: group.nick
+    to: 'home'
+  - platform: state
+    entity_id: binary_sensor.front_door
+    to: 'on'
+  - platform: state
+    entity_id: binary_sensor.garage_door
+    to: 'on'
+  - platform: state
+    entity_id: binary_sensor.back_door
+    to: 'on'
+condition:
+  - condition: state
+    entity_id: input_boolean.occupancy
+    state: 'off'
+action:
+  - service: input_boolean.turn_on
+    entity_id: input_boolean.occupancy

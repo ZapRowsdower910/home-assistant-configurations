@@ -2,19 +2,14 @@ alias: "Tv Auto Dim"
 trigger:
   - platform: state
     entity_id: binary_sensor.living_room_media_active
-    to: 'On'
+    to: 'on'
     for:
       seconds: 30
   - platform: state
     entity_id: binary_sensor.bedroom_media_active
-    to: 'On'
+    to: 'on'
     for:
       seconds: 30
-  # - platform: state
-  #   entity_id: media_player.living_room_cr2
-  #   to: 'playing'
-  #   for:
-  #     seconds: 30      
 condition:
   - condition: state
     entity_id: input_boolean.tv_auto_lights
@@ -24,59 +19,13 @@ action:
     data_template:
       entity_id: >-
         {% set fullNameParts = trigger.entity_id.split('.') %}
-        {% set nameParts = fullNameParts.split('_') %}
-        {% set scriptName = 'dim' + nameParts[0] + '_' %}
+        {% set nameParts = fullNameParts[1].split('_') %}
+        {% set scriptName = 'dim_' + nameParts[0] %}
         {% if(nameParts[1] == 'room') %}
-          {% set scriptName = scriptName + 'room' %}
+          {% set scriptName = scriptName + '_room' %}
         {% endif %}
-        '{{ scriptName }}'
-
-
-# alias: "Group Brightness Change"
-# sequence:
-#   - service: light.turn_on
-#     data_template:                
-#       brightness: "{{ brightness | int }}"
-#       transition: 10
-#       entity_id: >
-#         {% for entity_id in states.group[group].attributes.entity_id if states(entity_id) == 'on' -%}
-#           {% set parts = entity_id.split('.') -%}
-#           {% if states(entity_id) == 'on' %}{{ states[parts[0]][parts[1]].entity_id }}{% endif -%}{%- if loop.last %} {% else  %}, {%endif%}{% endfor %}
-
-# {% set parts ='living_room_media_active'.split('_') -%}
-
-#  action:
-#     - service: light.turn_off
-#       data_template:
-#         # Whichever entity triggers the automation we want to turn off THAT entity, not the others.
-#         entity_id: "{{ trigger.entity_id }}"
-
-  # - service: script.turn_on
-  #   entity_id: script.group_brightness
+        script.{{ scriptName }}
+  # - service: notify.notify_slack
   #   data_template:
-  #     variables:
-  #       brightness: "{{ states('input_number.constant_brightness_dim') }}"
-  #       group: "living_room_shallow_accents"
-  # - delay: 
-  #     seconds: 1
-  # - service: script.turn_on
-  #   entity_id: script.group_brightness
-  #   data_template:
-  #     variables:
-  #       brightness: "{{ states('input_number.constant_brightness_dim') }}"
-  #       group: "living_room_deep_accents"
-  # - delay: 
-  #     seconds: 1
-  # - service: script.turn_on
-  #   entity_id: script.group_brightness
-  #   data_template:
-  #     variables:
-  #       brightness: "{{ states('input_number.constant_brightness_dim') }}"
-  #       group: "living_room_base"
-  # - delay: 
-  #     seconds: 1
-  # - service: light.turn_on
-  #   entity_id: light.aurora
-  #   data:
-  #     transition: 10
-  #     brightness: 90
+  #     title: "title stuff"
+  #     message: 'triggered'
