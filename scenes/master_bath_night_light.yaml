@@ -1,0 +1,5 @@
+name: "Master Bath Night Light"
+entities:
+  group.master_bath_base:
+    state: on
+    brightness: 75

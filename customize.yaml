@@ -137,3 +137,5 @@ binary_sensor.sun_room_motion_1_sensor_2:
   friendly_name: Sun Room Motion 2
 binary_sensor.workshop_motion:
   device_class: motion
+binary_sensor.sun_room_motion_1_sensor:
+  device_class: motion

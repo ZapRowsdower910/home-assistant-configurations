@@ -1,15 +1,15 @@
 alias: "Auto Away"
 trigger:
   platform: state
-  entity_id: input_boolean.occupany
+  entity_id: input_boolean.occupancy
   to: 'off'
-condition:
-  - condition: state
-    entity_id: input_boolean.guests_present
-    state: 'off'  
-  - condition: state
-    entity_id: group.nick
-    state: 'not_home'
+# condition:
+#   - condition: state
+#     entity_id: input_boolean.guests_present
+#     state: 'off'  
+#   - condition: state
+#     entity_id: group.nick
+#     state: 'not_home'
 action:
   - service: light.turn_off
     entity_id: group.inside_lights
@@ -19,8 +19,8 @@ action:
       away_mode: 'on'
   - service: script.turn_on
     entity_id: script.turn_off_living_room
-  - service: switch.turn_off
-    entity_id: switch.laundry_mat
+  # - service: switch.turn_off
+  #   entity_id: switch.laundry_mat
 #  - service: media_player.turn_off
 #    entity_id: media_player.tv
   # - service: notify.pushbullet

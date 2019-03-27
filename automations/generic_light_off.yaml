@@ -1,10 +1,10 @@
-alias: 'Auto Off Lights Generic'
+alias: 'Generic Off'
 trigger:
   - platform: state
     entity_id: binary_sensor.bedroom_motion
     to: 'off'
     for:
-      minutes: 10
+      minutes: 15
   - platform: state
     entity_id: binary_sensor.bedroom_occupancy
     to: 'off'
@@ -12,7 +12,7 @@ trigger:
     entity_id: binary_sensor.kitchen_motion
     to: 'off'
     for:
-      minutes: 10
+      minutes: 15
   - platform: state
     entity_id: binary_sensor.living_room_motion
     to: 'off'

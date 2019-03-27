@@ -16,6 +16,7 @@ config:
 conversation:
 discovery:
 frontend:
+  themes: !include themes.yaml
 # history:
 http:
   # api_password: !secret http_api_key  
@@ -349,6 +350,9 @@ input_datetime:
 lifx:
   light:
     server: 192.168.1.15
+    
+lovelace:
+  mode: yaml
 
 mqtt:
   broker: 192.168.1.7

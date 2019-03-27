@@ -1,10 +1,10 @@
-alias: 'Office Flic Hold'
+alias: 'Office Desk Flic Double'
 trigger:
   - platform: event
     event_type: flic_click
     event_data:
-      button_name: office
-      click_type: hold
+      button_name: office_desk
+      click_type: double
 action:
   - service: input_boolean.toggle
     data:

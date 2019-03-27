@@ -12,52 +12,860 @@ background: center / cover no-repeat url("/background.png") fixed
 excluded_entities:
   - weblink.router
 views:
-    # View tab title.
-  - title: Example
-    # Optional unique id for direct access /lovelace/${id}
-    id: example
-    # Optional background (overwrites the global background).
-    background: radial-gradient(crimson, skyblue)
-    # Each view can have a different theme applied. Theme should be defined in the frontend.
+  - id: Home
+    title: Home
+    icon: mdi:home-assistant
     theme: dark-mode
-    # The cards to show on this view.
     cards:
-        # The filter card will filter entities for their state
-      - type: entity-filter
-        entities:
-          - device_tracker.paulus
-          - device_tracker.anne_there
-        state_filter:
-          - 'home'
-        card:
-          type: glance
-          title: People that are home
-
-        # The picture entity card will represent an entity with a picture
-      - type: picture-entity
-        image: https://www.home-assistant.io/images/default-social.png
-        entity: light.bed_light
-
-    # Specify a tab icon if you want the view tab to be an icon.
-  - icon: mdi:home-assistant
-    # Title of the view. Will be used as the tooltip for tab icon
-    title: Second view
+      - type: vertical-stack
+        cards:             
+          - type: glance
+            entities: 
+              - entity: sensor.deepthink
+                icon: mdi:plex
+              - entity: sensor.progressive_day_theme
+                name: Day Theme
+                icon: mdi:eyedropper
+              - entity: sensor.time_of_day
+                icon: mdi:clock-outline  
+          - type: glance
+            # columns: 4
+            entities: 
+              - entity: input_boolean.guests_present  
+                name: Guest
+                icon: mdi:account-supervisor
+              - entity: input_boolean.occupancy
+                name: Occupied
+                icon: mdi:home-variant-outline              
+              - entity: group.nick
+          - type: glance
+            columns: 4
+            entities:                        
+              - entity: input_boolean.house_auto_lights  
+                name: Auto Lights                
+                icon: mdi:lightbulb
+                tap_action:
+                  action: call-service
+                  service: input_boolean.toggle
+                  service_data: 
+                      entity_id: input_boolean.house_auto_lights
+              - entity: input_boolean.tv_auto_lights
+                name: Tv Lights           
+                icon: mdi:play-network
+                tap_action:
+                  action: call-service
+                  service: input_boolean.toggle
+                  service_data: 
+                      entity_id: input_boolean.tv_auto_lights
+              - entity: input_boolean.auto_lights_climate
+                name: Climate Lights
+                icon: mdi:weather-lightning
+                tap_action:
+                  action: call-service
+                  service: input_boolean.toggle
+                  service_data: 
+                      entity_id: input_boolean.auto_lights_climate
+              - entity: input_boolean.random_color_mode
+                name: Random Lights
+                icon: mdi:lightbulb-on-outline
+                tap_action:
+                  action: call-service
+                  service: input_boolean.toggle
+                  service_data: 
+                      entity_id: input_boolean.random_color_mode
+          - type: glance
+            columns: 4
+            entities:              
+              - entity: input_boolean.sleep_mode                    
+                name: Sleep Mode
+                tap_action:
+                  action: call-service
+                  service: input_boolean.toggle
+                  service_data: 
+                      entity_id: input_boolean.sleep_mode
+              - entity: input_boolean.office_override
+                name: Office Override  
+                icon: mdi:desktop-classic
+                tap_action:
+                  action: call-service
+                  service: input_boolean.toggle
+                  service_data: 
+                      entity_id: input_boolean.office_override                        
+              - entity: input_boolean.state_climate_scene_active  
+                name: Climate Scene          
+                tap_action:
+                  action: call-service
+                  service: input_boolean.toggle
+                  service_data: 
+                      entity_id: input_boolean.state_climate_scene_active    
+              - entity: input_boolean.debug_mode
+                name: Debug
+                tap_action:
+                  action: call-service
+                  service: input_boolean.toggle
+                  service_data: 
+                      entity_id: input_boolean.debug_mode
+          - type: entities
+            title: Network Health
+            entities: 
+              - sensor.asuswrt_download
+              - sensor.asuswrt_download_speed
+              - sensor.asuswrt_upload
+              - sensor.asuswrt_upload_speed
+          - type: entities
+            entities:              
+              - input_select.house_theme         
+      - type: vertical-stack
+        cards:
+          - type: weather-forecast
+            entity: weather.main_floor
+          - type: thermostat
+            entity: climate.main_floor
+          - type: glance
+            columns: 4
+            entities: 
+              - sensor.bedroom_temperature
+              - sensor.cold_room_motion_1_temperature
+              - sensor.kitchen_motion_1_temperature
+              - sensor.living_room_motion_3_temperature
+              - sensor.living_room_temperature
+              - sensor.master_bathroom_motion_1_temperature
+              - sensor.office_temperature
+              - sensor.office_motion_1_temperature
+              - sensor.sun_room_motion_1_temperature
+              - sensor.workshop_hue_1_temperature          
+  - icon: mdi:television-classic
+    title: Living Room
     cards:
-        # Entities card will take a list of entities and show their state.
+      - type: vertical-stack
+        cards:        
+          - type: glance
+            entities:
+              - entity: binary_sensor.living_room_motion
+                name: Room
+              - entity: binary_sensor.living_room_occupancy
+                name: Ecobee              
+              - entity: binary_sensor.living_room_motion_1_sensor
+                name: RF
+              - entity: binary_sensor.living_room_motion_3_sensor
+                name: Z-Wave
+          - type: glance
+            entities:
+              - entity: sensor.living_room_motion_3_temperature
+                name: LM3 Temp
+              - entity: sensor.living_room_motion_3_relative_humidity
+                name: LM3 Humidity
+              - entity: sensor.living_room_motion_3_luminance
+                name: LM3 Lux
+              - entity: sensor.living_room_temperature
+                name: Eco Temp              
+          - type: glance
+            show_state: false
+            theme: green_light
+            entities:
+              - entity: scene.living_room_cool
+                icon: mdi:snowflake
+                name: "Cool"
+                tap_action:
+                  action: call-service
+                  service: scene.turn_on
+                  service_data: 
+                      entity_id: scene.living_room_cool
+              - entity: scene.living_room_grass
+                icon: mdi:tree
+                name: "Grass"                
+                tap_action:
+                  action: call-service
+                  service: scene.turn_on
+                  service_data: 
+                      entity_id: scene.living_room_grass                    
+              - entity: scene.living_room_honey
+                icon: mdi:water
+                name: "Honey"
+                tap_action:
+                  action: call-service
+                  service: scene.turn_on
+                  service_data: 
+                      entity_id: scene.living_room_honey
+              - entity: scene.living_room_late_night
+                icon: mdi:weather-night
+                name: "Late Nite"
+                tap_action:
+                  action: call-service
+                  service: scene.turn_on
+                  service_data: 
+                      entity_id: scene.living_room_late_night              
+              - entity: scene.living_room_purple
+                icon: mdi:sunglasses
+                name: "Purple"
+                tap_action:
+                  action: call-service
+                  service: scene.turn_on
+                  service_data: 
+                      entity_id: scene.living_room_purple
+              - entity: scene.living_room_warm
+                icon: mdi:fire
+                name: "Warm"
+                tap_action:
+                  action: call-service
+                  service: scene.turn_on
+                  service_data: 
+                      entity_id: scene.living_room_warm
+          - type: glance
+            show_state: false
+            entities:
+              - entity: scene.living_room_bright
+                icon: mdi:brightness-7
+                name: "Bright"
+                tap_action:
+                  action: call-service
+                  service: scene.turn_on
+                  service_data: 
+                      entity_id: scene.living_room_bright
+              - entity: scene.living_room_dim
+                icon: mdi:brightness-5
+                name: "Dim"
+                tap_action:
+                  action: call-service
+                  service: scene.turn_on
+                  service_data: 
+                      entity_id: scene.living_room_dim
+              - entity: scene.living_room_none
+                icon: mdi:lightbulb-outline
+                name: "None"
+                tap_action:
+                  action: call-service
+                  service: scene.turn_on
+                  service_data: 
+                      entity_id: scene.living_room_none
+              - entity: scene.living_room_hangover
+                icon: mdi:beer
+                name: "Hang Over"
+                tap_action:
+                  action: call-service
+                  service: scene.turn_on
+                  service_data: 
+                      entity_id: scene.living_room_hangover
+              - entity: scene.living_room_night_light
+                icon: mdi:spotlight-beam
+                name: "Night Light"
+                tap_action:
+                  action: call-service
+                  service: scene.turn_on
+                  service_data: 
+                      entity_id: scene.living_room_night_light
+      - type: vertical-stack
+        cards:
+          - type: conditional
+            conditions:
+              - entity: media_player.living_room_cr2
+                state_not: "off"
+              - entity: media_player.living_room_cr2
+                state_not: "idle"
+            card:
+              type: media-control
+              entity: media_player.living_room_cr2
+          - type: conditional
+            conditions:
+              - entity: media_player.living_room_dot
+                state_not: "off"
+              - entity: media_player.living_room_dot
+                state_not: "idle"
+              - entity: media_player.living_room_dot
+                state_not: "standby"
+            card:
+              type: media-control
+              entity: media_player.living_room_dot
+          - type: conditional
+            conditions:
+              - entity: media_player.living_room_stereo
+                state_not: "off"
+              - entity: media_player.living_room_stereo
+                state_not: "idle"
+              # - entity: media_player.living_room_stereo
+              #   state: "on"
+            card:
+              type: media-control
+              entity: media_player.living_room_stereo
+          - type: conditional
+            conditions:
+              - entity: media_player.vizio_tv
+                state_not: "off"
+              - entity: media_player.vizio_tv
+                state_not: "idle"
+            card:
+              type: media-control
+              entity: media_player.vizio_tv        
+          - type: entities
+            title: Lights
+            entities:
+              - light.go_1
+              - light.tv_b_1  
+              - light.coffee_table
+              - light.living_room_track_c_1
+              - light.living_room_track_c_2
+              - light.living_room_track_c_3
+              - light.living_room_track_c_4
+              - light.living_room_track_c_5  
+              - light.living_room_track_l_1
+              - light.living_room_track_l_2
+              - light.living_room_track_l_3
+              - light.aurora
+  - icon: mdi:glass-cocktail
+    title: Sun Room
+    cards:
+      - type: vertical-stack
+        cards:        
+          - type: glance
+            entities:
+              - entity: binary_sensor.sun_room_motion
+                name: Room
+              - entity: binary_sensor.main_floor_occupancy
+                name: Ecobee
+              - entity: binary_sensor.sun_room_motion_1_sensor
+                name: SRM1
+              - entity: binary_sensor.sun_room_motion_1_sensor_2
+                name: RF
+              - entity: binary_sensor.front_door
+                name: Front Door
+          - type: glance
+            entities:
+              - entity: sensor.sun_room_motion_1_temperature
+                name: SM1 Temp
+              - entity: sensor.sun_room_motion_1_relative_humidity
+                name: SM1 Hum              
+              - entity: sensor.sun_room_motion_1_luminance
+                name: SM1 Lux
+              - entity: sensor.main_floor_temperature
+                name: Eco Temp              
+              - entity: sensor.main_floor_humidity
+                name: Eco Humidity                      
+          - type: glance
+            show_state: false
+            entities:
+              - entity: scene.sun_room_cool
+                icon: mdi:snowflake
+                name: "Cool"
+                tap_action:
+                  action: call-service
+                  service: scene.turn_on
+                  service_data: 
+                      entity_id: scene.sun_room_cool
+              - entity: scene.sun_room_grass
+                icon: mdi:tree
+                name: "Grass"
+                tap_action:
+                  action: call-service
+                  service: scene.turn_on
+                  service_data: 
+                      entity_id: scene.sun_room_grass
+              - entity: scene.sun_room_honey
+                icon: mdi:water
+                name: "Honey"
+                tap_action:
+                  action: call-service
+                  service: scene.turn_on
+                  service_data: 
+                      entity_id: scene.sun_room_honey
+              - entity: scene.sun_room_late_night
+                icon: mdi:weather-night
+                name: "Late Nite"
+                tap_action:
+                  action: call-service
+                  service: scene.turn_on
+                  service_data: 
+                      entity_id: scene.sun_room_late_night
+              - entity: scene.sun_room_none
+                icon: mdi:lightbulb-outline
+                name: "None"
+                tap_action:
+                  action: call-service
+                  service: scene.turn_on
+                  service_data: 
+                      entity_id: scene.sun_room_none
+              - entity: scene.sun_room_purple
+                icon: mdi:sunglasses
+                name: "Purple"
+                tap_action:
+                  action: call-service
+                  service: scene.turn_on
+                  service_data: 
+                      entity_id: scene.sun_room_purple
+              - entity: scene.sun_room_warm
+                icon: mdi:fire
+                name: "Warm"
+                tap_action:
+                  action: call-service
+                  service: scene.turn_on
+                  service_data: 
+                      entity_id: scene.sun_room_warm
+          - type: vertical-stack
+            cards:
+              - type: glance
+                show_state: false
+                entities:
+                  - entity: scene.sun_room_night_light
+                    icon: mdi:spotlight-beam
+                    name: "Night Light"
+                    tap_action:
+                      action: call-service
+                      service: scene.turn_on
+                      service_data: 
+                          entity_id: scene.sun_room_night_light
+                  - entity: scene.sun_room_none
+                    icon: mdi:lightbulb-outline
+                    name: "None"
+                    tap_action:
+                      action: call-service
+                      service: scene.turn_on
+                      service_data: 
+                          entity_id: scene.sun_room_none
+      - type: vertical-stack
+        cards: 
+          - type: horizontal-stack
+            cards:
+              - type: entity-button
+                entity: lock.front_door_2
+                tap_action:
+                  action: call-service
+                  service: lock.unlock
+                  service_data:
+                    entity_id: lock.front_door_2
+                hold_action:
+                  action: call-service
+                  service: lock.lock
+                  service_data:
+                    entity_id: lock.front_door_2
+              - type: entity-button
+                entity: switch.vr_monitor_power
+                tap_action:
+                  action: call-service
+                  service: switch.toggle
+                  service_data:
+                    entity_id: switch.vr_monitor_power
+          - type: media-control
+            entity: media_player.49_tcl_roku_tv_2
+          - type: entities
+            entities:
+              - light.lx_sun_room_1
+              - light.lx_sun_room_2
+              - light.lx_sun_room_3
+              - light.sun_room_bar_strip
+              - light.sun_room_c_1
+              - light.sun_room_c_2
+              - light.sun_room_c_3
+              - light.sun_room_b_1
+              - light.sun_room_b_2 
+      # - type: conditional
+      #   conditions:
+      #     - entity: media_player.living_room_cr2
+      #       state: "playing"
+      #   card:
+      #     type: media-control
+      #     entity: media_player.living_room_cr2
+      # - type: conditional
+      #   conditions:
+      #     - entity: media_player.vizio_tv
+      #       state: "on"
+      #   card:
+      #     type: media-control
+      #     entity: media_player.vizio_tv
+  - icon: mdi:hotel
+    title: Bedroom
+    cards:
+      - type: vertical-stack
+        cards:        
+          - type: glance
+            entities:
+              - entity: binary_sensor.bedroom_motion
+                name: Room
+              - entity: binary_sensor.bedroom_occupancy
+                name: Ecobee              
+              - entity: binary_sensor.bedroom_motion_1
+                name: Z-Wave    
+              - entity: sensor.bedroom_temperature
+                name: Eco Temp
+              - entity: binary_sensor.bedroom_media_active
+                name: Media   
+          - type: glance
+            show_state: false
+            entities:
+              - entity: scene.bedroom_cool
+                icon: mdi:snowflake
+                name: "Cool"
+                tap_action:
+                  action: call-service
+                  service: scene.turn_on
+                  service_data: 
+                      entity_id: scene.bedroom_cool
+              - entity: scene.bedroom_grass
+                icon: mdi:tree
+                name: "Grass"
+                tap_action:
+                  action: call-service
+                  service: scene.turn_on
+                  service_data: 
+                      entity_id: scene.bedroom_grass
+              - entity: scene.bedroom_honey
+                icon: mdi:water
+                name: "Honey"
+                tap_action:
+                  action: call-service
+                  service: scene.turn_on
+                  service_data: 
+                      entity_id: scene.bedroom_honey
+              - entity: scene.bedroom_late_night
+                icon: mdi:weather-night
+                name: "Late Nite"
+                tap_action:
+                  action: call-service
+                  service: scene.turn_on
+                  service_data: 
+                      entity_id: scene.bedroom_late_night
+              - entity: scene.bedroom_purple
+                icon: mdi:sunglasses
+                name: "Purple"
+                tap_action:
+                  action: call-service
+                  service: scene.turn_on
+                  service_data: 
+                      entity_id: scene.bedroom_purple
+              - entity: scene.bedroom_warm
+                icon: mdi:fire
+                name: "Warm"
+                tap_action:
+                  action: call-service
+                  service: scene.turn_on
+                  service_data: 
+                      entity_id: scene.bedroom_warm
+          - type: glance
+            show_state: false
+            entities:
+              - entity: scene.bedroom_theater
+                icon: mdi:movie-roll
+                name: "Theater"
+                tap_action:
+                  action: call-service
+                  service: scene.turn_on
+                  service_data: 
+                      entity_id: scene.bedroom_theater
+              - entity: scene.bedroom_none
+                icon: mdi:lightbulb-outline
+                name: "None"
+                tap_action:
+                  action: call-service
+                  service: scene.turn_on
+                  service_data: 
+                      entity_id: scene.bedroom_none
+          - type: entities
+            entities:
+              - light.bedroom_c_1
+              - light.bedroom_c_2
+              - light.bedroom_c_3
+              - light.bed_strip_1 
+      - type: vertical-stack
+        cards:        
+          - type: conditional
+            conditions:
+              - entity: media_player.bedroom_dot
+                state: "playing"
+            card:
+              type: media-control
+              entity: media_player.bedroom_tv
+          - type: glance
+            title: Work Alarm
+            entities:
+              - entity: input_boolean.alarms_work_enabled
+                name: Work Alarm
+              - entity: input_datetime.alarms_work
+                name: Time          
+          - type: glance
+            title: One Off Alarm
+            entities:
+              - entity: input_boolean.alarms_one_off_enabled
+                name: One Off Alarm
+              - entity: input_datetime.alarms_one_off
+                name: Time   
+          - type: conditional
+            conditions:
+              - entity: media_player.bedroom_dot
+                state: "playing"
+            card:
+              type: media-control
+              entity: media_player.bedroom_dot                                
+  - icon: mdi:desktop-classic
+    title: Office
+    cards:
+      - type: vertical-stack
+        cards:        
+          - type: glance
+            entities:
+              - entity: binary_sensor.office_motion
+                name: Room
+              - entity: binary_sensor.office_occupancy
+                name: Ecobee              
+              - entity: binary_sensor.office_motion_1
+                name: Z-Wave    
+              - entity: sensor.office_temperature
+                name: Eco Temp
+              # - entity: binary_sensor.office_media_active
+              #   name: Media   
+          - type: glance
+            entities:
+              - entity: sensor.office_motion_1_temperature
+                name: OM1 Temp
+              - entity: sensor.office_motion_1_relative_humidity
+                name: OM1 Hum              
+              - entity: sensor.office_motion_1_luminance
+                name: OM1 Lux
+              - entity: sensor.office_temperature
+                name: Eco Temp                            
+          - type: glance
+            show_state: false
+            entities:
+              - entity: scene.office_cool
+                icon: mdi:snowflake
+                name: "Cool"
+                tap_action:
+                  action: call-service
+                  service: scene.turn_on
+                  service_data: 
+                      entity_id: scene.office_cool
+              - entity: scene.office_grass
+                icon: mdi:tree
+                name: "Grass"
+                tap_action:
+                  action: call-service
+                  service: scene.turn_on
+                  service_data: 
+                      entity_id: scene.office_grass
+              - entity: scene.office_honey
+                icon: mdi:water
+                name: "Honey"
+                tap_action:
+                  action: call-service
+                  service: scene.turn_on
+                  service_data: 
+                      entity_id: scene.office_honey
+              - entity: scene.office_late_night
+                icon: mdi:weather-night
+                name: "Late Nite"
+                tap_action:
+                  action: call-service
+                  service: scene.turn_on
+                  service_data: 
+                      entity_id: scene.office_late_night
+              - entity: scene.office_purple
+                icon: mdi:sunglasses
+                name: "Purple"
+                tap_action:
+                  action: call-service
+                  service: scene.turn_on
+                  service_data: 
+                      entity_id: scene.office_purple
+              - entity: scene.office_warm
+                icon: mdi:fire
+                name: "Warm"
+                tap_action:
+                  action: call-service
+                  service: scene.turn_on
+                  service_data: 
+                      entity_id: scene.office_warm
+          - type: glance
+            show_state: false
+            entities:
+              - entity: scene.office_night_light
+                icon: mdi:spotlight-beam
+                name: "Night Light"
+                tap_action:
+                  action: call-service
+                  service: scene.turn_on
+                  service_data: 
+                      entity_id: scene.office_night_light
+              - entity: scene.office_none
+                icon: mdi:lightbulb-outline
+                name: "None"
+                tap_action:
+                  action: call-service
+                  service: scene.turn_on
+                  service_data: 
+                      entity_id: scene.office_none
+      - type: vertical-stack
+        cards:
+          - type: horizontal-stack
+            cards:
+              - type: entity-button
+                entity: input_boolean.office_override
+                name: Office Override  
+                icon: mdi:desktop-classic
+                tap_action:
+                  action: call-service
+                  service: input_boolean.toggle
+                  service_data: 
+                      entity_id: input_boolean.office_override
+              - type: entity-button
+                entity: switch.office_monitors
+                name: Office Override  
+                icon: mdi:desktop-mac
+                tap_action:
+                  action: call-service
+                  service: switch.toggle
+                  service_data: 
+                      entity_id: switch.office_monitors
       - type: entities
-        # Title of the entities card
-        title: Example
-        # The entities here will be shown in the same order as specified.
-        # Each entry is an entity ID or a map with extra options.
+        title: Lights
         entities:
-          - light.kitchen
-          - switch.ac
-          - entity: light.living_room
-            # Override the name to use
-            name: LR Lights
-
-        # The markdown card will render markdown text.
-      - type: markdown
-        title: Lovelace
-        content: >
-          Welcome to your **Lovelace UI**.
+          - light.office_b_1
+          - light.office_c_1
+          - light.office_c_2
+          - light.lx_office_1
+        name: "Smarts"
+  - icon: mdi:fridge
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: glance
+            entities:
+              - entity: binary_sensor.kitchen_motion
+                name: Room
+              - entity: sensor.kitchen_motion_1_luminance
+                name: Lux
+              - entity: sensor.kitchen_motion_1_temperature
+                name: Temp
+              - entity: binary_sensor.back_door
+                name: Back Door
+          - type: glance
+            show_state: false
+            entities:
+              - entity: scene.kitchen_cool
+                icon: mdi:snowflake
+                name: "Cool"
+                tap_action:
+                  action: call-service
+                  service: scene.turn_on
+                  service_data: 
+                      entity_id: scene.kitchen_cool
+              - entity: scene.kitchen_grass
+                icon: mdi:tree
+                name: "Grass"
+                tap_action:
+                  action: call-service
+                  service: scene.turn_on
+                  service_data: 
+                      entity_id: scene.kitchen_grass
+              - entity: scene.kitchen_honey
+                icon: mdi:water
+                name: "Honey"
+                tap_action:
+                  action: call-service
+                  service: scene.turn_on
+                  service_data: 
+                      entity_id: scene.kitchen_honey
+              - entity: scene.kitchen_late_night
+                icon: mdi:weather-night
+                name: "Late Nite"
+                tap_action:
+                  action: call-service
+                  service: scene.turn_on
+                  service_data: 
+                      entity_id: scene.kitchen_late_night
+              - entity: scene.kitchen_purple
+                icon: mdi:sunglasses
+                name: "Purple"
+                tap_action:
+                  action: call-service
+                  service: scene.turn_on
+                  service_data: 
+                      entity_id: scene.kitchen_purple
+              - entity: scene.kitchen_warm
+                icon: mdi:fire
+                name: "Warm"
+                tap_action:
+                  action: call-service
+                  service: scene.turn_on
+                  service_data: 
+                      entity_id: scene.kitchen_warm
+          - type: glance
+            show_state: false
+            entities:
+              - entity: scene.kitchen_night_light
+                icon: mdi:spotlight-beam
+                name: "Night Light"
+                tap_action:
+                  action: call-service
+                  service: scene.turn_on
+                  service_data: 
+                      entity_id: scene.kitchen_night_light
+              - entity: scene.kitchen_none
+                icon: mdi:lightbulb-outline
+                name: "None"
+                tap_action:
+                  action: call-service
+                  service: scene.turn_on
+                  service_data: 
+                      entity_id: scene.kitchen_none
+      - type: vertical-stack
+        cards:
+          - type: entities
+            title: Lights
+            entities:
+              - light.kitchen_strip_1
+              - light.kitchen_c_1
+              - light.lx_kitchen_1
+              - light.lx_kitchen_2
+  - icon: mdi:toilet
+    cards:
+      - type: vertical-stack
+        cards: 
+          - type: glance
+            entities:
+              - entity: binary_sensor.master_bathroom_motion
+                name: Room
+              - entity: binary_sensor.masterbath_media_active
+                name: Media          
+          - type: glance
+            entities:
+              - entity: sensor.master_bathroom_motion_1_temperature
+                name: Temp
+              - entity: sensor.master_bathroom_motion_1_relative_humidity
+                name: Humidity
+              - entity: sensor.master_bathroom_motion_1_luminance
+                name: Lux
+          - type: vertical-stack
+            cards:
+              - type: glance
+                show_state: false
+                entities:
+                  - entity: scene.sun_room_night_light
+                    icon: mdi:spotlight-beam
+                    name: "Night Light"
+                    tap_action:
+                      action: call-service
+                      service: scene.turn_on
+                      service_data: 
+                          entity_id: scene.sun_room_night_light
+                  - entity: scene.sun_room_none
+                    icon: mdi:lightbulb-outline
+                    name: "None"
+                    tap_action:
+                      action: call-service
+                      service: scene.turn_on
+                      service_data: 
+                          entity_id: scene.sun_room_none
+      - type: vertical-stack
+        cards: 
+          - type: entities
+            title: Lights
+            entities:
+              - light.upstairs_bathroom_d_1
+              - light.upstairs_bathroom_d_2
+          - type: media-control
+            entity: media_player.bathroom_speaker
+  - icon: mdi:robot
+    cards:
+      - type: entities
+        title: Lights
+        entities:
+          - group.all_automations
+          - group.all_scripts
+          - group.scenes_all

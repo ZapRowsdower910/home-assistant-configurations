@@ -1,4 +1,4 @@
-alias: 'Auto On Lights Generic'
+alias: 'Generic On'
 trigger:
   - platform: state
     entity_id: binary_sensor.bedroom_motion
@@ -69,6 +69,19 @@ condition:
         true
       {% endif %}       
 action:
+  - service: light.turn_on
+    data:
+      transition: 1
+      brightness: 100
+    data_template:
+      entity_id: >-
+        {% set fullNameParts = trigger.entity_id.split('.') %}
+        {% set nameParts = fullNameParts[1].split('_') %}
+        {% set groupName = nameParts[0] %}
+        {% if(nameParts[1] == 'room') %}
+          {% set groupName = groupName + '_room' %}
+        {% endif %}
+        group.{{ groupName }}_base      
   - service: scene.turn_on
     data_template:
       entity_id: >-
@@ -79,3 +92,4 @@ action:
           {% set sceneName = sceneName + '_room' %}
         {% endif %}
         scene.{{ sceneName }}_{{ states('sensor.progressive_day_theme')|replace(' ', '_') | lower }}
+  
